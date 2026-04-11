@@ -123,6 +123,33 @@
             cursor: pointer;
         }
 
+        /* NUEVO: ESTILOS PARA IMÁGENES CON TEXTO DEBAJO */
+        .gallery-figure {
+            flex: 0 0 75%;
+            max-width: 300px;
+            scroll-snap-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .gallery-img-captioned {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            cursor: pointer;
+        }
+
+        .gallery-figure figcaption {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            text-align: center;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
         /* TARJETA DE TEXTO PARA GALERÍA */
         .gallery-text-card {
             flex: 0 0 75%;
@@ -269,6 +296,14 @@
         <h1>Un mes con vos</h1>
     </header>
 
+        <section class="fade-in">
+        <div class="quote-section">
+            <p class="quote-text">
+                "Ese primer beso, allá en Punta Ballena, bajo las estrellas y con esa luna tan brillante... ahí mismo mi corazón explotaba de alegría y mi alma dijo: 'es acá'."
+            </p>
+        </div>
+    </section>
+
     <section class="fade-in">
         <h2 class="section-title">Tu luz</h2>
         <p class="section-text">Cada vez que mi teléfono se ilumina con una foto tuya, el día entero mejora. Me encantas, y cada selfie que me compartes es para mí un regalo divino.</p>
@@ -311,7 +346,7 @@
     <section class="fade-in">
         <div class="quote-section">
             <p class="quote-text">
-                "Ese primer beso, allá en Punta Ballena, bajo las estrellas y con esa luna tan brillante... ahí mismo mi corazón explotaba de alegría y mi alma dijo: 'es acá'."
+              "Dicen que la distancia es un reto, pero para mí es solo la espera para el mejor momento de mi semana. Cuando te veo, todos esos kilómetros desaparecen en un segundo y entiendo que, por vos, siempre valdrá la pena."
             </p>
         </div>
     </section>
@@ -322,12 +357,21 @@
         
         <div class="gallery-wrapper">
             <div class="horizontal-scroll">
-                <img src="./es1.jpg" class="gallery-img" alt="Cuando conociste a Oli, un día muy importante!">
-                <img src="./es2.jpg" class="gallery-img" alt="Cuando me acompañaste en mi cumpleaños y compartimos con mi madre y familia">
+                
+                <figure class="gallery-figure">
+                    <img src="./es1.jpg" class="gallery-img-captioned" alt="Cuando conociste a Oli, un día muy importante!">
+                    <figcaption>Cuando conociste a Oli, ¡un día muy importante!</figcaption>
+                </figure>
+                
+                <figure class="gallery-figure">
+                    <img src="./es2.jpg" class="gallery-img-captioned" alt="Cuando me acompañaste en mi cumpleaños y compartimos con mi madre y familia">
+                    <figcaption>Cuando me acompañaste en mi cumpleaños y compartimos con mi familia</figcaption>
+                </figure>
                 
                 <div class="gallery-text-card">
                     <p>No tengo imágenes, pero también fue importante la reunión con tu familia. ¡Me encantó conocerlos al fin!</p>
                 </div>
+
             </div>
         </div>
     </section>
@@ -369,7 +413,8 @@
             observer.observe(section);
         });
 
-        const images = document.querySelectorAll('.gallery-img');
+        // Modificado para que también detecte las imágenes con texto debajo (.gallery-img-captioned)
+        const images = document.querySelectorAll('.gallery-img, .gallery-img-captioned');
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
 
