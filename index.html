@@ -57,7 +57,6 @@
             padding: 40px 20px;
             max-width: 800px;
             margin: 0 auto;
-            /* Animación de entrada al scrollear */
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease, transform 0.8s ease;
@@ -84,7 +83,6 @@
 
         /* GALERÍAS (Scroll Horizontal Mobile) */
         .gallery-wrapper {
-            /* Ocultamos la barra de scroll visualmente pero mantenemos la función */
             width: 100vw;
             margin-left: -20px;
             padding-left: 20px;
@@ -105,21 +103,17 @@
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             padding-bottom: 15px;
-            /* Ocultar barra en Chrome/Safari */
             -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
         }
         
         .horizontal-scroll::-webkit-scrollbar {
             display: none;
         }
 
-        .horizontal-scroll {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-        }
-
         .gallery-img {
-            flex: 0 0 75%; /* Ocupa el 75% del ancho de la pantalla en mobile */
+            flex: 0 0 75%; 
             max-width: 300px;
             height: 350px;
             object-fit: cover;
@@ -127,6 +121,30 @@
             scroll-snap-align: center;
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             cursor: pointer;
+        }
+
+        /* TARJETA DE TEXTO PARA GALERÍA */
+        .gallery-text-card {
+            flex: 0 0 75%;
+            max-width: 300px;
+            height: 350px;
+            background-color: var(--paper);
+            border-radius: 12px;
+            scroll-snap-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .gallery-text-card p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--accent);
+            line-height: 1.5;
         }
 
         /* SECCIÓN CITA (PUNTA BALLENA) */
@@ -176,11 +194,30 @@
         }
 
         .signature {
+            text-align: right;
+            margin-top: 40px;
+        }
+
+        .signature .title {
             font-family: 'Caveat', cursive;
             font-size: 2rem;
             color: var(--accent);
-            text-align: right;
-            margin-top: 30px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .signature .sub {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: block;
+        }
+
+        .signature .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            display: block;
         }
 
         /* LIGHTBOX PARA VER FOTOS EN GRANDE */
@@ -223,7 +260,6 @@
             cursor: pointer;
             line-height: 1;
         }
-
     </style>
 </head>
 <body>
@@ -239,9 +275,15 @@
         
         <div class="gallery-wrapper">
             <div class="horizontal-scroll">
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop" class="gallery-img" alt="Selfie 1">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop" class="gallery-img" alt="Selfie 2">
-                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop" class="gallery-img" alt="Selfie 3">
+                <img src="./s0.jpg" class="gallery-img" alt="Selfie 1">
+                <img src="./s1.jpg" class="gallery-img" alt="Selfie 2">
+                <img src="./s4.jpg" class="gallery-img" alt="Selfie 3">
+                <img src="./s7.jpg" class="gallery-img" alt="Selfie 4">
+                <img src="./s5.jpg" class="gallery-img" alt="Selfie 5">
+                <img src="./s2.jpg" class="gallery-img" alt="Selfie 6">
+                <img src="./s6.jpg" class="gallery-img" alt="Selfie 7">
+                <img src="./s3.jpg" class="gallery-img" alt="Selfie 8">
+                <img src="./s8.jpg" class="gallery-img" alt="Selfie 9">
             </div>
         </div>
     </section>
@@ -252,8 +294,16 @@
         
         <div class="gallery-wrapper">
             <div class="horizontal-scroll">
-                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=400&auto=format&fit=crop" class="gallery-img" alt="Salida 1">
-                <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=400&auto=format&fit=crop" class="gallery-img" alt="Salida 2">
+                <img src="./sa1.jpg" class="gallery-img" alt="Salida 1">
+                <img src="./sa2.jpg" class="gallery-img" alt="Salida 2">
+                <img src="./sa3.jpg" class="gallery-img" alt="Salida 3">
+                <img src="./sa4.jpg" class="gallery-img" alt="Salida 4">
+                <img src="./sa5.jpg" class="gallery-img" alt="Salida 5">
+                <img src="./sa7.jpg" class="gallery-img" alt="Salida 6">
+                <img src="./sa6.jpg" class="gallery-img" alt="Salida 7">
+                <img src="./sa8.jpg" class="gallery-img" alt="Salida 8">
+                <img src="./sa9.jpg" class="gallery-img" alt="Salida 9">
+                <img src="./sa10.jpg" class="gallery-img" alt="Salida 10">
             </div>
         </div>
     </section>
@@ -267,14 +317,17 @@
     </section>
 
     <section class="fade-in">
-        <h2 class="section-title">Momentos que guardo</h2>
+        <h2 class="section-title">Momentos significativos que guardo</h2>
         <p class="section-text">Esas pequeñas grandes cosas que hicieron de este primer mes algo inolvidable.</p>
         
         <div class="gallery-wrapper">
             <div class="horizontal-scroll">
-                <img src="https://images.unsplash.com/photo-1494774112349-801b17a15152?q=80&w=400&auto=format&fit=crop" class="gallery-img" alt="Momento 1">
-                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=400&auto=format&fit=crop" class="gallery-img" alt="Momento 2">
-                <img src="https://images.unsplash.com/photo-1507676184212-7634f1a4e101?q=80&w=400&auto=format&fit=crop" class="gallery-img" alt="Momento 3">
+                <img src="./es1.jpg" class="gallery-img" alt="Cuando conociste a Oli, un día muy importante!">
+                <img src="./es2.jpg" class="gallery-img" alt="Cuando me acompañaste en mi cumpleaños y compartimos con mi madre y familia">
+                
+                <div class="gallery-text-card">
+                    <p>No tengo imágenes, pero también fue importante la reunión con tu familia. ¡Me encantó conocerlos al fin!</p>
+                </div>
             </div>
         </div>
     </section>
@@ -287,7 +340,11 @@
                 <p>Le doy gracias a Dios por haber cruzado nuestros caminos en el momento exacto. Le pido a Él y a la Virgencita que sigan bendiciendo esto tan lindo que está naciendo entre los dos, que nos guíen para cuidarnos, respetarnos y seguir sumando momentos como aquel en Punta Ballena.</p>
                 <p>Esto recién empieza.</p>
             </div>
-            <div class="signature">Feliz primer mes</div>
+            <div class="signature">
+                <span class="title">Feliz primer mes</span>
+                <span class="sub">siempre tuyo,</span>
+                <span class="name">Cristian.</span>
+            </div>
         </div>
     </section>
 
@@ -297,42 +354,39 @@
     </div>
 
     <script>
-        // 1. Animación suave de aparición al hacer scroll (Intersection Observer)
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Solo anima una vez
+                    observer.unobserve(entry.target);
                 }
             });
         }, {
-            threshold: 0.15 // Se activa cuando el 15% de la sección es visible
+            threshold: 0.15
         });
 
         document.querySelectorAll('.fade-in').forEach(section => {
             observer.observe(section);
         });
 
-        // 2. Lógica del Lightbox (Tocar foto para agrandar)
         const images = document.querySelectorAll('.gallery-img');
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
 
         images.forEach(img => {
             img.addEventListener('click', () => {
-                lightboxImg.src = img.src; // Copia la ruta de la imagen tocada
-                lightbox.classList.add('active'); // Muestra el lightbox
+                lightboxImg.src = img.src; 
+                lightbox.classList.add('active'); 
             });
         });
 
         function closeLightbox() {
             lightbox.classList.remove('active');
             setTimeout(() => {
-                lightboxImg.src = ''; // Limpia el src después de la transición
+                lightboxImg.src = ''; 
             }, 300);
         }
 
-        // Cerrar lightbox tocando fuera de la imagen
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
                 closeLightbox();
