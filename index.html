@@ -9,11 +9,12 @@
 
     <style>
         :root {
-            --bg-main: #fcfaf8;
-            --accent: #3576d7;
-            --text-dark: #333333;
-            --text-light: #666666;
-            --paper: #ffffff;
+            /* PALETA DE COLORES DARK ELEGANT */
+            --bg-main: #0a0a0a;       /* Negro profundo de fondo */
+            --paper: #171717;         /* Negro un poco más claro para secciones */
+            --text-dark: #f0f0f0;     /* Blanco/Gris muy claro para textos principales */
+            --text-light: #a3a3a3;    /* Gris medio para textos secundarios */
+            --accent: #d4af37;        /* Dorado elegante para los detalles */
         }
 
         * {
@@ -29,6 +30,66 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        /* CLASE PARA BLOQUEAR SCROLL EN LA ANTESALA */
+        body.locked {
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* ANTESALA (PANTALLA DE BIENVENIDA) */
+        #welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        .welcome-content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .welcome-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .welcome-subtitle {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 40px;
+        }
+
+        .welcome-btn {
+            background-color: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .welcome-btn:hover {
+            background-color: var(--accent);
+            color: #000;
         }
 
         /* HEADER */
@@ -71,7 +132,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
             margin-bottom: 10px;
-            color: var(--text-dark);
+            color: var(--accent); /* Títulos en dorado */
             text-align: left;
         }
 
@@ -87,8 +148,8 @@
             background-color: var(--paper);
             padding: 25px 20px;
             border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.05);
             margin: 0 20px;
         }
         .counter-numbers {
@@ -111,8 +172,8 @@
             border-radius: 12px;
             padding: 0;
             margin-bottom: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--accent);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border-left: 2px solid var(--accent);
             overflow: hidden;
         }
         .discovery-header {
@@ -123,6 +184,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            color: var(--text-dark);
         }
         .discovery-header::after {
             content: '+';
@@ -140,7 +202,7 @@
             transition: max-height 0.4s ease, padding 0.4s ease;
         }
         .discovery-card.active .discovery-content {
-            max-height: 300px; /* Suficiente para el texto */
+            max-height: 300px;
             padding: 0 20px 20px 20px;
         }
 
@@ -179,8 +241,9 @@
             object-fit: cover;
             border-radius: 12px;
             scroll-snap-align: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.8);
             cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
         .gallery-figure {
@@ -199,15 +262,40 @@
             font-weight: 500;
         }
 
+        /* TARJETA DE TEXTO PARA GALERÍA */
+        .gallery-text-card {
+            flex: 0 0 75%;
+            max-width: 300px;
+            height: 350px;
+            background-color: var(--paper);
+            border-radius: 12px;
+            scroll-snap-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .gallery-text-card p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--accent);
+            line-height: 1.5;
+        }
+
         /* CITA */
         .quote-section {
             text-align: center;
             padding: 60px 30px;
             margin: 40px 20px;
-            background: linear-gradient(to bottom right, #ffffff, #fcfaf8);
+            background: linear-gradient(to bottom right, var(--paper), #000000);
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(53, 118, 215, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
             position: relative;
+            border: 1px solid rgba(255,255,255,0.03);
         }
         .quote-section::before {
             content: "“";
@@ -217,7 +305,7 @@
             top: -10px;
             left: 20px;
             color: var(--accent);
-            opacity: 0.3;
+            opacity: 0.15;
         }
         .quote-text {
             font-family: 'Playfair Display', serif;
@@ -231,10 +319,10 @@
         .letter-section {
             background-color: var(--paper);
             padding: 40px 30px;
-            border-radius: 4px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
             margin-bottom: 60px;
-            border-top: 1px solid rgba(0,0,0,0.05);
+            border-top: 2px solid var(--accent);
         }
         .letter-content p { margin-bottom: 15px; font-size: 1.05rem; color: var(--text-dark); }
         .signature { text-align: right; margin-top: 40px; }
@@ -245,7 +333,7 @@
         /* LIGHTBOX */
         .lightbox {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.9); display: flex; align-items: center;
+            background: rgba(0, 0, 0, 0.95); display: flex; align-items: center;
             justify-content: center; z-index: 1000; opacity: 0; pointer-events: none;
             transition: opacity 0.3s ease;
         }
@@ -258,32 +346,42 @@
             position: fixed;
             bottom: 25px;
             right: 25px;
-            background-color: var(--accent);
-            color: white;
-            border: none;
+            background-color: var(--paper);
+            color: var(--accent);
+            border: 1px solid var(--accent);
             border-radius: 50%;
             width: 55px;
             height: 55px;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(53, 118, 215, 0.4);
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.8);
             cursor: pointer;
             z-index: 999;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, background-color 0.2s ease;
         }
         .music-btn:active { transform: scale(0.9); }
+        .music-btn:hover { background-color: var(--accent); color: var(--bg-main); }
     </style>
 </head>
-<body>
+<body class="locked">
 
-    <!-- REPRODUCTOR DE AUDIO (REEMPLAZA "tu-cancion.mp3" CON TU ARCHIVO REAL) -->
+    <!-- ANTESALA PARA INICIAR AUDIO -->
+    <div id="welcome-screen">
+        <div class="welcome-content">
+            <h2 class="welcome-title">Hola, mi amor</h2>
+            <p class="welcome-subtitle">Tengo una sorpresa para vos...</p>
+            <button class="welcome-btn" onclick="startExperience()">Entrar</button>
+        </div>
+    </div>
+
+    <!-- REPRODUCTOR DE AUDIO -->
     <audio id="bg-music" loop>
-        <source src="./tu-cancion.mp3" type="audio/mpeg">
+        <source src="./Bonnie Tyler - Total Eclipse of the Heart (Turn Around) (Official Video).mp3" type="audio/mpeg">
     </audio>
 
-    <button id="music-toggle" class="music-btn" onclick="toggleMusic()">🎵</button>
+    <button id="music-toggle" class="music-btn" onclick="toggleMusic()">⏸️</button>
 
     <header>
         <span class="tagline">Bitácora de lo nuestro</span>
@@ -294,7 +392,7 @@
     <section class="fade-in">
         <div class="counter-box">
             <div id="counter-display" class="counter-numbers">Cargando...</div>
-            <div class="counter-label">Escribiendo nuestra historia desde el 11 de marzo</div>
+            <div class="counter-label">Escribiendo nuestra historia desde el 11 de marzo a las 17:00 hs</div>
         </div>
     </section>
 
@@ -307,15 +405,15 @@
         </div>
     </section>
 
-    <!-- NUEVO: 4 COSAS QUE DESCUBRÍ -->
+    <!-- 4 COSAS QUE DESCUBRÍ (NUEVO) -->
     <section class="fade-in">
-        <h2 class="section-title">4 Meses, 4 Cosas nuevas que amo de vos</h2>
+        <h2 class="section-title">4 Meses, 4 Cosas que amo de vos</h2>
         <p class="section-text">El tiempo pasa y cada mes descubro un detalle nuevo que me enamora más.</p>
         
         <div class="discovery-card" onclick="toggleCard(this)">
             <div class="discovery-header">1. Tu forma de reír</div>
             <div class="discovery-content">
-                <p>Escribe aquí ese detalle específico que notaste sobre ella en el primer mes. (Ejemplo: Cómo se te achinan los ojos cuando te reís con ganas).</p>
+                <p>Escribe aquí ese detalle específico que notaste sobre ella. (Ejemplo: Cómo se te achinan los ojos cuando te reís con ganas).</p>
             </div>
         </div>
 
@@ -327,7 +425,7 @@
         </div>
 
         <div class="discovery-card" onclick="toggleCard(this)">
-            <div class="discovery-header">3. Tu pasión por lo que haces</div>
+            <div class="discovery-header">3. Tu pasión</div>
             <div class="discovery-content">
                 <p>Escribe aquí el tercer descubrimiento sobre ella.</p>
             </div>
@@ -341,76 +439,89 @@
         </div>
     </section>
 
-    <!-- MES 1 Y SALIDAS GENERALES -->
+    <!-- GALERÍA 1: TU LUZ (Original) -->
     <section class="fade-in">
-        <h2 class="section-title">Mes 1: El comienzo</h2>
-        <p class="section-text">Donde todo empezó a tomar color.</p>
+        <h2 class="section-title">Tu luz</h2>
+        <p class="section-text">Cada vez que mi teléfono se ilumina con una foto tuya, el día entero mejora. Me encantas, y cada selfie que me compartes es para mí un regalo divino.</p>
         
         <div class="gallery-wrapper">
             <div class="horizontal-scroll">
-                <!-- Aquí dejé tus fotos originales del mes 1 -->
                 <img src="./s0.jpg" class="gallery-img" alt="Selfie 1">
+                <img src="./s1.jpg" class="gallery-img" alt="Selfie 2">
+                <img src="./s4.jpg" class="gallery-img" alt="Selfie 3">
+                <img src="./s7.jpg" class="gallery-img" alt="Selfie 4">
+                <img src="./s5.jpg" class="gallery-img" alt="Selfie 5">
+                <img src="./s2.jpg" class="gallery-img" alt="Selfie 6">
+                <img src="./s6.jpg" class="gallery-img" alt="Selfie 7">
+                <img src="./s3.jpg" class="gallery-img" alt="Selfie 8">
+                <img src="./s8.jpg" class="gallery-img" alt="Selfie 9">
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA 2: NUESTRAS SALIDAS (Original) -->
+    <section class="fade-in">
+        <h2 class="section-title">Nuestras salidas</h2>
+        <p class="section-text">Coleccionando momentos y risas por ahí. El mundo es más divertido si vamos juntos.</p>
+        
+        <div class="gallery-wrapper">
+            <div class="horizontal-scroll">
                 <img src="./sa1.jpg" class="gallery-img" alt="Salida 1">
+                <img src="./sa2.jpg" class="gallery-img" alt="Salida 2">
+                <img src="./sa3.jpg" class="gallery-img" alt="Salida 3">
+                <img src="./sa4.jpg" class="gallery-img" alt="Salida 4">
+                <img src="./sa5.jpg" class="gallery-img" alt="Salida 5">
+                <img src="./sa7.jpg" class="gallery-img" alt="Salida 6">
+                <img src="./sa6.jpg" class="gallery-img" alt="Salida 7">
+                <img src="./sa8.jpg" class="gallery-img" alt="Salida 8">
+                <img src="./sa9.jpg" class="gallery-img" alt="Salida 9">
+                <img src="./sa10.jpg" class="gallery-img" alt="Salida 10">
+            </div>
+        </div>
+    </section>
+
+    <!-- SEGUNDA CITA -->
+    <section class="fade-in">
+        <div class="quote-section">
+            <p class="quote-text">
+              "Dicen que la distancia es un reto, pero para mí es solo la espera para el mejor momento de mi semana. Cuando te veo, todos esos kilómetros desaparecen en un segundo y entiendo que, por vos, siempre valdrá la pena."
+            </p>
+        </div>
+    </section>
+
+    <!-- GALERÍA 3: MOMENTOS SIGNIFICATIVOS (Original) -->
+    <section class="fade-in">
+        <h2 class="section-title">Momentos que guardo</h2>
+        <p class="section-text">Esas pequeñas grandes cosas que hicieron de este tiempo algo inolvidable.</p>
+        
+        <div class="gallery-wrapper">
+            <div class="horizontal-scroll">
+                
                 <figure class="gallery-figure">
                     <img src="./es1.jpg" class="gallery-img-captioned" alt="Cuando conociste a Oli">
                     <figcaption>Cuando conociste a Oli, ¡un día muy importante!</figcaption>
                 </figure>
-            </div>
-        </div>
-    </section>
-
-    <!-- MES 2 (PLACEHOLDERS) -->
-    <section class="fade-in">
-        <h2 class="section-title">Mes 2: Sumando anécdotas</h2>
-        <p class="section-text">La confianza creciendo y los mates compartidos.</p>
-        
-        <div class="gallery-wrapper">
-            <div class="horizontal-scroll">
-                <img src="./mes2-1.jpg" class="gallery-img" alt="Foto Mes 2">
-                <img src="./mes2-2.jpg" class="gallery-img" alt="Foto Mes 2">
-                <img src="./mes2-3.jpg" class="gallery-img" alt="Foto Mes 2">
-            </div>
-        </div>
-    </section>
-
-    <!-- MES 3 (PLACEHOLDERS) -->
-    <section class="fade-in">
-        <h2 class="section-title">Mes 3: Rutinas que enamoran</h2>
-        <p class="section-text">Haciendo que un día normal sea especial.</p>
-        
-        <div class="gallery-wrapper">
-            <div class="horizontal-scroll">
-                <img src="./mes3-1.jpg" class="gallery-img" alt="Foto Mes 3">
-                <img src="./mes3-2.jpg" class="gallery-img" alt="Foto Mes 3">
-                <img src="./mes3-3.jpg" class="gallery-img" alt="Foto Mes 3">
-            </div>
-        </div>
-    </section>
-
-    <!-- MES 4 (PLACEHOLDERS) -->
-    <section class="fade-in">
-        <h2 class="section-title">Mes 4: Nosotros hoy</h2>
-        <p class="section-text">Coleccionando momentos para la historia.</p>
-        
-        <div class="gallery-wrapper">
-            <div class="horizontal-scroll">
-                <img src="./mes4-1.jpg" class="gallery-img" alt="Foto Mes 4">
-                <img src="./mes4-2.jpg" class="gallery-img" alt="Foto Mes 4">
+                
                 <figure class="gallery-figure">
-                    <img src="./mes4-especial.jpg" class="gallery-img-captioned" alt="Última salida">
-                    <figcaption>Nuestra última gran salida</figcaption>
+                    <img src="./es2.jpg" class="gallery-img-captioned" alt="Cumpleaños en familia">
+                    <figcaption>Cuando me acompañaste en mi cumpleaños y compartimos con mi familia</figcaption>
                 </figure>
+                
+                <div class="gallery-text-card">
+                    <p>No tengo imágenes, pero también fue importante la reunión con tu familia. ¡Me encantó conocerlos al fin!</p>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- CARTA FINAL ACTUALIZADA -->
+    <!-- CARTA FINAL -->
     <section class="fade-in">
         <div class="letter-section">
             <div class="letter-content">
                 <p>Mi amor,</p>
                 <p>Quiero aprovechar que hoy cumplimos 4 meses para darte las gracias. Gracias por tu hermosa compañía, por tu ternura, por tus locuras y por dejarme entrar en tu vida de esta manera. Me encantas en todos los sentidos posibles, desde esa sonrisa tuya hasta tu forma de ver el mundo.</p>
-                <p>Le doy gracias a Dios por haber cruzado nuestros caminos en el momento exacto. Le pido a Él y a la Virgencita que sigan bendiciendo esto tan lindo que crece entre los dos, que nos guíen para cuidarnos, respetarnos y seguir sumando momentos increíbles.</p>
+                <p>Le doy gracias a Dios por haber cruzado nuestros caminos en el momento exacto. Le pido a Él y a la Virgencita que sigan bendiciendo esto tan lindo que crece entre los dos, que nos guíen para cuidarnos, respetarnos y seguir sumando momentos como aquel en Punta Ballena.</p>
                 <p>Cuatro meses y siento que esto recién empieza.</p>
             </div>
             <div class="signature">
@@ -428,7 +539,34 @@
     </div>
 
     <script>
-        // --- 1. LÓGICA DE FADE-IN AL HACER SCROLL ---
+        // --- 1. LÓGICA DE LA ANTESALA (Desbloqueo y Música) ---
+        let isPlaying = false;
+        const bgMusic = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('music-toggle');
+        
+        // Ajustamos el volumen un poco para que no asuste al arrancar
+        bgMusic.volume = 0.5;
+
+        function startExperience() {
+            const welcome = document.getElementById('welcome-screen');
+            
+            // Iniciar música
+            bgMusic.play().then(() => {
+                isPlaying = true;
+                musicBtn.innerText = "⏸️";
+            }).catch(error => {
+                console.log("Error al reproducir audio:", error);
+            });
+
+            // Ocultar pantalla negra y habilitar scroll
+            welcome.style.opacity = '0';
+            setTimeout(() => {
+                welcome.style.visibility = 'hidden';
+                document.body.classList.remove('locked');
+            }, 1000);
+        }
+
+        // --- 2. LÓGICA DE FADE-IN AL HACER SCROLL ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -442,7 +580,7 @@
             observer.observe(section);
         });
 
-        // --- 2. LÓGICA DE LIGHTBOX PARA GALERÍA ---
+        // --- 3. LÓGICA DE LIGHTBOX PARA GALERÍA ---
         const images = document.querySelectorAll('.gallery-img, .gallery-img-captioned');
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
@@ -463,9 +601,8 @@
             if (e.target === lightbox) closeLightbox();
         });
 
-        // --- 3. LÓGICA DEL CONTADOR DE TIEMPO ---
+        // --- 4. LÓGICA DEL CONTADOR DE TIEMPO ---
         // Fecha exacta: 11 de Marzo de 2026, 17:00 hs.
-        // Mes en JS arranca en 0 (Enero=0, Febrero=1, Marzo=2)
         const fechaInicio = new Date(2026, 2, 11, 17, 0, 0).getTime();
 
         setInterval(function() {
@@ -481,11 +618,7 @@
                 dias + " días, " + horas + "h, " + minutos + "m, " + segundos + "s";
         }, 1000);
 
-        // --- 4. LÓGICA PARA REPRODUCTOR DE MÚSICA ---
-        const bgMusic = document.getElementById('bg-music');
-        const musicBtn = document.getElementById('music-toggle');
-        let isPlaying = false;
-
+        // --- 5. BOTÓN FLOTANTE DE MÚSICA ---
         function toggleMusic() {
             if (isPlaying) {
                 bgMusic.pause();
@@ -498,7 +631,7 @@
             }
         }
 
-        // --- 5. LÓGICA PARA TARJETAS DESPLEGABLES (DESCUBRIMIENTOS) ---
+        // --- 6. TARJETAS DESPLEGABLES (DESCUBRIMIENTOS) ---
         function toggleCard(element) {
             element.classList.toggle("active");
         }
