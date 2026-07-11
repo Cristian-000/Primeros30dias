@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestro Primer Mes</title>
+    <title>Nuestros 4 Meses</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Outfit:wght@300;400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 
@@ -81,6 +81,69 @@
             margin-bottom: 20px;
         }
 
+        /* CONTADOR */
+        .counter-box {
+            text-align: center;
+            background-color: var(--paper);
+            padding: 25px 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.03);
+            margin: 0 20px;
+        }
+        .counter-numbers {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .counter-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* DESCUBRIMIENTOS (ACORDEÓN) */
+        .discovery-card {
+            background: var(--paper);
+            border-radius: 12px;
+            padding: 0;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--accent);
+            overflow: hidden;
+        }
+        .discovery-header {
+            padding: 20px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .discovery-header::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+        }
+        .discovery-card.active .discovery-header::after {
+            transform: rotate(45deg);
+        }
+        .discovery-content {
+            max-height: 0;
+            padding: 0 20px;
+            color: var(--text-light);
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        .discovery-card.active .discovery-content {
+            max-height: 300px; /* Suficiente para el texto */
+            padding: 0 20px 20px 20px;
+        }
+
         /* GALERÍAS (Scroll Horizontal Mobile) */
         .gallery-wrapper {
             width: 100vw;
@@ -104,15 +167,12 @@
             scroll-snap-type: x mandatory;
             padding-bottom: 15px;
             -webkit-overflow-scrolling: touch;
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
-        
-        .horizontal-scroll::-webkit-scrollbar {
-            display: none;
-        }
+        .horizontal-scroll::-webkit-scrollbar { display: none; }
 
-        .gallery-img {
+        .gallery-img, .gallery-img-captioned {
             flex: 0 0 75%; 
             max-width: 300px;
             height: 350px;
@@ -123,7 +183,6 @@
             cursor: pointer;
         }
 
-        /* NUEVO: ESTILOS PARA IMÁGENES CON TEXTO DEBAJO */
         .gallery-figure {
             flex: 0 0 75%;
             max-width: 300px;
@@ -132,16 +191,6 @@
             flex-direction: column;
             gap: 12px;
         }
-
-        .gallery-img-captioned {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            cursor: pointer;
-        }
-
         .gallery-figure figcaption {
             font-size: 0.95rem;
             color: var(--text-dark);
@@ -150,41 +199,16 @@
             font-weight: 500;
         }
 
-        /* TARJETA DE TEXTO PARA GALERÍA */
-        .gallery-text-card {
-            flex: 0 0 75%;
-            max-width: 300px;
-            height: 350px;
-            background-color: var(--paper);
-            border-radius: 12px;
-            scroll-snap-align: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
-            text-align: center;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .gallery-text-card p {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            color: var(--accent);
-            line-height: 1.5;
-        }
-
-        /* SECCIÓN CITA (PUNTA BALLENA) */
+        /* CITA */
         .quote-section {
             text-align: center;
             padding: 60px 30px;
             margin: 40px 20px;
             background: linear-gradient(to bottom right, #ffffff, #fcfaf8);
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(196, 139, 113, 0.1);
+            box-shadow: 0 10px 30px rgba(53, 118, 215, 0.1);
             position: relative;
         }
-
         .quote-section::before {
             content: "“";
             font-family: serif;
@@ -195,7 +219,6 @@
             color: var(--accent);
             opacity: 0.3;
         }
-
         .quote-text {
             font-family: 'Playfair Display', serif;
             font-size: 1.4rem;
@@ -204,7 +227,7 @@
             font-style: italic;
         }
 
-        /* SECCIÓN CARTA FINAL */
+        /* CARTA */
         .letter-section {
             background-color: var(--paper);
             padding: 40px 30px;
@@ -213,90 +236,70 @@
             margin-bottom: 60px;
             border-top: 1px solid rgba(0,0,0,0.05);
         }
+        .letter-content p { margin-bottom: 15px; font-size: 1.05rem; color: var(--text-dark); }
+        .signature { text-align: right; margin-top: 40px; }
+        .signature .title { font-family: 'Caveat', cursive; font-size: 2rem; color: var(--accent); display: block; margin-bottom: 5px; }
+        .signature .sub { font-size: 0.9rem; color: var(--text-light); display: block; }
+        .signature .name { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text-dark); font-weight: 600; display: block; }
 
-        .letter-content p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-            color: var(--text-dark);
-        }
-
-        .signature {
-            text-align: right;
-            margin-top: 40px;
-        }
-
-        .signature .title {
-            font-family: 'Caveat', cursive;
-            font-size: 2rem;
-            color: var(--accent);
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .signature .sub {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            display: block;
-        }
-
-        .signature .name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: var(--text-dark);
-            font-weight: 600;
-            display: block;
-        }
-
-        /* LIGHTBOX PARA VER FOTOS EN GRANDE */
+        /* LIGHTBOX */
         .lightbox {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9); display: flex; align-items: center;
+            justify-content: center; z-index: 1000; opacity: 0; pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .lightbox.active { opacity: 1; pointer-events: auto; }
+        .lightbox img { max-width: 90%; max-height: 90vh; border-radius: 8px; object-fit: contain; }
+        .close-btn { position: absolute; top: 20px; right: 20px; color: white; font-size: 3rem; background: none; border: none; cursor: pointer; line-height: 1; }
+
+        /* BOTON DE MUSICA */
+        .music-btn {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(53, 118, 215, 0.4);
+            cursor: pointer;
+            z-index: 999;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
+            transition: transform 0.2s ease;
         }
-
-        .lightbox.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90vh;
-            border-radius: 8px;
-            object-fit: contain;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 3rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            line-height: 1;
-        }
+        .music-btn:active { transform: scale(0.9); }
     </style>
 </head>
 <body>
 
+    <!-- REPRODUCTOR DE AUDIO (REEMPLAZA "tu-cancion.mp3" CON TU ARCHIVO REAL) -->
+    <audio id="bg-music" loop>
+        <source src="./tu-cancion.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="music-toggle" class="music-btn" onclick="toggleMusic()">🎵</button>
+
     <header>
         <span class="tagline">Bitácora de lo nuestro</span>
-        <h1>Un mes con vos</h1>
+        <h1>Cuatro meses con vos</h1>
     </header>
 
-        <section class="fade-in">
+    <!-- SECCIÓN CONTADOR EN VIVO -->
+    <section class="fade-in">
+        <div class="counter-box">
+            <div id="counter-display" class="counter-numbers">Cargando...</div>
+            <div class="counter-label">Escribiendo nuestra historia desde el 11 de marzo</div>
+        </div>
+    </section>
+
+    <!-- CITA PUNTA BALLENA -->
+    <section class="fade-in">
         <div class="quote-section">
             <p class="quote-text">
                 "Ese primer beso, allá en Punta Ballena, bajo las estrellas y con esa luna tan brillante... ahí mismo mi corazón explotaba de alegría y mi alma dijo: 'es acá'."
@@ -304,100 +307,128 @@
         </div>
     </section>
 
+    <!-- NUEVO: 4 COSAS QUE DESCUBRÍ -->
     <section class="fade-in">
-        <h2 class="section-title">Tu luz</h2>
-        <p class="section-text">Cada vez que mi teléfono se ilumina con una foto tuya, el día entero mejora. Me encantas, y cada selfie que me compartes es para mí un regalo divino.</p>
+        <h2 class="section-title">4 Meses, 4 Cosas nuevas que amo de vos</h2>
+        <p class="section-text">El tiempo pasa y cada mes descubro un detalle nuevo que me enamora más.</p>
+        
+        <div class="discovery-card" onclick="toggleCard(this)">
+            <div class="discovery-header">1. Tu forma de reír</div>
+            <div class="discovery-content">
+                <p>Escribe aquí ese detalle específico que notaste sobre ella en el primer mes. (Ejemplo: Cómo se te achinan los ojos cuando te reís con ganas).</p>
+            </div>
+        </div>
+
+        <div class="discovery-card" onclick="toggleCard(this)">
+            <div class="discovery-header">2. La tranquilidad que me das</div>
+            <div class="discovery-content">
+                <p>Escribe aquí el segundo descubrimiento. (Ejemplo: Cómo un simple abrazo tuyo puede reiniciar mi día entero).</p>
+            </div>
+        </div>
+
+        <div class="discovery-card" onclick="toggleCard(this)">
+            <div class="discovery-header">3. Tu pasión por lo que haces</div>
+            <div class="discovery-content">
+                <p>Escribe aquí el tercer descubrimiento sobre ella.</p>
+            </div>
+        </div>
+
+        <div class="discovery-card" onclick="toggleCard(this)">
+            <div class="discovery-header">4. Cómo encajamos</div>
+            <div class="discovery-content">
+                <p>Escribe aquí el cuarto descubrimiento. (Ejemplo: Lo natural que se siente caminar a tu lado y planear cosas juntos).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MES 1 Y SALIDAS GENERALES -->
+    <section class="fade-in">
+        <h2 class="section-title">Mes 1: El comienzo</h2>
+        <p class="section-text">Donde todo empezó a tomar color.</p>
         
         <div class="gallery-wrapper">
             <div class="horizontal-scroll">
+                <!-- Aquí dejé tus fotos originales del mes 1 -->
                 <img src="./s0.jpg" class="gallery-img" alt="Selfie 1">
-                <img src="./s1.jpg" class="gallery-img" alt="Selfie 2">
-                <img src="./s4.jpg" class="gallery-img" alt="Selfie 3">
-                <img src="./s7.jpg" class="gallery-img" alt="Selfie 4">
-                <img src="./s5.jpg" class="gallery-img" alt="Selfie 5">
-                <img src="./s2.jpg" class="gallery-img" alt="Selfie 6">
-                <img src="./s6.jpg" class="gallery-img" alt="Selfie 7">
-                <img src="./s3.jpg" class="gallery-img" alt="Selfie 8">
-                <img src="./s8.jpg" class="gallery-img" alt="Selfie 9">
-            </div>
-        </div>
-    </section>
-
-    <section class="fade-in">
-        <h2 class="section-title">Nuestras salidas</h2>
-        <p class="section-text">Coleccionando momentos y risas por ahí. El mundo es más divertido si vamos juntos.</p>
-        
-        <div class="gallery-wrapper">
-            <div class="horizontal-scroll">
                 <img src="./sa1.jpg" class="gallery-img" alt="Salida 1">
-                <img src="./sa2.jpg" class="gallery-img" alt="Salida 2">
-                <img src="./sa3.jpg" class="gallery-img" alt="Salida 3">
-                <img src="./sa4.jpg" class="gallery-img" alt="Salida 4">
-                <img src="./sa5.jpg" class="gallery-img" alt="Salida 5">
-                <img src="./sa7.jpg" class="gallery-img" alt="Salida 6">
-                <img src="./sa6.jpg" class="gallery-img" alt="Salida 7">
-                <img src="./sa8.jpg" class="gallery-img" alt="Salida 8">
-                <img src="./sa9.jpg" class="gallery-img" alt="Salida 9">
-                <img src="./sa10.jpg" class="gallery-img" alt="Salida 10">
-            </div>
-        </div>
-    </section>
-
-    <section class="fade-in">
-        <div class="quote-section">
-            <p class="quote-text">
-              "Dicen que la distancia es un reto, pero para mí es solo la espera para el mejor momento de mi semana. Cuando te veo, todos esos kilómetros desaparecen en un segundo y entiendo que, por vos, siempre valdrá la pena."
-            </p>
-        </div>
-    </section>
-
-    <section class="fade-in">
-        <h2 class="section-title">Momentos significativos que guardo</h2>
-        <p class="section-text">Esas pequeñas grandes cosas que hicieron de este primer mes algo inolvidable.</p>
-        
-        <div class="gallery-wrapper">
-            <div class="horizontal-scroll">
-                
                 <figure class="gallery-figure">
-                    <img src="./es1.jpg" class="gallery-img-captioned" alt="Cuando conociste a Oli, un día muy importante!">
+                    <img src="./es1.jpg" class="gallery-img-captioned" alt="Cuando conociste a Oli">
                     <figcaption>Cuando conociste a Oli, ¡un día muy importante!</figcaption>
                 </figure>
-                
-                <figure class="gallery-figure">
-                    <img src="./es2.jpg" class="gallery-img-captioned" alt="Cuando me acompañaste en mi cumpleaños y compartimos con mi madre y familia">
-                    <figcaption>Cuando me acompañaste en mi cumpleaños y compartimos con mi familia</figcaption>
-                </figure>
-                
-                <div class="gallery-text-card">
-                    <p>No tengo imágenes, pero también fue importante la reunión con tu familia. ¡Me encantó conocerlos al fin!</p>
-                </div>
-
             </div>
         </div>
     </section>
 
+    <!-- MES 2 (PLACEHOLDERS) -->
+    <section class="fade-in">
+        <h2 class="section-title">Mes 2: Sumando anécdotas</h2>
+        <p class="section-text">La confianza creciendo y los mates compartidos.</p>
+        
+        <div class="gallery-wrapper">
+            <div class="horizontal-scroll">
+                <img src="./mes2-1.jpg" class="gallery-img" alt="Foto Mes 2">
+                <img src="./mes2-2.jpg" class="gallery-img" alt="Foto Mes 2">
+                <img src="./mes2-3.jpg" class="gallery-img" alt="Foto Mes 2">
+            </div>
+        </div>
+    </section>
+
+    <!-- MES 3 (PLACEHOLDERS) -->
+    <section class="fade-in">
+        <h2 class="section-title">Mes 3: Rutinas que enamoran</h2>
+        <p class="section-text">Haciendo que un día normal sea especial.</p>
+        
+        <div class="gallery-wrapper">
+            <div class="horizontal-scroll">
+                <img src="./mes3-1.jpg" class="gallery-img" alt="Foto Mes 3">
+                <img src="./mes3-2.jpg" class="gallery-img" alt="Foto Mes 3">
+                <img src="./mes3-3.jpg" class="gallery-img" alt="Foto Mes 3">
+            </div>
+        </div>
+    </section>
+
+    <!-- MES 4 (PLACEHOLDERS) -->
+    <section class="fade-in">
+        <h2 class="section-title">Mes 4: Nosotros hoy</h2>
+        <p class="section-text">Coleccionando momentos para la historia.</p>
+        
+        <div class="gallery-wrapper">
+            <div class="horizontal-scroll">
+                <img src="./mes4-1.jpg" class="gallery-img" alt="Foto Mes 4">
+                <img src="./mes4-2.jpg" class="gallery-img" alt="Foto Mes 4">
+                <figure class="gallery-figure">
+                    <img src="./mes4-especial.jpg" class="gallery-img-captioned" alt="Última salida">
+                    <figcaption>Nuestra última gran salida</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARTA FINAL ACTUALIZADA -->
     <section class="fade-in">
         <div class="letter-section">
             <div class="letter-content">
                 <p>Mi amor,</p>
-                <p>Quiero aprovechar este primer mes para darte las gracias. Gracias por tu hermosa compañía, por tu ternura, por tus locuras y por dejarme entrar en tu vida de esta manera. Me encantas en todos los sentidos posibles, desde esa sonrisa tuya hasta tu forma de ver el mundo.</p>
-                <p>Le doy gracias a Dios por haber cruzado nuestros caminos en el momento exacto. Le pido a Él y a la Virgencita que sigan bendiciendo esto tan lindo que está naciendo entre los dos, que nos guíen para cuidarnos, respetarnos y seguir sumando momentos como aquel en Punta Ballena.</p>
-                <p>Esto recién empieza.</p>
+                <p>Quiero aprovechar que hoy cumplimos 4 meses para darte las gracias. Gracias por tu hermosa compañía, por tu ternura, por tus locuras y por dejarme entrar en tu vida de esta manera. Me encantas en todos los sentidos posibles, desde esa sonrisa tuya hasta tu forma de ver el mundo.</p>
+                <p>Le doy gracias a Dios por haber cruzado nuestros caminos en el momento exacto. Le pido a Él y a la Virgencita que sigan bendiciendo esto tan lindo que crece entre los dos, que nos guíen para cuidarnos, respetarnos y seguir sumando momentos increíbles.</p>
+                <p>Cuatro meses y siento que esto recién empieza.</p>
             </div>
             <div class="signature">
-                <span class="title">Feliz primer mes</span>
+                <span class="title">Felices cuatro meses</span>
                 <span class="sub">siempre tuyo,</span>
                 <span class="name">Cristian.</span>
             </div>
         </div>
     </section>
 
+    <!-- LIGHTBOX -->
     <div class="lightbox" id="lightbox">
         <button class="close-btn" onclick="closeLightbox()">&times;</button>
         <img src="" id="lightbox-img" alt="Ampliación">
     </div>
 
     <script>
+        // --- 1. LÓGICA DE FADE-IN AL HACER SCROLL ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -405,15 +436,13 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, {
-            threshold: 0.15
-        });
+        }, { threshold: 0.15 });
 
         document.querySelectorAll('.fade-in').forEach(section => {
             observer.observe(section);
         });
 
-        // Modificado para que también detecte las imágenes con texto debajo (.gallery-img-captioned)
+        // --- 2. LÓGICA DE LIGHTBOX PARA GALERÍA ---
         const images = document.querySelectorAll('.gallery-img, .gallery-img-captioned');
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
@@ -427,16 +456,52 @@
 
         function closeLightbox() {
             lightbox.classList.remove('active');
-            setTimeout(() => {
-                lightboxImg.src = ''; 
-            }, 300);
+            setTimeout(() => { lightboxImg.src = ''; }, 300);
         }
 
         lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
+            if (e.target === lightbox) closeLightbox();
         });
+
+        // --- 3. LÓGICA DEL CONTADOR DE TIEMPO ---
+        // Fecha exacta: 11 de Marzo de 2026, 17:00 hs.
+        // Mes en JS arranca en 0 (Enero=0, Febrero=1, Marzo=2)
+        const fechaInicio = new Date(2026, 2, 11, 17, 0, 0).getTime();
+
+        setInterval(function() {
+            const ahora = new Date().getTime();
+            const diferencia = ahora - fechaInicio;
+
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            document.getElementById("counter-display").innerHTML = 
+                dias + " días, " + horas + "h, " + minutos + "m, " + segundos + "s";
+        }, 1000);
+
+        // --- 4. LÓGICA PARA REPRODUCTOR DE MÚSICA ---
+        const bgMusic = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('music-toggle');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicBtn.innerText = "🎵";
+                isPlaying = false;
+            } else {
+                bgMusic.play();
+                musicBtn.innerText = "⏸️";
+                isPlaying = true;
+            }
+        }
+
+        // --- 5. LÓGICA PARA TARJETAS DESPLEGABLES (DESCUBRIMIENTOS) ---
+        function toggleCard(element) {
+            element.classList.toggle("active");
+        }
     </script>
 </body>
 </html>
