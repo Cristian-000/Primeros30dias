@@ -5,35 +5,50 @@
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     >
 
-    <title>Nuestros 5 Meses</title>
+    <meta name="theme-color" content="#080808">
 
+    <title>Cinco meses — Nuestra historia</title>
+
+    <!-- FUENTES -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
         rel="stylesheet"
     >
 
     <style>
 
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
+
         :root {
-            --bg-main: #08090b;
-            --bg-secondary: #101216;
-            --paper: #15171c;
 
-            --text-main: #f2f0ed;
-            --text-secondary: #aaa8a5;
+            --bg-main: #080808;
+            --bg-secondary: #101010;
+            --paper: #171615;
 
-            --accent: #c9a96e;
-            --accent-soft: #e0c995;
+            --text-main: #eeeae3;
+            --text-secondary: #aaa49b;
 
-            --border: rgba(201,169,110,0.22);
+            --gold: #c8a85b;
+            --gold-soft: #9d8448;
+
+            --wine: #3a151c;
+            --wine-light: #57252e;
+
+            --border: rgba(200,168,91,0.16);
 
             --shadow:
-                0 15px 45px rgba(0,0,0,0.55);
+                0 15px 45px rgba(0,0,0,0.65);
         }
 
+
+        /* =========================================================
+           RESET
+        ========================================================= */
 
         * {
             box-sizing: border-box;
@@ -50,15 +65,15 @@
 
 
         body {
-            font-family: "Outfit", sans-serif;
+
+            font-family: 'Outfit', sans-serif;
 
             background:
                 radial-gradient(
-                    circle at 50% 0%,
-                    rgba(201,169,110,0.07),
-                    transparent 32%
-                ),
-                var(--bg-main);
+                    circle at top,
+                    #17120f 0%,
+                    var(--bg-main) 45%
+                );
 
             color: var(--text-main);
 
@@ -69,7 +84,9 @@
 
 
         body.locked {
+
             overflow: hidden;
+
             height: 100vh;
         }
 
@@ -84,15 +101,16 @@
 
             inset: 0;
 
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
 
             background:
+
                 radial-gradient(
                     circle at center,
-                    #151515 0%,
-                    #080808 55%,
-                    #000 100%
+                    #24171a 0%,
+                    #090909 45%,
+                    #000000 100%
                 );
 
             display: flex;
@@ -100,19 +118,19 @@
             align-items: center;
             justify-content: center;
 
-            text-align: center;
-
             z-index: 99999;
 
             transition:
-                opacity 1s ease,
-                visibility 1s ease;
+                opacity 1.2s ease,
+                visibility 1.2s ease;
         }
 
 
         .welcome-content {
 
-            width: min(90%, 520px);
+            width: min(90%, 500px);
+
+            text-align: center;
 
             padding: 30px;
         }
@@ -120,71 +138,78 @@
 
         .welcome-small {
 
-            font-size: 0.72rem;
-
-            letter-spacing: 5px;
+            font-size: 0.7rem;
 
             text-transform: uppercase;
 
-            color: var(--accent);
+            letter-spacing: 5px;
 
-            margin-bottom: 20px;
+            color: var(--gold);
+
+            margin-bottom: 25px;
         }
 
 
         .welcome-title {
 
-            font-family: "Playfair Display", serif;
+            font-family: 'Playfair Display', serif;
 
-            font-size: clamp(2rem, 7vw, 3.3rem);
+            font-size: clamp(2.2rem, 9vw, 4rem);
 
             font-weight: 500;
 
-            margin-bottom: 12px;
+            line-height: 1.15;
+
+            color: var(--text-main);
+
+            margin-bottom: 15px;
         }
 
 
         .welcome-subtitle {
 
-            font-family: "Caveat", cursive;
+            font-family: 'Caveat', cursive;
 
-            font-size: 1.65rem;
+            font-size: 1.6rem;
 
-            color: var(--accent-soft);
+            color: #b9b1a5;
 
-            margin-bottom: 42px;
+            margin-bottom: 45px;
         }
 
 
         .welcome-btn {
 
-            border: 1px solid var(--accent);
-
             background: transparent;
 
-            color: var(--accent);
+            color: var(--gold);
+
+            border: 1px solid var(--gold);
 
             padding: 14px 42px;
 
-            border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
 
-            font-family: "Outfit", sans-serif;
+            font-size: 0.8rem;
 
-            letter-spacing: 3px;
-
-            font-size: 0.85rem;
+            letter-spacing: 4px;
 
             text-transform: uppercase;
 
+            border-radius: 50px;
+
             cursor: pointer;
 
-            transition: 0.3s ease;
+            transition:
+                background 0.3s ease,
+                color 0.3s ease,
+                transform 0.3s ease;
         }
 
 
         .welcome-btn:hover {
 
-            background: var(--accent);
+            background: var(--gold);
 
             color: #080808;
 
@@ -193,72 +218,116 @@
 
 
         /* =========================================================
-           NAVBAR / BARRA MUSICAL
+           YOUTUBE PLAYER
+           
+           Se utiliza como fuente de audio.
+           Se mantiene prácticamente invisible.
+        ========================================================= */
+
+        #youtube-player-container {
+
+            position: fixed;
+
+            width: 1px;
+            height: 1px;
+
+            left: -10px;
+            top: -10px;
+
+            overflow: hidden;
+
+            opacity: 0.01;
+
+            pointer-events: none;
+
+            z-index: -1;
+        }
+
+
+        #youtube-player {
+
+            width: 1px;
+            height: 1px;
+        }
+
+
+        /* =========================================================
+           NAVBAR / LETRA
         ========================================================= */
 
         .music-navbar {
 
-            position: fixed;
+            position: sticky;
 
             top: 0;
-            left: 0;
-
-            width: 100%;
-
-            height: 72px;
 
             z-index: 5000;
 
+            width: 100%;
+
+            height: 76px;
+
             background:
-                rgba(7,8,10,0.92);
+                linear-gradient(
+                    180deg,
+                    rgba(12,10,10,0.98),
+                    rgba(8,8,8,0.94)
+                );
 
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
 
-            border-bottom:
-                1px solid rgba(201,169,110,0.15);
+            backdrop-filter: blur(14px);
 
             display: flex;
 
             align-items: center;
 
+            justify-content: center;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.35);
+        }
+
+
+        .navbar-inner {
+
+            position: relative;
+
+            width: min(850px, 92%);
+
+            height: 76px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
             overflow: hidden;
         }
 
 
-        .music-info {
+        .song-name {
 
-            width: 125px;
+            position: absolute;
 
-            min-width: 125px;
+            top: 7px;
 
-            padding-left: 16px;
+            left: 20px;
 
-            z-index: 3;
-        }
-
-
-        .music-label {
-
-            font-size: 0.58rem;
-
-            letter-spacing: 2px;
+            font-size: 0.55rem;
 
             text-transform: uppercase;
 
-            color: var(--accent);
-        }
+            letter-spacing: 3px;
 
+            color: var(--gold);
 
-        .music-title {
+            opacity: 0.8;
 
-            font-family: "Playfair Display", serif;
-
-            font-size: 0.85rem;
-
-            white-space: nowrap;
-
-            margin-top: 2px;
+            z-index: 5;
         }
 
 
@@ -266,33 +335,13 @@
 
             position: relative;
 
-            height: 72px;
+            width: 100%;
 
-            flex: 1;
+            height: 55px;
 
             overflow: hidden;
 
-            display: flex;
-
-            align-items: center;
-
-            mask-image:
-                linear-gradient(
-                    to bottom,
-                    transparent,
-                    black 25%,
-                    black 75%,
-                    transparent
-                );
-
-            -webkit-mask-image:
-                linear-gradient(
-                    to bottom,
-                    transparent,
-                    black 25%,
-                    black 75%,
-                    transparent
-                );
+            text-align: center;
         }
 
 
@@ -302,20 +351,20 @@
 
             width: 100%;
 
-            text-align: center;
+            left: 0;
 
-            top: 72px;
+            top: 50%;
 
-            animation:
-                lyricsScroll 32s
-                linear
-                infinite;
+            transform: translateY(-50%);
+
+            transition:
+                transform 0.8s cubic-bezier(0.22,1,0.36,1);
         }
 
 
         .lyric-line {
 
-            height: 42px;
+            height: 55px;
 
             display: flex;
 
@@ -323,80 +372,50 @@
 
             justify-content: center;
 
-            padding: 0 10px;
+            padding: 0 30px;
 
-            font-family: "Playfair Display", serif;
-
-            font-size: 0.82rem;
+            font-family: 'Playfair Display', serif;
 
             font-style: italic;
 
-            color: rgba(242,240,237,0.82);
+            font-size: clamp(0.85rem, 3vw, 1.1rem);
+
+            color: #756f68;
+
+            opacity: 0.55;
+
+            transition:
+                color 0.6s ease,
+                opacity 0.6s ease,
+                transform 0.6s ease;
         }
 
 
-        @keyframes lyricsScroll {
+        .lyric-line.active {
 
-            0% {
-                transform: translateY(0);
-            }
+            color: var(--text-main);
 
-            100% {
-                transform: translateY(-840px);
-            }
+            opacity: 1;
+
+            transform: scale(1.02);
         }
 
 
-        .music-control {
+        .song-status {
 
-            width: 58px;
+            position: absolute;
 
-            min-width: 58px;
+            right: 18px;
 
-            height: 100%;
+            bottom: 7px;
 
-            border: 0;
+            font-size: 0.55rem;
 
-            border-left:
-                1px solid rgba(201,169,110,0.12);
+            letter-spacing: 1px;
 
-            background: transparent;
+            color: var(--text-secondary);
 
-            color: var(--accent);
-
-            font-size: 1.05rem;
-
-            cursor: pointer;
-
-            z-index: 4;
-        }
-
-
-        /* =========================================================
-           YOUTUBE PLAYER
-        ========================================================= */
-
-        #youtube-player-container {
-
-            position: fixed;
-
-            top: 72px;
-
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            width: 1px;
-
-            height: 1px;
-
-            overflow: hidden;
-
-            opacity: 0;
-
-            pointer-events: none;
-
-            z-index: -1;
+            text-transform: uppercase;
         }
 
 
@@ -409,10 +428,9 @@
             text-align: center;
 
             padding:
-
-                150px
+                85px
                 20px
-                70px;
+                55px;
         }
 
 
@@ -420,42 +438,41 @@
 
             display: block;
 
-            font-size: 0.7rem;
+            font-size: 0.65rem;
 
             text-transform: uppercase;
 
             letter-spacing: 5px;
 
-            color: var(--accent);
+            color: var(--gold);
 
-            margin-bottom: 15px;
+            margin-bottom: 13px;
         }
 
 
         h1 {
 
-            font-family: "Playfair Display", serif;
-
-            font-size:
-                clamp(2.4rem, 8vw, 4rem);
+            font-family: 'Playfair Display', serif;
 
             font-weight: 500;
 
-            line-height: 1.15;
+            font-size: clamp(2.4rem, 10vw, 4rem);
 
-            margin-bottom: 15px;
+            line-height: 1.1;
+
+            color: var(--text-main);
         }
 
 
         .header-subtitle {
 
-            color: var(--text-secondary);
+            margin-top: 18px;
 
-            font-size: 1rem;
+            font-family: 'Caveat', cursive;
 
-            max-width: 550px;
+            color: #aaa197;
 
-            margin: auto;
+            font-size: 1.5rem;
         }
 
 
@@ -465,20 +482,17 @@
 
         section {
 
-            width: min(800px, 100%);
+            width: min(800px, calc(100% - 40px));
 
-            margin: auto;
+            margin: 0 auto;
 
-            padding:
-
-                45px 20px;
+            padding: 45px 0;
 
             opacity: 0;
 
             transform: translateY(35px);
 
             transition:
-
                 opacity 0.9s ease,
                 transform 0.9s ease;
         }
@@ -494,15 +508,15 @@
 
         .section-title {
 
-            font-family: "Playfair Display", serif;
+            font-family: 'Playfair Display', serif;
 
-            font-size: 1.8rem;
+            font-size: clamp(1.6rem, 6vw, 2rem);
 
             font-weight: 500;
 
-            color: var(--accent);
+            color: var(--gold);
 
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
 
@@ -522,36 +536,65 @@
 
         .counter-box {
 
-            background:
+            position: relative;
 
+            background:
                 linear-gradient(
-                    145deg,
-                    #17191e,
-                    #0f1013
+                    135deg,
+                    #181716,
+                    #0f0e0d
                 );
 
             border:
 
-                1px solid var(--border);
+                1px solid
+                rgba(200,168,91,0.14);
 
-            border-radius: 18px;
+            border-radius: 15px;
 
-            padding: 35px 20px;
+            padding: 32px 20px;
 
             text-align: center;
 
             box-shadow: var(--shadow);
+
+            overflow: hidden;
+        }
+
+
+        .counter-box::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            background: var(--wine);
+
+            filter: blur(70px);
+
+            opacity: 0.35;
+
+            top: -90px;
+            right: -60px;
         }
 
 
         .counter-numbers {
 
-            font-family: "Playfair Display", serif;
+            position: relative;
 
-            color: var(--accent-soft);
+            font-family: 'Playfair Display', serif;
 
-            font-size:
-                clamp(1.35rem, 5vw, 2rem);
+            font-size: clamp(1.25rem, 5vw, 1.7rem);
+
+            color: var(--gold);
+
+            font-weight: 500;
 
             letter-spacing: 1px;
         }
@@ -559,45 +602,50 @@
 
         .counter-label {
 
+            position: relative;
+
+            margin-top: 8px;
+
             color: var(--text-secondary);
+
+            font-size: 0.72rem;
 
             text-transform: uppercase;
 
             letter-spacing: 2px;
-
-            font-size: 0.62rem;
-
-            margin-top: 8px;
         }
 
 
         /* =========================================================
-           CITA
+           CITAS
         ========================================================= */
 
         .quote-section {
 
             position: relative;
 
+            text-align: center;
+
+            padding: 60px 30px;
+
             background:
 
                 linear-gradient(
                     135deg,
-                    #17191c,
-                    #090a0c
+                    #181313,
+                    #0c0c0c
                 );
+
+            border-radius: 20px;
 
             border:
 
-                1px solid rgba(201,169,110,0.12);
-
-            border-radius: 22px;
-
-            padding: 65px 30px;
-
-            text-align: center;
+                1px solid
+                rgba(200,168,91,0.12);
 
             box-shadow: var(--shadow);
+
+            overflow: hidden;
         }
 
 
@@ -607,29 +655,28 @@
 
             position: absolute;
 
-            top: -12px;
-
-            left: 22px;
+            left: 18px;
+            top: -25px;
 
             font-family: Georgia, serif;
 
-            font-size: 6rem;
+            font-size: 7rem;
 
-            color: var(--accent);
+            color: var(--gold);
 
-            opacity: 0.12;
+            opacity: 0.09;
         }
 
 
         .quote-text {
 
-            font-family:
-                "Playfair Display",
-                serif;
+            position: relative;
+
+            font-family: 'Playfair Display', serif;
 
             font-style: italic;
 
-            font-size: 1.35rem;
+            font-size: clamp(1.15rem, 4vw, 1.45rem);
 
             line-height: 1.75;
 
@@ -645,17 +692,24 @@
 
             background: var(--paper);
 
-            border-radius: 14px;
+            border:
+
+                1px solid
+                rgba(255,255,255,0.04);
 
             border-left:
-                2px solid var(--accent);
+
+                2px solid
+                var(--wine-light);
+
+            border-radius: 12px;
 
             margin-bottom: 13px;
 
             overflow: hidden;
 
             box-shadow:
-                0 8px 25px rgba(0,0,0,0.3);
+                0 7px 25px rgba(0,0,0,0.35);
         }
 
 
@@ -665,13 +719,15 @@
 
             display: flex;
 
-            justify-content: space-between;
-
             align-items: center;
+
+            justify-content: space-between;
 
             cursor: pointer;
 
-            font-weight: 500;
+            font-size: 1rem;
+
+            color: var(--text-main);
         }
 
 
@@ -679,11 +735,12 @@
 
             content: "+";
 
-            color: var(--accent);
+            font-size: 1.4rem;
 
-            font-size: 1.5rem;
+            color: var(--gold);
 
-            transition: transform 0.3s ease;
+            transition:
+                transform 0.3s ease;
         }
 
 
@@ -700,12 +757,12 @@
 
             overflow: hidden;
 
-            padding: 0 20px;
+            padding:
+                0 20px;
 
             color: var(--text-secondary);
 
             transition:
-
                 max-height 0.45s ease,
                 padding 0.45s ease;
         }
@@ -714,33 +771,27 @@
         .discovery-card.active
         .discovery-content {
 
-            max-height: 500px;
+            max-height: 400px;
 
             padding:
-
-                0
-                20px
+                0 20px
                 22px;
         }
 
 
         .discovery-content p {
 
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
 
         /* =========================================================
-           GALERÍAS
+           GALERÍA
         ========================================================= */
 
         .gallery-wrapper {
 
-            width: 100vw;
-
-            margin-left: -20px;
-
-            padding-left: 20px;
+            width: 100%;
         }
 
 
@@ -748,20 +799,19 @@
 
             display: flex;
 
-            gap: 15px;
+            gap: 16px;
 
             overflow-x: auto;
 
             scroll-snap-type: x mandatory;
 
             padding:
-
-                5px
-                20px
-                20px
-                0;
+                10px 0
+                20px;
 
             scrollbar-width: none;
+
+            -webkit-overflow-scrolling: touch;
         }
 
 
@@ -774,11 +824,11 @@
         .gallery-img,
         .gallery-img-captioned {
 
-            flex: 0 0 75%;
+            flex: 0 0 78%;
 
             max-width: 300px;
 
-            height: 350px;
+            height: 360px;
 
             object-fit: cover;
 
@@ -786,19 +836,31 @@
 
             scroll-snap-align: center;
 
-            box-shadow:
-                0 12px 35px rgba(0,0,0,0.7);
-
             cursor: pointer;
 
             border:
-                1px solid rgba(255,255,255,0.06);
+
+                1px solid
+                rgba(255,255,255,0.06);
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,0.6);
+
+            transition:
+                transform 0.3s ease;
+        }
+
+
+        .gallery-img:active,
+        .gallery-img-captioned:active {
+
+            transform: scale(0.97);
         }
 
 
         .gallery-figure {
 
-            flex: 0 0 75%;
+            flex: 0 0 78%;
 
             max-width: 300px;
 
@@ -806,27 +868,31 @@
         }
 
 
+        .gallery-figure img {
+
+            width: 100%;
+        }
+
+
         .gallery-figure figcaption {
 
-            color: var(--text-secondary);
-
-            font-size: 0.9rem;
+            padding-top: 12px;
 
             text-align: center;
 
-            margin-top: 10px;
+            font-size: 0.9rem;
+
+            color: var(--text-secondary);
         }
 
 
         .gallery-text-card {
 
-            flex: 0 0 75%;
+            flex: 0 0 78%;
 
             max-width: 300px;
 
-            height: 350px;
-
-            background: var(--paper);
+            min-height: 360px;
 
             border-radius: 14px;
 
@@ -838,176 +904,38 @@
 
             justify-content: center;
 
-            padding: 30px;
-
             text-align: center;
 
+            padding: 35px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #241517,
+                    #111010
+                );
+
             border:
-                1px solid var(--border);
+
+                1px solid
+                rgba(200,168,91,0.1);
+
+            box-shadow: var(--shadow);
         }
 
 
         .gallery-text-card p {
 
-            font-family: "Playfair Display", serif;
+            font-family: 'Playfair Display', serif;
+
+            font-style: italic;
+
+            color: var(--gold);
 
             font-size: 1.15rem;
 
-            color: var(--accent-soft);
-
             line-height: 1.6;
-        }
-
-
-        /* =========================================================
-           NUEVA SECCIÓN — NUESTROS VALORES
-        ========================================================= */
-
-        .values-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 14px;
-        }
-
-
-        .value-card {
-
-            background:
-
-                linear-gradient(
-                    145deg,
-                    #17191d,
-                    #101114
-                );
-
-            border:
-
-                1px solid rgba(201,169,110,0.12);
-
-            border-radius: 16px;
-
-            padding: 28px 20px;
-
-            min-height: 190px;
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: center;
-
-            text-align: center;
-        }
-
-
-        .value-number {
-
-            color: var(--accent);
-
-            font-size: 0.7rem;
-
-            letter-spacing: 3px;
-
-            margin-bottom: 10px;
-        }
-
-
-        .value-title {
-
-            font-family: "Playfair Display", serif;
-
-            font-size: 1.25rem;
-
-            margin-bottom: 10px;
-        }
-
-
-        .value-text {
-
-            color: var(--text-secondary);
-
-            font-size: 0.88rem;
-
-            line-height: 1.6;
-        }
-
-
-        /* =========================================================
-           NOSOTROS CONTRA EL MUNDO
-        ========================================================= */
-
-        .us-against-world {
-
-            margin:
-
-                30px
-                0;
-
-            padding:
-
-                55px
-                25px;
-
-            text-align: center;
-
-            border-top:
-                1px solid var(--accent);
-
-            border-bottom:
-                1px solid var(--accent);
-
-            background:
-
-                radial-gradient(
-                    circle at center,
-                    rgba(201,169,110,0.08),
-                    transparent 65%
-                );
-        }
-
-
-        .us-against-world .small {
-
-            text-transform: uppercase;
-
-            letter-spacing: 4px;
-
-            font-size: 0.65rem;
-
-            color: var(--accent);
-
-            margin-bottom: 15px;
-        }
-
-
-        .us-against-world h2 {
-
-            font-family: "Playfair Display", serif;
-
-            font-size:
-                clamp(2rem, 7vw, 3.2rem);
-
-            font-weight: 500;
-
-            color: var(--text-main);
-
-            margin-bottom: 16px;
-        }
-
-
-        .us-against-world p {
-
-            max-width: 600px;
-
-            margin: auto;
-
-            color: var(--text-secondary);
-
-            font-size: 0.95rem;
         }
 
 
@@ -1021,21 +949,24 @@
 
                 linear-gradient(
                     145deg,
-                    #181a1e,
-                    #101114
+                    #171615,
+                    #0d0d0d
                 );
 
-            border-radius: 18px;
+            border-radius: 15px;
 
             padding:
-
-                45px 30px;
-
-            box-shadow: var(--shadow);
+                45px
+                30px;
 
             border-top:
 
-                2px solid var(--accent);
+                2px solid
+                var(--gold);
+
+            box-shadow: var(--shadow);
+
+            margin-bottom: 70px;
         }
 
 
@@ -1043,21 +974,99 @@
 
             font-size: 1rem;
 
-            color: var(--text-main);
+            color: #ddd8d0;
 
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
 
 
-        .letter-content .opening {
+        .letter-opening {
 
-            font-family: "Playfair Display", serif;
+            font-family: 'Playfair Display', serif;
 
-            font-size: 1.4rem;
+            font-size: 1.3rem !important;
 
-            color: var(--accent-soft);
+            color: var(--text-main) !important;
 
-            margin-bottom: 25px;
+            margin-bottom: 28px !important;
+        }
+
+
+        /* FRASE CENTRAL */
+
+        .world-statement {
+
+            position: relative;
+
+            margin:
+                38px
+                -5px;
+
+            padding:
+                35px
+                20px;
+
+            text-align: center;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #32151b,
+                    #170d0f
+                );
+
+            border-top:
+                1px solid
+                rgba(200,168,91,0.35);
+
+            border-bottom:
+                1px solid
+                rgba(200,168,91,0.35);
+        }
+
+
+        .world-statement small {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 0.6rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: 4px;
+
+            color: var(--gold);
+        }
+
+
+        .world-statement strong {
+
+            display: block;
+
+            font-family: 'Playfair Display', serif;
+
+            font-style: italic;
+
+            font-weight: 500;
+
+            font-size: clamp(1.7rem, 7vw, 2.5rem);
+
+            color: #f0e9df;
+        }
+
+
+        .world-statement span {
+
+            display: block;
+
+            margin-top: 8px;
+
+            color: #aaa19a;
+
+            font-size: 0.85rem;
         }
 
 
@@ -1073,13 +1082,13 @@
 
             display: block;
 
-            font-family: "Caveat", cursive;
+            font-family: 'Caveat', cursive;
 
             font-size: 2rem;
 
-            color: var(--accent);
+            color: var(--gold);
 
-            margin-bottom: 3px;
+            margin-bottom: 5px;
         }
 
 
@@ -1097,11 +1106,11 @@
 
             display: block;
 
-            font-family: "Playfair Display", serif;
+            font-family: 'Playfair Display', serif;
 
-            font-size: 1.35rem;
+            font-size: 1.25rem;
 
-            margin-top: 5px;
+            margin-top: 4px;
         }
 
 
@@ -1124,13 +1133,14 @@
 
             justify-content: center;
 
-            z-index: 9999;
+            z-index: 10000;
 
             opacity: 0;
 
             pointer-events: none;
 
-            transition: opacity 0.3s ease;
+            transition:
+                opacity 0.3s ease;
         }
 
 
@@ -1150,7 +1160,10 @@
 
             object-fit: contain;
 
-            border-radius: 10px;
+            border-radius: 8px;
+
+            box-shadow:
+                0 20px 70px rgba(0,0,0,0.9);
         }
 
 
@@ -1158,17 +1171,18 @@
 
             position: absolute;
 
-            top: 18px;
+            top: 15px;
+            right: 18px;
 
-            right: 20px;
+            background: none;
 
             border: none;
-
-            background: transparent;
 
             color: white;
 
             font-size: 3rem;
+
+            font-weight: 200;
 
             cursor: pointer;
         }
@@ -1183,22 +1197,17 @@
             text-align: center;
 
             padding:
-
-                50px
+                30px
                 20px
-                90px;
+                60px;
 
-            color: #686868;
+            color: #5f5a54;
 
-            font-size: 0.72rem;
+            font-size: 0.7rem;
 
-            letter-spacing: 1px;
-        }
+            letter-spacing: 2px;
 
-
-        footer span {
-
-            color: var(--accent);
+            text-transform: uppercase;
         }
 
 
@@ -1206,62 +1215,84 @@
            RESPONSIVE
         ========================================================= */
 
-        @media (max-width: 600px) {
+        @media (min-width: 700px) {
 
-            .music-info {
+            section {
 
-                width: 105px;
+                padding-top: 60px;
 
-                min-width: 105px;
+                padding-bottom: 60px;
             }
 
 
-            .music-title {
+            .gallery-img,
+            .gallery-img-captioned,
+            .gallery-figure,
+            .gallery-text-card {
 
-                font-size: 0.76rem;
-            }
-
-
-            .lyrics-window {
-
-                height: 72px;
-            }
-
-
-            .lyric-line {
-
-                font-size: 0.72rem;
-            }
-
-
-            .values-grid {
-
-                grid-template-columns: 1fr;
+                flex-basis: 300px;
             }
 
 
             .letter-section {
 
-                padding: 35px 24px;
+                padding:
+                    55px
+                    60px;
             }
         }
 
 
-        @media (min-width: 800px) {
+        @media (max-width: 500px) {
 
-            .gallery-wrapper {
+            .music-navbar {
 
-                width: 100%;
-
-                margin-left: 0;
-
-                padding: 0;
+                height: 72px;
             }
 
 
-            .horizontal-scroll {
+            .navbar-inner {
 
-                padding-left: 0;
+                height: 72px;
+            }
+
+
+            .song-name {
+
+                left: 12px;
+
+                font-size: 0.48rem;
+            }
+
+
+            .song-status {
+
+                right: 10px;
+
+                font-size: 0.48rem;
+            }
+
+
+            .lyric-line {
+
+                padding:
+                    0 45px;
+
+                font-size: 0.86rem;
+            }
+
+
+            header {
+
+                padding-top: 65px;
+            }
+
+
+            .letter-section {
+
+                padding:
+                    38px
+                    23px;
             }
         }
 
@@ -1273,7 +1304,7 @@
 
 
     <!-- =========================================================
-         BIENVENIDA
+         PANTALLA DE ENTRADA
     ========================================================= -->
 
     <div id="welcome-screen">
@@ -1281,7 +1312,7 @@
         <div class="welcome-content">
 
             <div class="welcome-small">
-                Una pequeña historia nuestra
+                Una pequeña historia
             </div>
 
             <h2 class="welcome-title">
@@ -1289,7 +1320,7 @@
             </h2>
 
             <p class="welcome-subtitle">
-                y todavía estamos empezando...
+                de nosotros
             </p>
 
             <button
@@ -1305,133 +1336,6 @@
 
 
     <!-- =========================================================
-         NAVBAR MUSICAL
-    ========================================================= -->
-
-    <nav class="music-navbar">
-
-        <div class="music-info">
-
-            <div class="music-label">
-                Nuestra canción
-            </div>
-
-            <div class="music-title">
-                Can't Help Falling in Love
-            </div>
-
-        </div>
-
-
-        <div class="lyrics-window">
-
-            <div
-                class="lyrics-track"
-                id="lyrics-track"
-            >
-
-                <div class="lyric-line">
-                    Hay encuentros que cambian el rumbo.
-                </div>
-
-                <div class="lyric-line">
-                    Y el nuestro comenzó aquella tarde.
-                </div>
-
-                <div class="lyric-line">
-                    Desde entonces, cada día tiene otro significado.
-                </div>
-
-                <div class="lyric-line">
-                    Aprendimos a elegirnos.
-                </div>
-
-                <div class="lyric-line">
-                    A confiar.
-                </div>
-
-                <div class="lyric-line">
-                    A cuidarnos.
-                </div>
-
-                <div class="lyric-line">
-                    A mirar hacia el mismo lugar.
-                </div>
-
-                <div class="lyric-line">
-                    No se trata solamente de estar juntos.
-                </div>
-
-                <div class="lyric-line">
-                    Se trata de construir algo que valga la pena.
-                </div>
-
-                <div class="lyric-line">
-                    Una familia.
-                </div>
-
-                <div class="lyric-line">
-                    Un hogar.
-                </div>
-
-                <div class="lyric-line">
-                    Una vida compartida.
-                </div>
-
-                <div class="lyric-line">
-                    Con respeto.
-                </div>
-
-                <div class="lyric-line">
-                    Con fidelidad.
-                </div>
-
-                <div class="lyric-line">
-                    Con paciencia.
-                </div>
-
-                <div class="lyric-line">
-                    Con la certeza de estar del mismo lado.
-                </div>
-
-                <div class="lyric-line">
-                    Porque lo que queremos no es solamente hoy.
-                </div>
-
-                <div class="lyric-line">
-                    Queremos un mañana.
-                </div>
-
-                <div class="lyric-line">
-                    Y queremos construirlo juntos.
-                </div>
-
-                <div class="lyric-line">
-                    Nosotros.
-                </div>
-
-                <div class="lyric-line">
-                    Siempre del mismo lado.
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <button
-            id="music-control"
-            class="music-control"
-            onclick="toggleMusic()"
-            aria-label="Reproducir o pausar música"
-        >
-            ❚❚
-        </button>
-
-    </nav>
-
-
-    <!-- =========================================================
          YOUTUBE
     ========================================================= -->
 
@@ -1440,6 +1344,39 @@
         <div id="youtube-player"></div>
 
     </div>
+
+
+    <!-- =========================================================
+         NAVBAR STICKY + LETRA
+    ========================================================= -->
+
+    <nav class="music-navbar">
+
+        <div class="navbar-inner">
+
+            <span class="song-name">
+                Falling in Love
+            </span>
+
+            <div class="lyrics-window">
+
+                <div
+                    id="lyrics-track"
+                    class="lyrics-track"
+                ></div>
+
+            </div>
+
+            <span
+                id="song-status"
+                class="song-status"
+            >
+                Pausada
+            </span>
+
+        </div>
+
+    </nav>
 
 
     <!-- =========================================================
@@ -1457,8 +1394,7 @@
         </h1>
 
         <p class="header-subtitle">
-            Cinco meses de conocernos, elegirnos y descubrir
-            que tenemos mucho más en común de lo que imaginábamos.
+            Cinco meses construyendo algo que vale la pena cuidar.
         </p>
 
     </header>
@@ -1480,8 +1416,7 @@
             </div>
 
             <div class="counter-label">
-                Escribiendo nuestra historia desde el
-                11 de marzo de 2026 a las 17:00 hs
+                Desde el 11 de marzo de 2026 · 17:00 hs
             </div>
 
         </div>
@@ -1490,7 +1425,7 @@
 
 
     <!-- =========================================================
-         PUNTA BALLENA
+         PRIMERA CITA
     ========================================================= -->
 
     <section class="fade-in">
@@ -1498,11 +1433,12 @@
         <div class="quote-section">
 
             <p class="quote-text">
+
                 "Ese primer beso, allá en Punta Ballena,
-                bajo las estrellas y con aquella luna tan brillante.
-                Fue uno de esos momentos en los que simplemente
-                entendí que quería seguir descubriendo qué podía
-                llegar a ser esto que comenzaba entre nosotros."
+                bajo las estrellas y con esa luna tan brillante...
+                ahí mismo mi corazón explotaba de alegría
+                y mi alma dijo: es acá."
+
             </p>
 
         </div>
@@ -1521,9 +1457,12 @@
         </h2>
 
         <p class="section-text">
-            Con el tiempo fui entendiendo que lo importante
-            no estaba solamente en lo que sentimos,
-            sino también en la forma en que pensamos nuestra vida.
+
+            Durante estos meses no solamente nos hemos conocido mejor.
+            También hemos ido descubriendo que detrás de lo que sentimos
+            existe una manera muy parecida de entender una relación,
+            una familia y el futuro.
+
         </p>
 
 
@@ -1533,15 +1472,19 @@
         >
 
             <div class="discovery-header">
-                Tu forma de hacerme sentir tranquilo
+                1. Tu forma de reír
             </div>
 
             <div class="discovery-content">
 
                 <p>
-                    Hay una tranquilidad especial en saber que
-                    puedo hablar contigo y ser yo mismo.
-                    Para mí, eso tiene muchísimo valor.
+                    Hay una naturalidad en tu manera de reír que
+                    transforma cualquier momento sencillo.
+                </p>
+
+                <p>
+                    Es uno de esos pequeños detalles que se vuelven
+                    importantes precisamente porque son tuyos.
                 </p>
 
             </div>
@@ -1555,16 +1498,19 @@
         >
 
             <div class="discovery-header">
-                La confianza
+                2. La tranquilidad que me das
             </div>
 
             <div class="discovery-content">
 
                 <p>
-                    Descubrimos que la confianza no es solamente
-                    una palabra. Es poder hablar, ser sinceros,
-                    respetarnos y saber que podemos contar el uno
-                    con el otro.
+                    He aprendido que una relación también se mide
+                    por la tranquilidad que existe cuando estamos juntos.
+                </p>
+
+                <p>
+                    Confianza, respeto y la posibilidad de ser nosotros
+                    mismos sin necesidad de aparentar.
                 </p>
 
             </div>
@@ -1578,16 +1524,19 @@
         >
 
             <div class="discovery-header">
-                Nuestra manera de mirar el futuro
+                3. Tu manera de buscar tu propio camino
             </div>
 
             <div class="discovery-content">
 
                 <p>
-                    Este mes descubrimos algo especialmente importante:
-                    queremos cosas parecidas para nuestras vidas.
-                    Queremos una relación estable, una familia,
-                    un hogar y un proyecto compartido.
+                    Me gusta verte descubrir nuevamente aquello que
+                    te apasiona y encontrar proyectos que te representan.
+                </p>
+
+                <p>
+                    Creo que una pareja también debe acompañar el
+                    crecimiento individual del otro.
                 </p>
 
             </div>
@@ -1601,15 +1550,20 @@
         >
 
             <div class="discovery-header">
-                La fidelidad como elección
+                4. Los valores que compartimos
             </div>
 
             <div class="discovery-content">
 
                 <p>
-                    Entendimos que ser fieles no debería ser una
-                    obligación, sino una decisión consciente:
-                    elegirnos incluso cuando nadie está mirando.
+                    Este mes descubrimos algo todavía más importante:
+                    no solamente nos queremos, también coincidimos
+                    en lo que esperamos de una relación.
+                </p>
+
+                <p>
+                    Fidelidad, respeto, compromiso, familia y la
+                    intención de construir algo duradero.
                 </p>
 
             </div>
@@ -1623,16 +1577,19 @@
         >
 
             <div class="discovery-header">
-                Que podemos construir juntos
+                5. Un proyecto de vida
             </div>
 
             <div class="discovery-content">
 
                 <p>
-                    Quizás lo más importante de este mes fue
-                    comprender que no solamente disfrutamos
-                    estar juntos: también imaginamos un futuro
-                    que queremos construir entre los dos.
+                    Hablar de casarnos, formar una familia y tener hijos
+                    dejó de ser una idea abstracta.
+                </p>
+
+                <p>
+                    Es algo que podemos imaginar porque nuestras
+                    expectativas sobre el futuro se parecen cada vez más.
                 </p>
 
             </div>
@@ -1643,137 +1600,7 @@
 
 
     <!-- =========================================================
-         NUESTROS VALORES
-    ========================================================= -->
-
-    <section class="fade-in">
-
-        <h2 class="section-title">
-            Lo que queremos construir
-        </h2>
-
-        <p class="section-text">
-            Hay cosas que para nosotros no son negociables.
-            Son parte de la relación que queremos tener.
-        </p>
-
-
-        <div class="values-grid">
-
-
-            <div class="value-card">
-
-                <div class="value-number">
-                    01
-                </div>
-
-                <div class="value-title">
-                    Familia
-                </div>
-
-                <div class="value-text">
-                    Algún día queremos mirar atrás y saber
-                    que construimos una familia basada en
-                    amor, respeto y presencia.
-                </div>
-
-            </div>
-
-
-            <div class="value-card">
-
-                <div class="value-number">
-                    02
-                </div>
-
-                <div class="value-title">
-                    Matrimonio
-                </div>
-
-                <div class="value-text">
-                    No como una simple celebración,
-                    sino como una decisión consciente
-                    de compartir una vida.
-                </div>
-
-            </div>
-
-
-            <div class="value-card">
-
-                <div class="value-number">
-                    03
-                </div>
-
-                <div class="value-title">
-                    Fidelidad
-                </div>
-
-                <div class="value-text">
-                    Elegirnos todos los días,
-                    incluso cuando las circunstancias
-                    sean difíciles.
-                </div>
-
-            </div>
-
-
-            <div class="value-card">
-
-                <div class="value-number">
-                    04
-                </div>
-
-                <div class="value-title">
-                    Respeto
-                </div>
-
-                <div class="value-text">
-                    Escucharnos, cuidarnos y recordar
-                    que antes que cualquier problema,
-                    estamos nosotros.
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         NOSOTROS CONTRA EL MUNDO
-    ========================================================= -->
-
-    <section class="fade-in">
-
-        <div class="us-against-world">
-
-            <div class="small">
-                Una decisión
-            </div>
-
-            <h2>
-                Nosotros contra el mundo
-            </h2>
-
-            <p>
-                No significa estar solos contra todo.
-                Significa saber que, cuando aparezcan
-                las dificultades, vamos a enfrentarlas
-                desde el mismo lado.
-                Vos y yo.
-                Juntos.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         GALERÍA — TU LUZ
+         GALERÍA TU LUZ
     ========================================================= -->
 
     <section class="fade-in">
@@ -1783,8 +1610,12 @@
         </h2>
 
         <p class="section-text">
-            Algunas imágenes solamente guardan un instante.
-            Para mí, estas guardan mucho más que eso.
+
+            Cada fotografía guarda una parte de estos meses.
+            Algunas muestran un momento especial; otras simplemente
+            recuerdan lo cotidiano, que muchas veces termina siendo
+            lo más valioso.
+
         </p>
 
 
@@ -1854,7 +1685,7 @@
 
 
     <!-- =========================================================
-         NUESTRAS SALIDAS
+         SALIDAS
     ========================================================= -->
 
     <section class="fade-in">
@@ -1864,8 +1695,10 @@
         </h2>
 
         <p class="section-text">
-            Lugares, conversaciones, comidas, risas y momentos
-            que poco a poco se fueron convirtiendo en nuestra historia.
+
+            Lugares, conversaciones, comidas, caminos y momentos
+            que fueron formando nuestra propia historia.
+
         </p>
 
 
@@ -1873,16 +1706,65 @@
 
             <div class="horizontal-scroll">
 
-                <img src="./sa1.jpg" class="gallery-img" alt="Salida 1">
-                <img src="./sa2.jpg" class="gallery-img" alt="Salida 2">
-                <img src="./sa3.jpg" class="gallery-img" alt="Salida 3">
-                <img src="./sa4.jpg" class="gallery-img" alt="Salida 4">
-                <img src="./sa5.jpg" class="gallery-img" alt="Salida 5">
-                <img src="./sa7.jpg" class="gallery-img" alt="Salida 6">
-                <img src="./sa6.jpg" class="gallery-img" alt="Salida 7">
-                <img src="./sa8.jpg" class="gallery-img" alt="Salida 8">
-                <img src="./sa9.jpg" class="gallery-img" alt="Salida 9">
-                <img src="./sa10.jpg" class="gallery-img" alt="Salida 10">
+                <img
+                    src="./sa1.jpg"
+                    class="gallery-img"
+                    alt="Salida 1"
+                >
+
+                <img
+                    src="./sa2.jpg"
+                    class="gallery-img"
+                    alt="Salida 2"
+                >
+
+                <img
+                    src="./sa3.jpg"
+                    class="gallery-img"
+                    alt="Salida 3"
+                >
+
+                <img
+                    src="./sa4.jpg"
+                    class="gallery-img"
+                    alt="Salida 4"
+                >
+
+                <img
+                    src="./sa5.jpg"
+                    class="gallery-img"
+                    alt="Salida 5"
+                >
+
+                <img
+                    src="./sa7.jpg"
+                    class="gallery-img"
+                    alt="Salida 6"
+                >
+
+                <img
+                    src="./sa6.jpg"
+                    class="gallery-img"
+                    alt="Salida 7"
+                >
+
+                <img
+                    src="./sa8.jpg"
+                    class="gallery-img"
+                    alt="Salida 8"
+                >
+
+                <img
+                    src="./sa9.jpg"
+                    class="gallery-img"
+                    alt="Salida 9"
+                >
+
+                <img
+                    src="./sa10.jpg"
+                    class="gallery-img"
+                    alt="Salida 10"
+                >
 
             </div>
 
@@ -1900,11 +1782,11 @@
         <div class="quote-section">
 
             <p class="quote-text">
-                "La distancia puede separar lugares,
-                pero no necesariamente personas.
-                Cuando existe voluntad de ambos lados,
-                siempre encontramos la manera de volver
-                a encontrarnos."
+
+                "La distancia puede separar dos lugares,
+                pero no necesariamente separa a dos personas
+                que tienen claro por qué quieren estar juntas."
+
             </p>
 
         </div>
@@ -1913,7 +1795,7 @@
 
 
     <!-- =========================================================
-         MOMENTOS IMPORTANTES
+         MOMENTOS
     ========================================================= -->
 
     <section class="fade-in">
@@ -1923,9 +1805,10 @@
         </h2>
 
         <p class="section-text">
-            Porque una relación también se construye
-            con esos momentos que parecen pequeños
-            y terminan significando mucho.
+
+            Hay momentos que merecen un lugar especial porque
+            representan algo más que una fotografía.
+
         </p>
 
 
@@ -1944,7 +1827,7 @@
 
                     <figcaption>
                         Cuando conociste a Oli.
-                        Un día importante para mí.
+                        Un momento importante para mí.
                     </figcaption>
 
                 </figure>
@@ -1969,10 +1852,9 @@
                 <div class="gallery-text-card">
 
                     <p>
-                        También guardo especialmente
-                        el día que conocí a tu familia.
-                        Fue importante poder entrar
-                        un poco más en tu mundo.
+                        Y también queda guardado aquel día
+                        en que finalmente conocí a tu familia.
+                        Fue importante para mí.
                     </p>
 
                 </div>
@@ -1995,99 +1877,104 @@
 
             <div class="letter-content">
 
-                <p class="opening">
+                <p class="letter-opening">
                     Mi amor,
                 </p>
 
 
                 <p>
-                    Hoy cumplimos cinco meses. Cinco meses que,
-                    aunque puedan parecer poco tiempo en comparación
-                    con toda una vida, han sido suficientes para
-                    conocernos mucho más, compartir momentos importantes
-                    y comenzar a entender qué lugar queremos ocupar
-                    en la vida del otro.
+                    Hoy cumplimos cinco meses y, mirando hacia atrás,
+                    creo que lo más importante de este tiempo no es
+                    solamente todo lo que hemos vivido, sino todo lo
+                    que hemos llegado a comprender el uno del otro.
                 </p>
 
 
                 <p>
-                    Este último mes, especialmente, me dejó algo muy
-                    claro. No solamente disfrutamos estar juntos;
-                    también compartimos una manera bastante parecida
-                    de entender una relación y de imaginar nuestro futuro.
+                    Estos meses nos permitieron conocernos de una
+                    manera más profunda. Aprendimos nuestras formas
+                    de pensar, nuestras costumbres, nuestras virtudes,
+                    nuestras diferencias y también aquello que
+                    consideramos realmente importante cuando pensamos
+                    en una relación.
                 </p>
 
 
                 <p>
-                    Hablamos de formar una familia, de casarnos algún día,
-                    de construir un hogar y, sobre todo, de mantener
-                    una relación basada en respeto, confianza y fidelidad.
-                    Para mí, descubrir que esas cosas también son importantes
-                    para vos tiene un valor enorme.
+                    Y este último mes tuvo algo especialmente valioso:
+                    descubrimos que compartimos una visión muy parecida
+                    sobre el futuro. Hablamos de compromiso, de
+                    fidelidad, de matrimonio, de formar una familia
+                    y de la posibilidad de tener hijos.
                 </p>
 
 
-                <div class="us-against-world">
+                <p>
+                    No lo veo simplemente como conversaciones bonitas.
+                    Para mí representan valores que quiero tomar en serio:
+                    construir una relación basada en la confianza,
+                    respetarnos incluso cuando pensemos diferente,
+                    elegirnos todos los días y mantenernos fieles
+                    a lo que decidimos construir juntos.
+                </p>
 
-                    <div class="small">
-                        Lo que elegimos
-                    </div>
 
-                    <h2>
-                        Nosotros contra el mundo
-                    </h2>
+                <!-- FRASE CENTRAL -->
 
-                    <p>
-                        No porque el mundo esté en nuestra contra,
-                        sino porque cuando llegue cualquier dificultad,
-                        quiero que sepamos que estamos del mismo lado.
-                        Que primero somos nosotros.
-                        Que nos cuidamos.
-                        Que nos respetamos.
-                        Y que seguimos eligiéndonos.
-                    </p>
+                <div class="world-statement">
+
+                    <small>
+                        Nuestra decisión
+                    </small>
+
+                    <strong>
+                        Nosotros contra el mundo.
+                    </strong>
+
+                    <span>
+                        No contra las personas, sino juntos frente
+                        a todo aquello que pueda intentar separarnos.
+                    </span>
 
                 </div>
 
 
                 <p>
-                    No quiero prometerte una vida perfecta,
-                    porque sé que ninguna vida lo es.
-                    Prefiero prometer algo más real:
-                    honestidad, respeto, fidelidad y voluntad
-                    de trabajar por lo que construyamos juntos.
+                    También quiero que, si algún día llegamos a casarnos
+                    y formar esa familia que hoy podemos imaginar,
+                    podamos mirar hacia atrás y reconocer que todo
+                    comenzó con dos personas que decidieron conocerse,
+                    cuidarse y serse fieles desde el principio.
                 </p>
 
 
                 <p>
-                    También quiero agradecerte por todo lo que hemos
-                    vivido hasta ahora. Por las conversaciones,
-                    por las salidas, por los momentos tranquilos,
-                    por las risas y también por todo aquello que
-                    todavía estamos aprendiendo el uno del otro.
+                    Quiero seguir construyendo esto con vos sin
+                    apresurar lo que necesita tiempo, pero tampoco
+                    teniendo miedo de reconocer cuando algo tiene
+                    verdadero valor.
+                </p>
+
+
+                <p>
+                    Gracias por estos cinco meses, por tu compañía,
+                    por tu confianza y por todo lo que hemos aprendido
+                    juntos.
                 </p>
 
 
                 <p>
                     Le doy gracias a Dios por haber cruzado nuestros
                     caminos y le pido que nos dé sabiduría para cuidar
-                    lo que tenemos, paciencia para atravesar las
-                    dificultades y claridad para seguir tomando
-                    buenas decisiones juntos.
+                    lo que estamos construyendo, con respeto,
+                    fidelidad y compromiso.
                 </p>
 
 
                 <p>
-                    Cinco meses después de aquel comienzo,
-                    sigo teniendo ganas de descubrir qué viene después.
-                    Y si seguimos caminando en la misma dirección,
-                    creo que tenemos algo verdaderamente valioso
-                    entre las manos.
-                </p>
-
-
-                <p>
-                    Feliz quinto mes, mi amor.
+                    Cinco meses han pasado.
+                    Y si algo tengo claro es que todavía queda
+                    muchísimo por escribir.
                 </p>
 
             </div>
@@ -2112,6 +1999,17 @@
         </div>
 
     </section>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer>
+
+        Cinco meses · Una historia · Un proyecto compartido
+
+    </footer>
 
 
     <!-- =========================================================
@@ -2141,75 +2039,39 @@
 
 
     <!-- =========================================================
-         FOOTER
+         YOUTUBE IFRAME API
     ========================================================= -->
 
-    <footer>
+    <script src="https://www.youtube.com/iframe_api"></script>
 
-        <p>
-            Una historia que todavía estamos escribiendo.
-        </p>
-
-        <p>
-            <span>11.03.2026</span>
-        </p>
-
-    </footer>
-
-
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================= -->
 
     <script>
 
-        /* ========================================================
-           YOUTUBE PLAYER
-        ======================================================== */
+        /* =========================================================
+           CONFIGURACIÓN DE YOUTUBE
+        ========================================================= */
 
-        let player;
+        const YOUTUBE_VIDEO_ID = "MqazV4hbu8E";
 
-        let isPlaying = false;
+        let youtubePlayer = null;
 
         let youtubeReady = false;
 
-
-        function loadYouTubeAPI() {
-
-            if (
-                document.getElementById(
-                    "youtube-api-script"
-                )
-            ) {
-                return;
-            }
+        let musicStarted = false;
 
 
-            const script =
-                document.createElement("script");
+        /*
+         * YouTube llama automáticamente a esta función
+         * cuando termina de cargar su API.
+         */
 
-            script.id =
-                "youtube-api-script";
+        function onYouTubeIframeAPIReady() {
 
-            script.src =
-                "https://www.youtube.com/iframe_api";
-
-            document.head.appendChild(script);
-        }
-
-
-        window.onYouTubeIframeAPIReady = function() {
-
-            player = new YT.Player(
-                "youtube-player",
+            youtubePlayer = new YT.Player(
+                'youtube-player',
                 {
 
-                    height: "1",
-
-                    width: "1",
-
-                    videoId:
-                        "MqazV4hbu8E",
+                    videoId: YOUTUBE_VIDEO_ID,
 
                     playerVars: {
 
@@ -2217,71 +2079,84 @@
 
                         controls: 0,
 
-                        rel: 0,
+                        disablekb: 1,
+
+                        fs: 0,
+
+                        iv_load_policy: 3,
+
+                        modestbranding: 1,
 
                         playsinline: 1,
 
-                        modestbranding: 1
+                        rel: 0
                     },
+
 
                     events: {
 
-                        onReady: function() {
+                        onReady: function () {
 
                             youtubeReady = true;
 
-                            player.setVolume(45);
+                            youtubePlayer.setVolume(45);
                         },
 
+
                         onStateChange:
-                            function(event) {
-
-                                if (
-                                    event.data ===
-                                    YT.PlayerState.PLAYING
-                                ) {
-
-                                    isPlaying = true;
-
-                                    document
-                                        .getElementById(
-                                            "music-control"
-                                        )
-                                        .innerText = "❚❚";
-
-                                }
-
-
-                                if (
-                                    event.data ===
-                                    YT.PlayerState.PAUSED ||
-                                    event.data ===
-                                    YT.PlayerState.ENDED
-                                ) {
-
-                                    isPlaying = false;
-
-                                    document
-                                        .getElementById(
-                                            "music-control"
-                                        )
-                                        .innerText = "▶";
-                                }
-
-                            }
+                            handlePlayerState
                     }
+
                 }
             );
-
-        };
-
-
-        loadYouTubeAPI();
+        }
 
 
-        /* ========================================================
-           EXPERIENCIA
-        ======================================================== */
+        /* =========================================================
+           ESTADO DEL REPRODUCTOR
+        ========================================================= */
+
+        function handlePlayerState(event) {
+
+            const status =
+                document.getElementById(
+                    "song-status"
+                );
+
+
+            if (
+                event.data ===
+                YT.PlayerState.PLAYING
+            ) {
+
+                status.textContent =
+                    "Reproduciendo";
+
+            }
+            else if (
+                event.data ===
+                YT.PlayerState.PAUSED
+            ) {
+
+                status.textContent =
+                    "Pausada";
+
+            }
+            else if (
+                event.data ===
+                YT.PlayerState.ENDED
+            ) {
+
+                status.textContent =
+                    "Finalizada";
+            }
+
+        }
+
+
+        /* =========================================================
+           INICIAR EXPERIENCIA
+        ========================================================= */
 
         function startExperience() {
 
@@ -2291,20 +2166,20 @@
                 );
 
 
+            /*
+             * Intentamos reproducir inmediatamente.
+             * Como la acción proviene del botón del usuario,
+             * el navegador permite el audio.
+             */
+
             if (
-                youtubeReady &&
-                player
+                youtubePlayer &&
+                youtubeReady
             ) {
 
-                player.playVideo();
+                youtubePlayer.playVideo();
 
-                isPlaying = true;
-
-                document
-                    .getElementById(
-                        "music-control"
-                    )
-                    .innerText = "❚❚";
+                musicStarted = true;
             }
 
 
@@ -2312,7 +2187,7 @@
 
 
             setTimeout(
-                function() {
+                function () {
 
                     welcome.style.visibility =
                         "hidden";
@@ -2321,209 +2196,297 @@
                         .remove("locked");
 
                 },
-                1000
+                1200
             );
 
         }
 
 
-        /* ========================================================
-           CONTROL DE MÚSICA
-        ======================================================== */
+        /* =========================================================
+           LETRA
+           
+           El texto utilizado aquí corresponde exactamente
+           al texto proporcionado por el usuario.
+           
+           Los tiempos son independientes del video y pueden
+           ajustarse fácilmente si la versión del tema cambia.
+        ========================================================= */
 
-        function toggleMusic() {
+        const lyrics = [
 
-            if (
-                !youtubeReady ||
-                !player
-            ) {
-                return;
+            {
+                time: 0,
+                text: "Pero no puedo evitar"
+            },
+
+            {
+                time: 4,
+                text: "Enamorarme de ti"
+            },
+
+            {
+                time: 8,
+                text: "Si me quedara"
+            },
+
+            {
+                time: 11,
+                text: "¿Sería un pecado?"
+            },
+
+            {
+                time: 15,
+                text: "Si no puedo evitar"
+            },
+
+            {
+                time: 19,
+                text: "Enamorarme de ti"
+            },
+
+            {
+                time: 24,
+                text: "Como un río que fluye"
+            },
+
+            {
+                time: 28,
+                text: "Seguro hacia el mar"
+            },
+
+            {
+                time: 32,
+                text: "Querida, así es"
+            },
+
+            {
+                time: 35,
+                text: "Algunas cosas están destinadas a suceder"
+            },
+
+            {
+                time: 41,
+                text: "Toma mi mano"
+            },
+
+            {
+                time: 45,
+                text: "Toma mi vida entera también"
+            },
+
+            {
+                time: 50,
+                text: "Porque no puedo evitar"
+            },
+
+            {
+                time: 54,
+                text: "Enamorarme de ti"
+            },
+
+            {
+                time: 60,
+                text: "Como un río que fluye"
+            },
+
+            {
+                time: 64,
+                text: "Seguro hacia el mar"
+            },
+
+            {
+                time: 68,
+                text: "Querida, así es"
+            },
+
+            {
+                time: 71,
+                text: "Algunas cosas están destinadas a suceder"
+            },
+
+            {
+                time: 77,
+                text: "Toma mi mano"
+            },
+
+            {
+                time: 81,
+                text: "Toma mi vida entera también"
+            },
+
+            {
+                time: 86,
+                text: "Porque no puedo evitar"
+            },
+
+            {
+                time: 90,
+                text: "Enamorarme de ti"
+            },
+
+            {
+                time: 96,
+                text: "Porque no puedo evitar"
+            },
+
+            {
+                time: 100,
+                text: "Enamorarme de ti"
             }
 
-
-            if (isPlaying) {
-
-                player.pauseVideo();
-
-                isPlaying = false;
-
-                document
-                    .getElementById(
-                        "music-control"
-                    )
-                    .innerText = "▶";
-
-            }
-
-            else {
-
-                player.playVideo();
-
-                isPlaying = true;
-
-                document
-                    .getElementById(
-                        "music-control"
-                    )
-                    .innerText = "❚❚";
-
-            }
-
-        }
+        ];
 
 
-        /* ========================================================
-           FADE IN
-        ======================================================== */
+        /* =========================================================
+           CREAR LETRA
+        ========================================================= */
 
-        const observer =
-            new IntersectionObserver(
-                function(entries) {
+        const lyricsTrack =
+            document.getElementById(
+                "lyrics-track"
+            );
 
-                    entries.forEach(
-                        function(entry) {
 
-                            if (
-                                entry.isIntersecting
-                            ) {
+        lyrics.forEach(
+            function (line, index) {
 
-                                entry.target
-                                    .classList
-                                    .add("visible");
-
-                                observer.unobserve(
-                                    entry.target
-                                );
-
-                            }
-
-                        }
+                const element =
+                    document.createElement(
+                        "div"
                     );
 
-                },
-                {
-                    threshold: 0.12
-                }
-            );
+                element.className =
+                    "lyric-line";
 
+                element.dataset.index =
+                    index;
 
-        document
-            .querySelectorAll(".fade-in")
-            .forEach(
-                function(section) {
+                element.textContent =
+                    line.text;
 
-                    observer.observe(section);
-
-                }
-            );
-
-
-        /* ========================================================
-           LIGHTBOX
-        ======================================================== */
-
-        const images =
-            document.querySelectorAll(
-                ".gallery-img, .gallery-img-captioned"
-            );
-
-
-        const lightbox =
-            document.getElementById(
-                "lightbox"
-            );
-
-
-        const lightboxImg =
-            document.getElementById(
-                "lightbox-img"
-            );
-
-
-        images.forEach(
-            function(img) {
-
-                img.addEventListener(
-                    "click",
-                    function() {
-
-                        lightboxImg.src =
-                            img.src;
-
-                        lightbox.classList
-                            .add("active");
-
-                        document.body
-                            .classList
-                            .add("locked");
-
-                    }
+                lyricsTrack.appendChild(
+                    element
                 );
 
             }
         );
 
 
-        function closeLightbox() {
-
-            lightbox.classList
-                .remove("active");
-
-            document.body
-                .classList
-                .remove("locked");
+        const lyricElements =
+            document.querySelectorAll(
+                ".lyric-line"
+            );
 
 
-            setTimeout(
-                function() {
+        let currentLyric = -1;
 
-                    lightboxImg.src = "";
 
-                },
-                300
+        /* =========================================================
+           ACTUALIZAR LETRA SEGÚN LA CANCIÓN
+        ========================================================= */
+
+        function updateLyrics() {
+
+            if (
+                !youtubePlayer ||
+                !youtubeReady
+            ) {
+
+                requestAnimationFrame(
+                    updateLyrics
+                );
+
+                return;
+            }
+
+
+            let currentTime =
+                youtubePlayer.getCurrentTime();
+
+
+            let newIndex = -1;
+
+
+            for (
+                let i = 0;
+                i < lyrics.length;
+                i++
+            ) {
+
+                if (
+                    currentTime >=
+                    lyrics[i].time
+                ) {
+
+                    newIndex = i;
+
+                }
+                else {
+
+                    break;
+                }
+
+            }
+
+
+            if (
+                newIndex !== currentLyric
+            ) {
+
+                currentLyric =
+                    newIndex;
+
+
+                lyricElements.forEach(
+                    function (element, index) {
+
+                        element.classList.toggle(
+                            "active",
+                            index === currentLyric
+                        );
+
+                    }
+                );
+
+
+                if (
+                    currentLyric >= 0
+                ) {
+
+                    /*
+                     * Cada línea mide 55px.
+                     * La línea actual queda centrada.
+                     */
+
+                    const offset =
+                        currentLyric * 55;
+
+
+                    lyricsTrack.style.transform =
+                        "translateY(calc(-50% - " +
+                        offset +
+                        "px))";
+
+                }
+
+            }
+
+
+            requestAnimationFrame(
+                updateLyrics
             );
 
         }
 
 
-        lightbox.addEventListener(
-            "click",
-            function(event) {
-
-                if (
-                    event.target ===
-                    lightbox
-                ) {
-
-                    closeLightbox();
-
-                }
-
-            }
+        requestAnimationFrame(
+            updateLyrics
         );
 
 
-        document.addEventListener(
-            "keydown",
-            function(event) {
-
-                if (
-                    event.key === "Escape" &&
-                    lightbox.classList
-                        .contains("active")
-                ) {
-
-                    closeLightbox();
-
-                }
-
-            }
-        );
-
-
-        /* ========================================================
+        /* =========================================================
            CONTADOR
-        ======================================================== */
+        ========================================================= */
 
         const fechaInicio =
             new Date(
@@ -2546,12 +2509,14 @@
                 ahora - fechaInicio;
 
 
-            if (diferencia < 0) {
+            if (
+                diferencia < 0
+            ) {
 
                 document.getElementById(
                     "counter-display"
-                ).innerText =
-                    "Nuestra historia está por comenzar.";
+                ).textContent =
+                    "Todavía no comenzó";
 
                 return;
             }
@@ -2596,22 +2561,19 @@
 
             document.getElementById(
                 "counter-display"
-            ).innerHTML =
+            ).textContent =
 
                 dias +
                 " días · " +
 
-                String(horas)
-                    .padStart(2, "0") +
-                "h · " +
+                horas +
+                " h · " +
 
-                String(minutos)
-                    .padStart(2, "0") +
-                "m · " +
+                minutos +
+                " m · " +
 
-                String(segundos)
-                    .padStart(2, "0") +
-                "s";
+                segundos +
+                " s";
 
         }
 
@@ -2625,92 +2587,221 @@
         );
 
 
-        /* ========================================================
+        /* =========================================================
+           FADE-IN
+        ========================================================= */
+
+        const observer =
+            new IntersectionObserver(
+
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target
+                                    .classList
+                                    .add("visible");
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+                            }
+
+                        }
+                    );
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        document
+            .querySelectorAll(
+                ".fade-in"
+            )
+            .forEach(
+                function (section) {
+
+                    observer.observe(
+                        section
+                    );
+
+                }
+            );
+
+
+        /* =========================================================
            ACORDEONES
-        ======================================================== */
+        ========================================================= */
 
         function toggleCard(element) {
 
-            const currentlyActive =
-                element.classList
-                    .contains("active");
-
-
-            document
-                .querySelectorAll(
-                    ".discovery-card.active"
-                )
-                .forEach(
-                    function(card) {
-
-                        if (
-                            card !== element
-                        ) {
-
-                            card.classList
-                                .remove("active");
-
-                        }
-
-                    }
+            const allCards =
+                document.querySelectorAll(
+                    ".discovery-card"
                 );
 
 
-            if (
-                currentlyActive
-            ) {
+            allCards.forEach(
+                function (card) {
 
-                element.classList
-                    .remove("active");
+                    if (
+                        card !== element
+                    ) {
+
+                        card.classList.remove(
+                            "active"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            element.classList.toggle(
+                "active"
+            );
+
+        }
+
+
+        /* =========================================================
+           LIGHTBOX
+        ========================================================= */
+
+        const lightbox =
+            document.getElementById(
+                "lightbox"
+            );
+
+
+        const lightboxImg =
+            document.getElementById(
+                "lightbox-img"
+            );
+
+
+        const galleryImages =
+            document.querySelectorAll(
+                ".gallery-img, .gallery-img-captioned"
+            );
+
+
+        galleryImages.forEach(
+            function (image) {
+
+                image.addEventListener(
+                    "click",
+                    function () {
+
+                        lightboxImg.src =
+                            image.src;
+
+                        lightbox.classList.add(
+                            "active"
+                        );
+
+                        document.body.style
+                            .overflow = "hidden";
+                    }
+                );
 
             }
+        );
 
-            else {
 
-                element.classList
-                    .add("active");
+        function closeLightbox() {
 
+            lightbox.classList.remove(
+                "active"
+            );
+
+
+            setTimeout(
+                function () {
+
+                    lightboxImg.src = "";
+
+                },
+                300
+            );
+
+
+            if (
+                !document.body.classList
+                    .contains("locked")
+            ) {
+
+                document.body.style
+                    .overflow = "";
             }
 
         }
 
 
-        /* ========================================================
-           SINCRONIZACIÓN VISUAL DE LA BARRA
-        ======================================================== */
-
-        let lyricsAnimationRunning =
-            true;
-
-
-        document.addEventListener(
-            "visibilitychange",
-            function() {
-
-                const track =
-                    document.getElementById(
-                        "lyrics-track"
-                    );
-
+        lightbox.addEventListener(
+            "click",
+            function (event) {
 
                 if (
-                    document.hidden
+                    event.target ===
+                    lightbox
                 ) {
 
-                    track.style.animationPlayState =
-                        "paused";
-
-                }
-
-                else {
-
-                    track.style.animationPlayState =
-                        "running";
+                    closeLightbox();
 
                 }
 
             }
         );
+
+
+        /* =========================================================
+           ESC PARA CERRAR IMAGEN
+        ========================================================= */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    closeLightbox();
+
+                }
+
+            }
+        );
+
+
+        /* =========================================================
+           EVITAR QUE EL CLICK DEL NAVBAR
+           INTERFIERA CON LA PÁGINA
+        ========================================================= */
+
+        document
+            .querySelector(".music-navbar")
+            .addEventListener(
+                "click",
+                function (event) {
+
+                    event.stopPropagation();
+
+                }
+            );
+
 
     </script>
 
