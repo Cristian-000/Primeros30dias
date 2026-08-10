@@ -1,319 +1,441 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>Nuestros 5 Meses</title>
 
-    <title>
-        Cinco meses — y todo lo que viene
-    </title>
-
-    <meta
-        name="theme-color"
-        content="#120D0E"
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
-        rel="stylesheet"
-    >
-
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
 
     <style>
 
-        /* =========================================================
-           PALETA CHAMPAGNE + BURGUNDY
-        ========================================================= */
-
         :root {
+            --bg-main: #08090d;
+            --bg-secondary: #10121a;
+            --paper: #171923;
+            --paper-soft: #1c1e2a;
 
-            --bg-main: #120D0E;
+            --text-main: #f5f1ed;
+            --text-secondary: #aaaab4;
 
-            --bg-deep: #080506;
+            --accent: #d9a0a8;
+            --accent-light: #f0c8cd;
+            --accent-dark: #7d3f4b;
 
-            --paper: #211719;
+            --line: rgba(217,160,168,0.20);
 
-            --paper-soft: #2A1C1F;
-
-            --text-dark: #F7EFE8;
-
-            --text-light: #C8B8B3;
-
-            --accent: #D8B98A;
-
-            --accent-light: #E7D1A9;
-
-            --burgundy: #7B2638;
-
-            --burgundy-light: #A94B5F;
-
-            --border:
-                rgba(216,185,138,0.20);
-
-            --white-border:
-                rgba(255,255,255,0.07);
-
+            --shadow:
+                0 15px 45px rgba(0,0,0,0.55);
         }
-
-
-        /* =========================================================
-           RESET
-        ========================================================= */
 
         * {
-
             box-sizing: border-box;
-
             margin: 0;
-
             padding: 0;
-
-            -webkit-tap-highlight-color:
-                transparent;
-
+            -webkit-tap-highlight-color: transparent;
         }
-
 
         html {
-
             scroll-behavior: smooth;
-
         }
-
 
         body {
-
-            font-family:
-                'Outfit',
-                sans-serif;
-
+            font-family: 'Outfit', sans-serif;
             background:
-
                 radial-gradient(
                     circle at top,
-                    rgba(123,38,56,0.15),
-                    transparent 38%
-                ),
-
-                linear-gradient(
-                    180deg,
-                    #120D0E 0%,
-                    #080506 100%
+                    #171925 0%,
+                    var(--bg-main) 45%
                 );
 
-            color:
-                var(--text-dark);
-
-            line-height:
-                1.7;
-
-            overflow-x:
-                hidden;
-
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-
 
         body.locked {
-
-            overflow:
-                hidden;
-
-            height:
-                100vh;
-
+            overflow: hidden;
+            height: 100vh;
         }
-
 
         /* =========================================================
            PANTALLA DE BIENVENIDA
         ========================================================= */
 
         #welcome-screen {
+            position: fixed;
+            inset: 0;
 
-            position:
-                fixed;
-
-            inset:
-                0;
-
-            width:
-                100%;
-
-            height:
-                100vh;
+            width: 100vw;
+            height: 100vh;
 
             background:
-
                 radial-gradient(
                     circle at center,
-                    #2A171D 0%,
-                    #12090B 45%,
-                    #050304 100%
+                    #211820 0%,
+                    #08090d 65%
                 );
 
-            display:
-                flex;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
-            justify-content:
-                center;
-
-            align-items:
-                center;
-
-            z-index:
-                9999;
+            z-index: 9999;
 
             transition:
-
-                opacity
-                1.2s ease,
-
-                visibility
-                1.2s ease;
-
+                opacity 1s ease,
+                visibility 1s ease;
         }
-
 
         .welcome-content {
+            text-align: center;
+            padding: 25px;
 
-            width:
-                min(90%, 520px);
+            animation:
+                welcomeAppear 1.5s ease forwards;
+        }
 
-            text-align:
-                center;
+        @keyframes welcomeAppear {
 
-            padding:
-                30px;
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
 
         }
 
+        .welcome-heart {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 25px;
 
-        .welcome-small {
-
-            color:
-                var(--accent);
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                5px;
-
-            font-size:
-                0.68rem;
-
-            margin-bottom:
-                25px;
-
+            animation:
+                heartBeat 2s infinite;
         }
 
+        @keyframes heartBeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.12);
+            }
+
+        }
 
         .welcome-title {
+            font-family: 'Playfair Display', serif;
+
+            font-size: clamp(
+                2rem,
+                7vw,
+                3rem
+            );
+
+            font-weight: 500;
+
+            margin-bottom: 10px;
+        }
+
+        .welcome-subtitle {
+            font-family: 'Caveat', cursive;
+
+            font-size: 1.7rem;
+
+            color: var(--accent);
+
+            margin-bottom: 40px;
+        }
+
+        .welcome-btn {
+
+            background: transparent;
+
+            color: var(--accent-light);
+
+            border: 1px solid var(--accent);
+
+            padding:
+                14px
+                38px;
+
+            font-family: 'Outfit', sans-serif;
+
+            font-size: 0.9rem;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            border-radius: 50px;
+
+            cursor: pointer;
+
+            transition:
+                all 0.3s ease;
+        }
+
+        .welcome-btn:hover {
+
+            background: var(--accent);
+
+            color: #08090d;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 25px
+                rgba(217,160,168,0.25);
+        }
+
+        /* =========================================================
+           NAVBAR / LETRA MUSICAL
+        ========================================================= */
+
+        .music-navbar {
+
+            position: sticky;
+
+            top: 0;
+
+            width: 100%;
+
+            height: 76px;
+
+            background:
+                rgba(8,9,13,0.93);
+
+            backdrop-filter:
+                blur(14px);
+
+            -webkit-backdrop-filter:
+                blur(14px);
+
+            border-bottom:
+                1px solid var(--line);
+
+            z-index: 900;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0,0,0,0.35);
+        }
+
+        .music-navbar-inner {
+
+            max-width: 1100px;
+
+            height: 100%;
+
+            margin: auto;
+
+            padding:
+                0 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .song-info {
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+        .vinyl {
+
+            width: 40px;
+            height: 40px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    var(--accent-light) 0 7%,
+                    #20212a 8% 28%,
+                    #090a0d 29% 100%
+                );
+
+            box-shadow:
+                0 0 15px
+                rgba(217,160,168,0.25);
+
+            animation:
+                rotateVinyl 5s linear infinite;
+
+            animation-play-state: paused;
+        }
+
+        .vinyl.playing {
+            animation-play-state: running;
+        }
+
+        @keyframes rotateVinyl {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+        .song-title {
 
             font-family:
                 'Playfair Display',
                 serif;
 
-            font-size:
-                clamp(
-                    2.3rem,
-                    8vw,
-                    3.6rem
-                );
+            font-size: 0.9rem;
 
-            line-height:
-                1.2;
+            white-space: nowrap;
+        }
 
-            margin-bottom:
-                15px;
+        .song-artist {
+
+            font-size: 0.7rem;
+
+            color: var(--text-secondary);
+
+            display: block;
+        }
+
+        /* =========================================================
+           LETRA DESPLAZÁNDOSE
+        ========================================================= */
+
+        .lyrics-window {
+
+            position: relative;
+
+            flex: 1;
+
+            height: 76px;
+
+            overflow: hidden;
+
+            display: flex;
+
+            align-items: center;
+        }
+
+        .lyrics-track {
+
+            position: absolute;
+
+            width: 100%;
+
+            text-align: center;
+
+            animation:
+                lyricsScroll 34s
+                linear
+                infinite;
+
+            transform: translateY(100%);
+        }
+
+        @keyframes lyricsScroll {
+
+            0% {
+                transform:
+                    translateY(110%);
+            }
+
+            100% {
+                transform:
+                    translateY(-150%);
+            }
 
         }
 
-
-        .welcome-subtitle {
+        .lyric-line {
 
             font-family:
-                'Caveat',
-                cursive;
+                'Playfair Display',
+                serif;
+
+            font-style: italic;
 
             color:
                 var(--accent-light);
 
             font-size:
                 clamp(
-                    1.5rem,
-                    5vw,
-                    2rem
+                    0.8rem,
+                    2vw,
+                    1rem
                 );
 
-            margin-bottom:
-                45px;
-
+            margin:
+                10px 0;
         }
 
-
-        .welcome-btn {
-
-            background:
-                transparent;
-
-            color:
-                var(--accent);
-
-            border:
-                1px solid var(--accent);
-
-            padding:
-                15px 45px;
-
-            border-radius:
-                50px;
+        .lyric-line.small {
 
             font-family:
-                'Outfit',
-                sans-serif;
+                'Caveat',
+                cursive;
 
-            font-size:
-                0.9rem;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                3px;
-
-            cursor:
-                pointer;
-
-            transition:
-                all 0.3s ease;
-
-        }
-
-
-        .welcome-btn:hover {
-
-            background:
-                var(--accent);
+            font-size: 1.1rem;
 
             color:
-                #120D0E;
-
-            transform:
-                translateY(-3px);
-
-            box-shadow:
-                0 12px 35px
-                rgba(216,185,138,0.18);
-
+                var(--text-secondary);
         }
 
+        .music-status {
+
+            flex-shrink: 0;
+
+            width: 38px;
+            height: 38px;
+
+            border:
+                1px solid
+                var(--line);
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color:
+                var(--accent);
+
+            cursor: pointer;
+
+            background:
+                rgba(255,255,255,0.03);
+
+            font-size: 0.9rem;
+        }
 
         /* =========================================================
            HEADER
@@ -321,46 +443,27 @@
 
         header {
 
-            text-align:
-                center;
+            text-align: center;
 
             padding:
-                80px 20px 50px;
-
-            max-width:
-                850px;
-
-            margin:
-                auto;
-
+                70px
+                20px
+                45px;
         }
-
 
         .tagline {
 
-            display:
-                block;
+            font-size: 0.75rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: 4px;
 
             color:
                 var(--accent);
 
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                5px;
-
-            font-size:
-                0.7rem;
-
-            font-weight:
-                500;
-
-            margin-bottom:
-                15px;
-
+            font-weight: 500;
         }
-
 
         h1 {
 
@@ -375,31 +478,26 @@
                     4rem
                 );
 
-            line-height:
-                1.15;
+            font-weight: 500;
 
-            margin-bottom:
-                20px;
+            margin-top: 12px;
 
+            line-height: 1.15;
         }
-
 
         .header-subtitle {
 
+            font-family:
+                'Caveat',
+                cursive;
+
             color:
-                var(--text-light);
+                var(--accent-light);
 
-            font-size:
-                1rem;
+            font-size: 1.5rem;
 
-            max-width:
-                620px;
-
-            margin:
-                auto;
-
+            margin-top: 15px;
         }
-
 
         /* =========================================================
            SECCIONES
@@ -407,41 +505,32 @@
 
         section {
 
-            width:
-                min(
-                    800px,
-                    calc(100% - 40px)
-                );
+            padding:
+                40px 20px;
+
+            max-width:
+                800px;
 
             margin:
-                0 auto 50px;
+                0 auto;
 
-            padding:
-                35px 0;
-
-            opacity:
-                0;
+            opacity: 0;
 
             transform:
-                translateY(35px);
+                translateY(30px);
 
             transition:
                 opacity 0.9s ease,
                 transform 0.9s ease;
-
         }
-
 
         section.visible {
 
-            opacity:
-                1;
+            opacity: 1;
 
             transform:
                 translateY(0);
-
         }
-
 
         .section-title {
 
@@ -449,38 +538,23 @@
                 'Playfair Display',
                 serif;
 
+            font-size: 1.8rem;
+
+            margin-bottom: 10px;
+
             color:
-                var(--accent);
-
-            font-size:
-                clamp(
-                    1.7rem,
-                    6vw,
-                    2.2rem
-                );
-
-            line-height:
-                1.25;
-
-            margin-bottom:
-                12px;
-
+                var(--accent-light);
         }
-
 
         .section-text {
 
+            font-size: 1rem;
+
             color:
-                var(--text-light);
+                var(--text-secondary);
 
-            font-size:
-                1rem;
-
-            margin-bottom:
-                25px;
-
+            margin-bottom: 25px;
         }
-
 
         /* =========================================================
            CONTADOR
@@ -488,64 +562,52 @@
 
         .counter-box {
 
-            position:
-                relative;
-
-            text-align:
-                center;
-
-            padding:
-                35px 20px;
+            text-align: center;
 
             background:
-
                 linear-gradient(
                     145deg,
-                    #2A1C1F,
-                    #171011
+                    var(--paper),
+                    #101118
                 );
 
-            border:
-                1px solid var(--white-border);
+            padding:
+                30px 20px;
 
             border-radius:
                 18px;
 
             box-shadow:
-                0 20px 50px
-                rgba(0,0,0,0.65);
+                var(--shadow);
 
+            border:
+                1px solid
+                var(--line);
+
+            position: relative;
+
+            overflow: hidden;
         }
-
 
         .counter-box::before {
 
-            content:
-                "";
+            content: "";
 
-            position:
-                absolute;
+            position: absolute;
 
-            top:
-                0;
+            width: 150px;
+            height: 150px;
 
-            left:
-                50%;
-
-            width:
-                70px;
-
-            height:
-                2px;
-
-            transform:
-                translateX(-50%);
+            border-radius: 50%;
 
             background:
                 var(--accent);
 
-        }
+            opacity: 0.04;
 
+            top: -80px;
+            right: -50px;
+        }
 
         .counter-numbers {
 
@@ -555,83 +617,78 @@
 
             font-size:
                 clamp(
-                    1.4rem,
-                    5vw,
-                    2rem
+                    1.2rem,
+                    4vw,
+                    1.7rem
                 );
 
             color:
-                var(--accent);
+                var(--accent-light);
 
-            margin-bottom:
-                10px;
-
+            font-weight: 600;
         }
-
 
         .counter-label {
 
+            font-size: 0.75rem;
+
             color:
-                var(--text-light);
+                var(--text-secondary);
 
-            font-size:
-                0.75rem;
+            margin-top: 8px;
 
-            text-transform:
-                uppercase;
+            text-transform: uppercase;
 
-            letter-spacing:
-                2px;
-
+            letter-spacing: 1.5px;
         }
 
-
         /* =========================================================
-           FRASES
+           CITA
         ========================================================= */
 
         .quote-section {
 
-            position:
-                relative;
-
-            text-align:
-                center;
+            text-align: center;
 
             padding:
-                65px 30px;
+                65px
+                30px;
 
             margin:
-                20px 0 60px;
+                30px 0;
 
             background:
-
                 linear-gradient(
                     145deg,
-                    #291A1E,
-                    #0B0708
+                    #1c1820,
+                    #0c0d12
                 );
 
             border-radius:
                 22px;
 
-            border:
-                1px solid var(--white-border);
-
             box-shadow:
-                0 20px 60px
-                rgba(0,0,0,0.7);
+                var(--shadow);
 
-            overflow:
-                hidden;
+            position: relative;
 
+            border:
+                1px solid
+                var(--line);
+
+            overflow: hidden;
         }
-
 
         .quote-section::before {
 
             content:
                 "“";
+
+            font-family:
+                serif;
+
+            font-size:
+                7rem;
 
             position:
                 absolute;
@@ -642,186 +699,41 @@
             left:
                 20px;
 
-            font-family:
-                Georgia,
-                serif;
-
-            font-size:
-                7rem;
-
             color:
                 var(--accent);
 
             opacity:
-                0.10;
-
+                0.12;
         }
-
-
-        .quote-section::after {
-
-            content:
-                "”";
-
-            position:
-                absolute;
-
-            bottom:
-                -65px;
-
-            right:
-                20px;
-
-            font-family:
-                Georgia,
-                serif;
-
-            font-size:
-                7rem;
-
-            color:
-                var(--accent);
-
-            opacity:
-                0.10;
-
-        }
-
 
         .quote-text {
-
-            position:
-                relative;
-
-            z-index:
-                1;
 
             font-family:
                 'Playfair Display',
                 serif;
 
-            font-style:
-                italic;
-
             font-size:
                 clamp(
                     1.2rem,
                     4vw,
-                    1.55rem
+                    1.5rem
                 );
 
             line-height:
                 1.7;
 
             color:
-                var(--text-dark);
-
-        }
-
-
-        /* =========================================================
-           VIDEO YOUTUBE
-        ========================================================= */
-
-        .video-section {
-
-            text-align:
-                center;
-
-        }
-
-
-        .video-intro {
-
-            max-width:
-                650px;
-
-            margin:
-                0 auto 30px;
-
-        }
-
-
-        .video-intro .section-title {
-
-            text-align:
-                center;
-
-        }
-
-
-        .youtube-container {
-
-            position:
-                relative;
-
-            width:
-                100%;
-
-            aspect-ratio:
-                16 / 9;
-
-            border-radius:
-                18px;
-
-            overflow:
-                hidden;
-
-            background:
-                #000;
-
-            border:
-                1px solid
-                var(--border);
-
-            box-shadow:
-
-                0 20px 60px
-                rgba(0,0,0,0.75);
-
-        }
-
-
-        .youtube-container iframe {
-
-            position:
-                absolute;
-
-            inset:
-                0;
-
-            width:
-                100%;
-
-            height:
-                100%;
-
-            border:
-                0;
-
-        }
-
-
-        .video-caption {
-
-            font-family:
-                'Playfair Display',
-                serif;
+                var(--text-main);
 
             font-style:
                 italic;
 
-            color:
-                var(--accent);
+            position:
+                relative;
 
-            font-size:
-                1.1rem;
-
-            margin-top:
-                20px;
-
+            z-index:
+                2;
         }
-
 
         /* =========================================================
            DESCUBRIMIENTOS
@@ -832,488 +744,211 @@
             background:
                 var(--paper);
 
-            border:
-                1px solid
-                var(--white-border);
+            border-radius:
+                14px;
+
+            margin-bottom:
+                15px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0,0,0,0.35);
 
             border-left:
                 2px solid
                 var(--accent);
 
-            border-radius:
-                14px;
-
-            margin-bottom:
-                14px;
-
             overflow:
                 hidden;
-
-            box-shadow:
-                0 10px 25px
-                rgba(0,0,0,0.45);
-
-            transition:
-                transform 0.3s ease;
-
         }
-
-
-        .discovery-card:hover {
-
-            transform:
-                translateX(3px);
-
-        }
-
 
         .discovery-header {
 
             padding:
                 20px;
 
-            display:
-                flex;
+            font-weight:
+                500;
 
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            gap:
-                20px;
+            font-size:
+                1.05rem;
 
             cursor:
                 pointer;
 
-            font-size:
-                1rem;
+            display:
+                flex;
 
-            font-weight:
-                500;
+            justify-content:
+                space-between;
 
-            color:
-                var(--text-dark);
-
+            align-items:
+                center;
         }
-
 
         .discovery-header::after {
 
             content:
-                "+";
+                '+';
+
+            font-size:
+                1.5rem;
 
             color:
                 var(--accent);
 
-            font-size:
-                1.6rem;
-
             transition:
                 transform 0.3s ease;
-
         }
-
 
         .discovery-card.active
         .discovery-header::after {
 
             transform:
                 rotate(45deg);
-
         }
-
 
         .discovery-content {
 
             max-height:
                 0;
 
-            overflow:
-                hidden;
-
             padding:
                 0 20px;
 
             color:
-                var(--text-light);
+                var(--text-secondary);
 
             transition:
                 max-height 0.5s ease,
                 padding 0.5s ease;
-
         }
-
 
         .discovery-card.active
         .discovery-content {
 
             max-height:
-                600px;
+                400px;
 
             padding:
-                0 20px 25px;
-
+                0 20px
+                20px;
         }
-
 
         .discovery-content p {
 
             margin-bottom:
                 10px;
-
         }
-
 
         /* =========================================================
-           VALORES
+           NUEVA SECCIÓN — NUESTRO FUTURO
         ========================================================= */
 
-        .values-intro {
-
-            text-align:
-                center;
-
-            margin-bottom:
-                30px;
-
-        }
-
-
-        .values-intro .section-title {
-
-            text-align:
-                center;
-
-        }
-
-
-        .values-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap:
-                15px;
-
-        }
-
-
-        .value-card {
-
-            position:
-                relative;
+        .future-card {
 
             background:
-
                 linear-gradient(
                     145deg,
-                    #2A1C1F,
-                    #171011
+                    #21171c,
+                    #111219
                 );
 
             border:
                 1px solid
-                var(--border);
+                var(--line);
 
             border-radius:
-                16px;
+                20px;
 
             padding:
-                28px 20px;
+                35px 28px;
 
-            min-height:
-                190px;
+            box-shadow:
+                var(--shadow);
 
-            display:
-                flex;
-
-            flex-direction:
-                column;
-
-            justify-content:
-                center;
-
-            text-align:
-                center;
+            position:
+                relative;
 
             overflow:
                 hidden;
-
-            transition:
-                transform 0.3s ease,
-                border-color 0.3s ease;
-
         }
 
+        .future-card::after {
 
-        .value-card:hover {
+            content:
+                "♡";
 
-            transform:
-                translateY(-4px);
+            position:
+                absolute;
 
-            border-color:
-                var(--accent);
+            right:
+                20px;
 
-        }
-
-
-        .value-number {
-
-            font-family:
-                'Playfair Display',
-                serif;
+            bottom:
+                -25px;
 
             font-size:
-                2rem;
+                10rem;
 
             color:
                 var(--accent);
 
             opacity:
-                0.5;
-
-            margin-bottom:
-                5px;
-
+                0.035;
         }
 
+        .future-item {
 
-        .value-card h3 {
+            padding:
+                20px 0;
 
-            font-family:
-                'Playfair Display',
-                serif;
-
-            font-size:
-                1.25rem;
-
-            margin-bottom:
-                10px;
-
-            color:
-                var(--text-dark);
-
-        }
-
-
-        .value-card p {
-
-            color:
-                var(--text-light);
-
-            font-size:
-                0.9rem;
-
-            line-height:
-                1.5;
-
-        }
-
-
-        /* =========================================================
-           PROMESA
-        ========================================================= */
-
-        .promise-box {
+            border-bottom:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.06
+                );
 
             position:
                 relative;
 
-            padding:
-                50px 30px;
-
-            text-align:
-                center;
-
-            border-radius:
-                20px;
-
-            background:
-
-                radial-gradient(
-                    circle at center,
-                    rgba(123,38,56,0.25),
-                    transparent 65%
-                ),
-
-                #151011;
-
-            border:
-                1px solid
-                rgba(216,185,138,0.25);
-
-            box-shadow:
-                0 20px 50px
-                rgba(0,0,0,0.6);
-
+            z-index:
+                2;
         }
 
+        .future-item:last-child {
 
-        .promise-symbol {
-
-            font-size:
-                2rem;
-
-            color:
-                var(--accent);
-
-            margin-bottom:
-                15px;
-
+            border-bottom:
+                none;
         }
 
-
-        .promise-title {
+        .future-item h3 {
 
             font-family:
                 'Playfair Display',
                 serif;
-
-            color:
-                var(--accent);
-
-            font-size:
-                1.8rem;
-
-            margin-bottom:
-                20px;
-
-        }
-
-
-        .promise-text {
-
-            font-family:
-                'Playfair Display',
-                serif;
-
-            font-style:
-                italic;
-
-            font-size:
-                1.2rem;
-
-            line-height:
-                1.8;
-
-        }
-
-
-        /* =========================================================
-           LOS DOS CONTRA EL MUNDO
-        ========================================================= */
-
-        .together-section {
-
-            text-align:
-                center;
-
-            padding:
-                70px 25px;
-
-            background:
-
-                linear-gradient(
-                    145deg,
-                    #2A171D,
-                    #090506
-                );
-
-            border-radius:
-                22px;
-
-            border:
-                1px solid
-                var(--border);
-
-            box-shadow:
-                0 20px 60px
-                rgba(0,0,0,0.7);
-
-        }
-
-
-        .together-small {
-
-            color:
-                var(--accent);
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                4px;
-
-            font-size:
-                0.7rem;
-
-            margin-bottom:
-                20px;
-
-        }
-
-
-        .together-title {
-
-            font-family:
-                'Playfair Display',
-                serif;
-
-            font-size:
-                clamp(
-                    2rem,
-                    8vw,
-                    3rem
-                );
-
-            line-height:
-                1.2;
-
-            margin-bottom:
-                25px;
-
-        }
-
-
-        .together-text {
-
-            color:
-                var(--text-light);
-
-            max-width:
-                600px;
-
-            margin:
-                auto;
-
-            font-size:
-                1rem;
-
-        }
-
-
-        .together-final {
-
-            font-family:
-                'Caveat',
-                cursive;
 
             color:
                 var(--accent-light);
 
             font-size:
-                2rem;
+                1.25rem;
 
-            margin-top:
-                30px;
-
+            margin-bottom:
+                8px;
         }
 
+        .future-item p {
+
+            color:
+                var(--text-secondary);
+
+            font-size:
+                0.98rem;
+        }
 
         /* =========================================================
            GALERÍAS
@@ -1325,39 +960,26 @@
                 100vw;
 
             margin-left:
-                calc(
-                    (
-                        100vw -
-                        min(
-                            800px,
-                            calc(100vw - 40px)
-                        )
-                    ) / -2
-                );
+                -20px;
 
-            padding:
-                0 20px;
+            padding-left:
+                20px;
 
+            padding-right:
+                20px;
         }
 
-
-        @media (min-width: 840px) {
+        @media (min-width: 800px) {
 
             .gallery-wrapper {
 
-                width:
-                    100%;
+                width: 100%;
 
-                margin-left:
-                    0;
+                margin-left: 0;
 
-                padding:
-                    0;
-
+                padding: 0;
             }
-
         }
-
 
         .horizontal-scroll {
 
@@ -1376,22 +998,16 @@
             padding-bottom:
                 15px;
 
-            scrollbar-width:
-                none;
-
             -webkit-overflow-scrolling:
                 touch;
 
+            scrollbar-width:
+                none;
         }
-
 
         .horizontal-scroll::-webkit-scrollbar {
-
-            display:
-                none;
-
+            display: none;
         }
-
 
         .gallery-img,
         .gallery-img-captioned {
@@ -1409,36 +1025,27 @@
                 cover;
 
             border-radius:
-                14px;
+                15px;
 
             scroll-snap-align:
                 center;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.65);
 
             cursor:
                 pointer;
 
             border:
                 1px solid
-                var(--white-border);
-
-            box-shadow:
-                0 12px 35px
-                rgba(0,0,0,0.75);
-
-            transition:
-                transform 0.3s ease;
-
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.05
+                );
         }
-
-
-        .gallery-img:hover,
-        .gallery-img-captioned:hover {
-
-            transform:
-                scale(1.015);
-
-        }
-
 
         .gallery-figure {
 
@@ -1459,26 +1066,25 @@
 
             gap:
                 12px;
-
         }
 
-
         .gallery-figure figcaption {
+
+            font-size:
+                0.95rem;
+
+            color:
+                var(--text-main);
 
             text-align:
                 center;
 
-            color:
-                var(--text-dark);
-
-            font-size:
-                0.9rem;
-
             line-height:
-                1.5;
+                1.4;
 
+            font-weight:
+                500;
         }
-
 
         .gallery-text-card {
 
@@ -1492,15 +1098,16 @@
                 350px;
 
             background:
-
-                linear-gradient(
-                    145deg,
-                    #2A1C1F,
-                    #171011
-                );
+                var(--paper);
 
             border-radius:
-                14px;
+                15px;
+
+            scroll-snap-align:
+                center;
+
+            box-shadow:
+                var(--shadow);
 
             display:
                 flex;
@@ -1519,17 +1126,8 @@
 
             border:
                 1px solid
-                var(--border);
-
-            box-shadow:
-                0 12px 35px
-                rgba(0,0,0,0.7);
-
-            scroll-snap-align:
-                center;
-
+                var(--line);
         }
-
 
         .gallery-text-card p {
 
@@ -1537,17 +1135,15 @@
                 'Playfair Display',
                 serif;
 
-            color:
-                var(--accent);
-
             font-size:
                 1.2rem;
 
+            color:
+                var(--accent-light);
+
             line-height:
-                1.6;
-
+                1.5;
         }
-
 
         /* =========================================================
            CARTA
@@ -1556,88 +1152,41 @@
         .letter-section {
 
             background:
-
                 linear-gradient(
                     145deg,
-                    #2A1C1F,
-                    #171011
+                    #1b1c25,
+                    #111219
                 );
 
             padding:
-                45px 30px;
+                40px 30px;
 
             border-radius:
-                16px;
+                18px;
+
+            box-shadow:
+                0 15px 45px
+                rgba(0,0,0,0.55);
+
+            margin-bottom:
+                60px;
 
             border-top:
                 2px solid
                 var(--accent);
-
-            box-shadow:
-                0 20px 60px
-                rgba(0,0,0,0.7);
-
-            margin-bottom:
-                40px;
-
         }
-
 
         .letter-content p {
 
             margin-bottom:
-                18px;
+                17px;
 
             font-size:
-                1.02rem;
+                1.05rem;
 
             color:
-                var(--text-dark);
-
+                var(--text-main);
         }
-
-
-        .letter-opening {
-
-            font-family:
-                'Caveat',
-                cursive;
-
-            color:
-                var(--accent);
-
-            font-size:
-                2rem;
-
-            margin-bottom:
-                20px !important;
-
-        }
-
-
-        .highlight-letter {
-
-            text-align:
-                center;
-
-            font-family:
-                'Playfair Display',
-                serif;
-
-            font-size:
-                1.45rem !important;
-
-            color:
-                var(--accent-light) !important;
-
-            font-style:
-                italic;
-
-            margin:
-                35px 0 !important;
-
-        }
-
 
         .signature {
 
@@ -1645,15 +1194,10 @@
                 right;
 
             margin-top:
-                45px;
-
+                40px;
         }
 
-
         .signature .title {
-
-            display:
-                block;
 
             font-family:
                 'Caveat',
@@ -1665,46 +1209,40 @@
             color:
                 var(--accent);
 
-            margin-bottom:
-                5px;
-
-        }
-
-
-        .signature .sub {
-
             display:
                 block;
+        }
 
-            color:
-                var(--text-light);
+        .signature .sub {
 
             font-size:
                 0.9rem;
 
-        }
-
-
-        .signature .name {
+            color:
+                var(--text-secondary);
 
             display:
                 block;
+        }
+
+        .signature .name {
 
             font-family:
                 'Playfair Display',
                 serif;
 
-            color:
-                var(--text-dark);
-
             font-size:
                 1.4rem;
+
+            color:
+                var(--text-main);
 
             font-weight:
                 600;
 
+            display:
+                block;
         }
-
 
         /* =========================================================
            LIGHTBOX
@@ -1725,7 +1263,12 @@
                 100%;
 
             background:
-                rgba(0,0,0,0.97);
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.96
+                );
 
             display:
                 flex;
@@ -1737,7 +1280,7 @@
                 center;
 
             z-index:
-                10000;
+                1000;
 
             opacity:
                 0;
@@ -1747,9 +1290,7 @@
 
             transition:
                 opacity 0.3s ease;
-
         }
-
 
         .lightbox.active {
 
@@ -1758,30 +1299,22 @@
 
             pointer-events:
                 auto;
-
         }
-
 
         .lightbox img {
 
             max-width:
-                92%;
+                90%;
 
             max-height:
-                88vh;
+                90vh;
+
+            border-radius:
+                10px;
 
             object-fit:
                 contain;
-
-            border-radius:
-                8px;
-
-            box-shadow:
-                0 20px 70px
-                rgba(0,0,0,0.9);
-
         }
-
 
         .close-btn {
 
@@ -1789,7 +1322,7 @@
                 absolute;
 
             top:
-                15px;
+                20px;
 
             right:
                 20px;
@@ -1797,106 +1330,18 @@
             color:
                 white;
 
-            background:
-                none;
-
-            border:
-                none;
-
             font-size:
                 3rem;
 
-            line-height:
-                1;
-
-            cursor:
-                pointer;
-
-        }
-
-
-        /* =========================================================
-           BOTÓN MÚSICA
-        ========================================================= */
-
-        .music-btn {
-
-            position:
-                fixed;
-
-            bottom:
-                22px;
-
-            right:
-                22px;
-
-            width:
-                55px;
-
-            height:
-                55px;
-
-            border-radius:
-                50%;
-
             background:
-                var(--paper);
-
-            color:
-                var(--accent);
+                none;
 
             border:
-                1px solid
-                var(--accent);
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            font-size:
-                1.15rem;
+                none;
 
             cursor:
                 pointer;
-
-            z-index:
-                999;
-
-            box-shadow:
-                0 8px 25px
-                rgba(0,0,0,0.8);
-
-            transition:
-                transform 0.2s ease,
-                background 0.2s ease,
-                color 0.2s ease;
-
         }
-
-
-        .music-btn:hover {
-
-            background:
-                var(--accent);
-
-            color:
-                #120D0E;
-
-        }
-
-
-        .music-btn:active {
-
-            transform:
-                scale(0.9);
-
-        }
-
 
         /* =========================================================
            FOOTER
@@ -1908,114 +1353,115 @@
                 center;
 
             padding:
-                20px 20px 70px;
+                20px
+                20px
+                50px;
 
             color:
-                #66585A;
+                var(--text-secondary);
 
             font-size:
-                0.75rem;
-
-            letter-spacing:
-                1px;
-
+                0.8rem;
         }
-
 
         footer span {
 
             color:
                 var(--accent);
-
         }
-
 
         /* =========================================================
            RESPONSIVE
         ========================================================= */
 
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
 
-            .values-grid {
+            .music-navbar {
 
-                grid-template-columns:
-                    1fr;
-
+                height:
+                    70px;
             }
 
+            .music-navbar-inner {
 
-            .value-card {
+                padding:
+                    0 12px;
 
-                min-height:
-                    160px;
-
+                gap:
+                    10px;
             }
 
+            .song-info {
+
+                gap:
+                    8px;
+            }
+
+            .vinyl {
+
+                width:
+                    34px;
+
+                height:
+                    34px;
+            }
+
+            .song-title {
+
+                font-size:
+                    0.75rem;
+            }
+
+            .song-artist {
+
+                font-size:
+                    0.6rem;
+            }
+
+            .lyrics-window {
+
+                display:
+                    none;
+            }
+
+            .music-status {
+
+                width:
+                    34px;
+
+                height:
+                    34px;
+            }
+
+            header {
+
+                padding-top:
+                    55px;
+            }
 
             .letter-section {
 
                 padding:
-                    35px 24px;
-
+                    35px 22px;
             }
-
-
-            section {
-
-                width:
-                    calc(100% - 30px);
-
-            }
-
-
-            .gallery-wrapper {
-
-                margin-left:
-                    calc(
-                        (
-                            100vw -
-                            100%
-                        ) / -2
-                    );
-
-            }
-
-
-            .promise-box {
-
-                padding:
-                    45px 23px;
-
-            }
-
-
-            .together-section {
-
-                padding:
-                    60px 22px;
-
-            }
-
         }
 
     </style>
-
 </head>
-
 
 <body class="locked">
 
 
     <!-- =========================================================
-         BIENVENIDA
+         PANTALLA DE BIENVENIDA
     ========================================================= -->
 
     <div id="welcome-screen">
 
         <div class="welcome-content">
 
-            <div class="welcome-small">
-                11 de agosto de 2026
+            <div class="welcome-heart">
+                ♡
             </div>
 
             <h2 class="welcome-title">
@@ -2023,14 +1469,15 @@
             </h2>
 
             <p class="welcome-subtitle">
-                Hoy cumplimos cinco meses...
+                Cinco meses de nosotros...
             </p>
 
             <button
                 class="welcome-btn"
-                onclick="startExperience()"
-            >
+                onclick="startExperience()">
+
                 Entrar
+
             </button>
 
         </div>
@@ -2039,35 +1486,155 @@
 
 
     <!-- =========================================================
-         AUDIO LOCAL
+         NAVBAR MUSICAL
     ========================================================= -->
 
-    <audio
-        id="bg-music"
-        loop
-        preload="auto"
-    >
+    <nav class="music-navbar">
 
-        <source
-            src="./Bonnie Tyler - Total Eclipse of the Heart (Turn Around) (Official Video).mp3"
-            type="audio/mpeg"
-        >
+        <div class="music-navbar-inner">
 
-    </audio>
+
+            <div class="song-info">
+
+                <div
+                    id="vinyl"
+                    class="vinyl">
+                </div>
+
+                <div>
+
+                    <div class="song-title">
+                        Can't Help Falling in Love
+                    </div>
+
+                    <span class="song-artist">
+                        Elvis Presley
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="lyrics-window">
+
+                <div
+                    id="lyrics-track"
+                    class="lyrics-track">
+
+                    <!--
+                        TEXTO ORIGINAL INSPIRADO EN EL SENTIMIENTO
+                        DE LA CANCIÓN.
+
+                        NO ES UNA TRADUCCIÓN DE LA LETRA.
+                    -->
+
+                    <div class="lyric-line">
+                        Hay cosas que simplemente no podemos explicar.
+                    </div>
+
+                    <div class="lyric-line">
+                        Algunas personas llegan y el corazón sabe.
+                    </div>
+
+                    <div class="lyric-line">
+                        Sin hacer ruido, sin pedir permiso.
+                    </div>
+
+                    <div class="lyric-line">
+                        Simplemente sabemos que queremos quedarnos.
+                    </div>
+
+                    <div class="lyric-line small">
+                        Y yo quiero quedarme con vos.
+                    </div>
+
+                    <div class="lyric-line">
+                        Elegirte una y otra vez.
+                    </div>
+
+                    <div class="lyric-line">
+                        En los días fáciles y también en los difíciles.
+                    </div>
+
+                    <div class="lyric-line">
+                        Porque lo nuestro no se trata solamente de sentir.
+                    </div>
+
+                    <div class="lyric-line">
+                        También se trata de elegirnos.
+                    </div>
+
+                    <div class="lyric-line">
+                        De cuidarnos.
+                    </div>
+
+                    <div class="lyric-line">
+                        De respetarnos.
+                    </div>
+
+                    <div class="lyric-line">
+                        Y de construir juntos.
+                    </div>
+
+                    <div class="lyric-line small">
+                        Vos y yo.
+                    </div>
+
+                    <div class="lyric-line small">
+                        Siempre nosotros.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="music-status"
+                class="music-status"
+                onclick="toggleMusic()">
+
+                ▶
+
+            </button>
+
+        </div>
+
+    </nav>
 
 
     <!-- =========================================================
-         BOTÓN DE MÚSICA
-    ========================================================= -->
+         AUDIO YOUTUBE
+    =========================================================
 
-    <button
-        id="music-toggle"
-        class="music-btn"
-        onclick="toggleMusic()"
-        aria-label="Controlar música"
-    >
-        ⏸️
-    </button>
+         IMPORTANTE:
+
+         Cambiá VIDEO_ID por el ID del video oficial de YouTube
+         que quieras utilizar.
+
+         Ejemplo:
+         https://www.youtube.com/watch?v=XXXXXXXXXXX
+
+         El ID sería:
+         XXXXXXXXXXX
+
+    -->
+
+    <div
+        id="youtube-player-container"
+        style="
+            position:absolute;
+            width:1px;
+            height:1px;
+            overflow:hidden;
+            opacity:0;
+            pointer-events:none;
+        ">
+
+        <div id="youtube-player"></div>
+
+    </div>
 
 
     <!-- =========================================================
@@ -2081,18 +1648,11 @@
         </span>
 
         <h1>
-            Cinco meses
-            <br>
-            <em>y todo lo que viene</em>
+            Cinco meses con vos
         </h1>
 
         <p class="header-subtitle">
-
-            Cinco meses desde aquel 11 de marzo,
-            y cada día un poco más convencido
-            de que quiero seguir escribiendo
-            esta historia a tu lado.
-
+            y siento que recién estamos comenzando...
         </p>
 
     </header>
@@ -2108,16 +1668,16 @@
 
             <div
                 id="counter-display"
-                class="counter-numbers"
-            >
+                class="counter-numbers">
+
                 Cargando...
+
             </div>
 
             <div class="counter-label">
 
-                Escribiendo nuestra historia
-                desde el 11 de marzo de 2026
-                a las 17:00 hs
+                Escribiendo nuestra historia desde el
+                11 de marzo a las 17:00 hs
 
             </div>
 
@@ -2127,7 +1687,7 @@
 
 
     <!-- =========================================================
-         PUNTA BALLENA
+         PRIMERA CITA
     ========================================================= -->
 
     <section class="fade-in">
@@ -2139,65 +1699,11 @@
                 "Ese primer beso, allá en Punta Ballena,
                 bajo las estrellas y con esa luna tan brillante...
                 ahí mismo mi corazón explotaba de alegría
-                y mi alma dijo:
-
-                <br><br>
-
-                es acá."
+                y mi alma dijo: es acá."
 
             </p>
 
         </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         VIDEO DE YOUTUBE
-    ========================================================= -->
-
-    <section class="fade-in video-section">
-
-        <div class="video-intro">
-
-            <h2 class="section-title">
-                Una canción para nosotros
-            </h2>
-
-            <p class="section-text">
-
-                Hay canciones que simplemente parecen
-                encontrar las palabras que uno no sabe cómo decir.
-
-                Esta es para vos.
-
-            </p>
-
-        </div>
-
-
-        <div class="youtube-container">
-
-            <iframe
-                src="https://www.youtube.com/embed/TlrNxJqODBc?rel=0&modestbranding=1"
-                title="Elvis Presley - Can't Help Falling in Love"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-            >
-            </iframe>
-
-        </div>
-
-
-        <p class="video-caption">
-
-            "Can't Help Falling in Love"
-
-            <br>
-
-            Elvis Presley
-
-        </p>
 
     </section>
 
@@ -2209,29 +1715,25 @@
     <section class="fade-in">
 
         <h2 class="section-title">
-            Cinco meses, cinco descubrimientos
+            Cinco meses, cinco cosas que amo de vos
         </h2>
 
         <p class="section-text">
 
-            Este mes no solamente descubrí cosas nuevas
-            de vos.
-
-            Descubrí cosas nuevas de nosotros.
+            Cinco meses parecen poco cuando los miramos
+            desde afuera. Pero cuando los vivimos juntos,
+            hay muchísimo que descubrimos.
 
         </p>
 
 
-        <!-- 1 -->
-
         <div
             class="discovery-card"
-            onclick="toggleCard(this)"
-        >
+            onclick="toggleCard(this)">
 
             <div class="discovery-header">
 
-                1. Tu forma de hacerme sentir en casa
+                1. Tu forma de reír
 
             </div>
 
@@ -2239,17 +1741,15 @@
 
                 <p>
 
-                    Descubrí que estar con vos tiene algo especial:
-                    puedo simplemente ser yo.
+                    Cómo se te achinan los ojos cuando te
+                    reís con ganas.
 
                 </p>
 
                 <p>
 
-                    Entre risas, abrazos, conversaciones
-                    y momentos simples, cada vez siento más
-                    que no necesito estar en ningún otro lugar
-                    cuando estoy a tu lado.
+                    Y esa carcajada de loca que ya aprendí
+                    a reconocer incluso antes de verte.
 
                 </p>
 
@@ -2258,16 +1758,13 @@
         </div>
 
 
-        <!-- 2 -->
-
         <div
             class="discovery-card"
-            onclick="toggleCard(this)"
-        >
+            onclick="toggleCard(this)">
 
             <div class="discovery-header">
 
-                2. Que compartimos una misma idea de familia
+                2. La tranquilidad que me das
 
             </div>
 
@@ -2275,21 +1772,15 @@
 
                 <p>
 
-                    Este mes profundizamos en algo que para mí
-                    tiene un valor enorme:
-
-                    descubrimos que los dos soñamos
-                    con formar una familia.
+                    Cómo un simple abrazo tuyo puede
+                    cambiar completamente mi día.
 
                 </p>
 
                 <p>
 
-                    Hablar de tener hijos,
-                    de criarlos juntos,
-                    de acompañarlos y construir un hogar
-                    lleno de amor hizo que pudiera imaginar
-                    un futuro mucho más concreto a tu lado.
+                    Con vos aprendí que también existe
+                    una forma tranquila de amar.
 
                 </p>
 
@@ -2298,16 +1789,13 @@
         </div>
 
 
-        <!-- 3 -->
-
         <div
             class="discovery-card"
-            onclick="toggleCard(this)"
-        >
+            onclick="toggleCard(this)">
 
             <div class="discovery-header">
 
-                3. Que los dos queremos elegirnos para siempre
+                3. Tu pasión
 
             </div>
 
@@ -2315,21 +1803,15 @@
 
                 <p>
 
-                    Descubrimos que para los dos
-                    el matrimonio no es solamente
-                    una fiesta o un papel.
+                    Te estás redescubriendo con la peluquería
+                    y me encanta verte encontrar algo que
+                    realmente te apasiona.
 
                 </p>
 
                 <p>
 
-                    Es una decisión.
-
-                    Es mirarnos un día y decir:
-
-                    "Te elijo a vos,
-                    y quiero seguir eligiéndote
-                    todos los días."
+                    Me hace feliz verte crecer.
 
                 </p>
 
@@ -2338,16 +1820,13 @@
         </div>
 
 
-        <!-- 4 -->
-
         <div
             class="discovery-card"
-            onclick="toggleCard(this)"
-        >
+            onclick="toggleCard(this)">
 
             <div class="discovery-header">
 
-                4. Que la fidelidad significa mucho para los dos
+                4. Cómo encajamos
 
             </div>
 
@@ -2355,24 +1834,16 @@
 
                 <p>
 
-                    Este mes también entendí algo todavía
-                    más profundo de nosotros:
-
-                    queremos cuidarnos y respetarnos siempre.
+                    Lo natural que se siente caminar
+                    a tu lado y pensar en nosotros.
 
                 </p>
 
                 <p>
 
-                    Ser fieles no solamente cuando todo está bien,
-                    sino también cuando aparezcan dificultades,
-                    tentaciones o momentos complicados.
-
-                </p>
-
-                <p>
-
-                    Elegirnos incluso cuando nadie esté mirando.
+                    Compartimos valores, formas de entender
+                    una relación y una visión de futuro
+                    muy parecida.
 
                 </p>
 
@@ -2381,16 +1852,13 @@
         </div>
 
 
-        <!-- 5 -->
-
         <div
             class="discovery-card"
-            onclick="toggleCard(this)"
-        >
+            onclick="toggleCard(this)">
 
             <div class="discovery-header">
 
-                5. Que queremos ser los dos contra el mundo
+                5. Que soñamos parecido
 
             </div>
 
@@ -2398,42 +1866,25 @@
 
                 <p>
 
-                    No significa que estemos solos contra todos.
+                    Este mes descubrimos algo todavía
+                    más profundo: no solamente nos gustamos,
+                    también queremos cosas parecidas para
+                    nuestras vidas.
 
                 </p>
 
                 <p>
 
-                    Significa que cuando llegue un problema,
-                    quiero que seamos un equipo.
+                    Queremos construir una familia,
+                    casarnos, sernos fieles y caminar
+                    juntos en serio.
 
                 </p>
 
                 <p>
 
-                    Vos y yo.
-
-                    Hablando.
-
-                    Cuidándonos.
-
-                    Defendiéndonos.
-
-                    Buscando soluciones.
-
-                </p>
-
-                <p>
-
-                    Porque si algún día la vida se pone difícil,
-                    quiero poder mirarte y pensar:
-
-                </p>
-
-                <p>
-
-                    "Estamos juntos.
-                    Ya vamos a salir adelante."
+                    Dos personas.
+                    Un mismo equipo.
 
                 </p>
 
@@ -2445,111 +1896,107 @@
 
 
     <!-- =========================================================
-         CUATRO VALORES
+         NUESTRO FUTURO
     ========================================================= -->
 
     <section class="fade-in">
 
-        <div class="values-intro">
+        <h2 class="section-title">
+            Lo que estamos construyendo
+        </h2>
 
-            <h2 class="section-title">
-                Lo que descubrimos este mes
-            </h2>
+        <p class="section-text">
 
-            <p class="section-text">
+            Este mes no solamente descubrimos más cosas
+            el uno del otro. Descubrimos que también
+            miramos hacia un lugar parecido.
 
-                No solamente nos enamoramos.
-
-                También descubrimos que miramos
-                hacia un futuro parecido.
-
-            </p>
-
-        </div>
+        </p>
 
 
-        <div class="values-grid">
+        <div class="future-card">
 
 
-            <div class="value-card">
-
-                <div class="value-number">
-                    I
-                </div>
+            <div class="future-item">
 
                 <h3>
-                    Casarnos
+                    ♡ Tener hijos
                 </h3>
 
                 <p>
 
-                    Algún día poder mirarnos
-                    y decirnos que sí para toda la vida.
+                    Algún día queremos escuchar pequeñas
+                    voces corriendo por una casa que
+                    construimos juntos.
+
+                    Una familia que nazca del amor,
+                    del respeto y del compromiso de los dos.
 
                 </p>
 
             </div>
 
 
-            <div class="value-card">
-
-                <div class="value-number">
-                    II
-                </div>
+            <div class="future-item">
 
                 <h3>
-                    Familia
+                    ♡ Casarnos
                 </h3>
 
                 <p>
 
-                    Soñar con tener hijos
-                    y construir juntos un hogar.
+                    No solamente queremos estar juntos.
+
+                    Queremos elegirnos conscientemente,
+                    delante de las personas que amamos,
+                    y decirnos que vamos a seguir
+                    caminando juntos.
 
                 </p>
 
             </div>
 
 
-            <div class="value-card">
-
-                <div class="value-number">
-                    III
-                </div>
+            <div class="future-item">
 
                 <h3>
-                    Fidelidad
+                    ♡ Sernos fieles
                 </h3>
 
                 <p>
 
-                    Elegirnos con honestidad,
-                    respeto y lealtad siempre.
+                    Para nosotros la fidelidad no es
+                    solamente no mirar hacia otro lado.
+
+                    Es cuidar lo que tenemos incluso
+                    cuando nadie está mirando.
 
                 </p>
 
             </div>
 
 
-            <div class="value-card">
-
-                <div class="value-number">
-                    IV
-                </div>
+            <div class="future-item">
 
                 <h3>
-                    Siempre
+                    ♡ Los dos contra el mundo
                 </h3>
 
                 <p>
 
-                    Ser un equipo,
-                    incluso cuando la vida se ponga difícil.
+                    No significa que estemos solos.
+
+                    Significa que cuando aparezcan
+                    problemas, vamos a recordar que
+                    primero somos un equipo.
+
+                    Vos y yo.
+
+                    Del mismo lado.
 
                 </p>
 
             </div>
-
 
         </div>
 
@@ -2557,7 +2004,7 @@
 
 
     <!-- =========================================================
-         TU LUZ
+         GALERÍA 1
     ========================================================= -->
 
     <section class="fade-in">
@@ -2568,11 +2015,11 @@
 
         <p class="section-text">
 
-            Cada vez que mi teléfono se ilumina
-            con una foto tuya, el día entero mejora.
+            Cada vez que mi teléfono se ilumina con
+            una foto tuya, el día entero mejora.
 
             Me encantas, y cada selfie que me compartís
-            sigue siendo para mí un regalo.
+            es para mí un pequeño regalo.
 
         </p>
 
@@ -2584,56 +2031,47 @@
                 <img
                     src="./s0.jpg"
                     class="gallery-img"
-                    alt="Selfie 1"
-                >
+                    alt="Selfie 1">
 
                 <img
                     src="./s1.jpg"
                     class="gallery-img"
-                    alt="Selfie 2"
-                >
+                    alt="Selfie 2">
 
                 <img
                     src="./s4.jpg"
                     class="gallery-img"
-                    alt="Selfie 3"
-                >
+                    alt="Selfie 3">
 
                 <img
                     src="./s7.jpg"
                     class="gallery-img"
-                    alt="Selfie 4"
-                >
+                    alt="Selfie 4">
 
                 <img
                     src="./s5.jpg"
                     class="gallery-img"
-                    alt="Selfie 5"
-                >
+                    alt="Selfie 5">
 
                 <img
                     src="./s2.jpg"
                     class="gallery-img"
-                    alt="Selfie 6"
-                >
+                    alt="Selfie 6">
 
                 <img
                     src="./s6.jpg"
                     class="gallery-img"
-                    alt="Selfie 7"
-                >
+                    alt="Selfie 7">
 
                 <img
                     src="./s3.jpg"
                     class="gallery-img"
-                    alt="Selfie 8"
-                >
+                    alt="Selfie 8">
 
                 <img
                     src="./s8.jpg"
                     class="gallery-img"
-                    alt="Selfie 9"
-                >
+                    alt="Selfie 9">
 
             </div>
 
@@ -2643,7 +2081,7 @@
 
 
     <!-- =========================================================
-         NUESTRAS SALIDAS
+         GALERÍA 2
     ========================================================= -->
 
     <section class="fade-in">
@@ -2654,10 +2092,9 @@
 
         <p class="section-text">
 
-            Coleccionando momentos, lugares,
-            risas y recuerdos.
+            Coleccionando momentos y risas por ahí.
 
-            El mundo es mucho más lindo
+            El mundo parece un poquito más lindo
             cuando lo recorremos juntos.
 
         </p>
@@ -2667,65 +2104,45 @@
 
             <div class="horizontal-scroll">
 
-                <img
-                    src="./sa1.jpg"
-                    class="gallery-img"
-                    alt="Salida 1"
-                >
+                <img src="./sa1.jpg"
+                     class="gallery-img"
+                     alt="Salida 1">
 
-                <img
-                    src="./sa2.jpg"
-                    class="gallery-img"
-                    alt="Salida 2"
-                >
+                <img src="./sa2.jpg"
+                     class="gallery-img"
+                     alt="Salida 2">
 
-                <img
-                    src="./sa3.jpg"
-                    class="gallery-img"
-                    alt="Salida 3"
-                >
+                <img src="./sa3.jpg"
+                     class="gallery-img"
+                     alt="Salida 3">
 
-                <img
-                    src="./sa4.jpg"
-                    class="gallery-img"
-                    alt="Salida 4"
-                >
+                <img src="./sa4.jpg"
+                     class="gallery-img"
+                     alt="Salida 4">
 
-                <img
-                    src="./sa5.jpg"
-                    class="gallery-img"
-                    alt="Salida 5"
-                >
+                <img src="./sa5.jpg"
+                     class="gallery-img"
+                     alt="Salida 5">
 
-                <img
-                    src="./sa7.jpg"
-                    class="gallery-img"
-                    alt="Salida 6"
-                >
+                <img src="./sa7.jpg"
+                     class="gallery-img"
+                     alt="Salida 6">
 
-                <img
-                    src="./sa6.jpg"
-                    class="gallery-img"
-                    alt="Salida 7"
-                >
+                <img src="./sa6.jpg"
+                     class="gallery-img"
+                     alt="Salida 7">
 
-                <img
-                    src="./sa8.jpg"
-                    class="gallery-img"
-                    alt="Salida 8"
-                >
+                <img src="./sa8.jpg"
+                     class="gallery-img"
+                     alt="Salida 8">
 
-                <img
-                    src="./sa9.jpg"
-                    class="gallery-img"
-                    alt="Salida 9"
-                >
+                <img src="./sa9.jpg"
+                     class="gallery-img"
+                     alt="Salida 9">
 
-                <img
-                    src="./sa10.jpg"
-                    class="gallery-img"
-                    alt="Salida 10"
-                >
+                <img src="./sa10.jpg"
+                     class="gallery-img"
+                     alt="Salida 10">
 
             </div>
 
@@ -2735,7 +2152,7 @@
 
 
     <!-- =========================================================
-         DISTANCIA
+         SEGUNDA CITA
     ========================================================= -->
 
     <section class="fade-in">
@@ -2746,17 +2163,13 @@
 
                 "Dicen que la distancia es un reto,
                 pero para mí es solamente la espera
-                para volver a verte.
-
-                <br><br>
+                para el mejor momento de mi semana.
 
                 Cuando te veo, todos esos kilómetros
                 desaparecen en un segundo.
 
-                <br><br>
-
-                Y cada vez entiendo un poco más
-                que por vos siempre vale la pena."
+                Y entiendo que por vos
+                siempre vale la pena."
 
             </p>
 
@@ -2766,7 +2179,7 @@
 
 
     <!-- =========================================================
-         MOMENTOS
+         MOMENTOS SIGNIFICATIVOS
     ========================================================= -->
 
     <section class="fade-in">
@@ -2777,11 +2190,8 @@
 
         <p class="section-text">
 
-            Porque una historia no se construye solamente
-            con grandes acontecimientos.
-
-            También se construye con pequeños momentos
-            que terminan significándolo todo.
+            Esas pequeñas grandes cosas que hicieron
+            de estos cinco meses algo inolvidable.
 
         </p>
 
@@ -2796,14 +2206,14 @@
                     <img
                         src="./es1.jpg"
                         class="gallery-img-captioned"
-                        alt="Cuando conociste a Oli"
-                    >
+                        alt="Cuando conociste a Oli">
 
                     <figcaption>
 
                         Cuando conociste a Oli.
 
-                        Un día muy importante para mí.
+                        Un día muy importante
+                        para mí.
 
                     </figcaption>
 
@@ -2815,14 +2225,13 @@
                     <img
                         src="./es2.jpg"
                         class="gallery-img-captioned"
-                        alt="Cumpleaños en familia"
-                    >
+                        alt="Cumpleaños en familia">
 
                     <figcaption>
 
                         Cuando me acompañaste
-                        en mi cumpleaños
-                        y compartimos con mi familia.
+                        en mi cumpleaños y compartimos
+                        con mi familia.
 
                     </figcaption>
 
@@ -2833,13 +2242,11 @@
 
                     <p>
 
-                        Y aquella reunión con tu familia.
+                        Y también aquella reunión
+                        con tu familia.
 
-                        No tengo una foto para guardar
-                        ese momento,
-
-                        pero sí lo tengo guardado
-                        en la memoria.
+                        Me encantó conocerlos
+                        al fin.
 
                     </p>
 
@@ -2847,118 +2254,6 @@
 
 
             </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         LOS DOS CONTRA EL MUNDO
-    ========================================================= -->
-
-    <section class="fade-in">
-
-        <div class="together-section">
-
-            <div class="together-small">
-                Una promesa
-            </div>
-
-            <h2 class="together-title">
-                Los dos contra el mundo
-            </h2>
-
-            <p class="together-text">
-
-                Quiero que cuando la vida nos ponga
-                un problema delante,
-                no nos encuentre enfrentados entre nosotros.
-
-                <br><br>
-
-                Quiero que nos encuentre juntos.
-
-                <br><br>
-
-                Que podamos hablar.
-
-                Que podamos escucharnos.
-
-                Que podamos perdonarnos.
-
-                Que podamos aprender.
-
-                <br><br>
-
-                Y que después de cada dificultad
-                sigamos eligiéndonos.
-
-            </p>
-
-            <div class="together-final">
-
-                Vos y yo.
-
-                Siempre del mismo lado.
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         PROMESA
-    ========================================================= -->
-
-    <section class="fade-in">
-
-        <div class="promise-box">
-
-            <div class="promise-symbol">
-                ♡
-            </div>
-
-            <h2 class="promise-title">
-                Lo que quiero con vos
-            </h2>
-
-            <p class="promise-text">
-
-                Quiero amarte bien.
-
-                <br><br>
-
-                Quiero respetarte.
-
-                <br><br>
-
-                Quiero serte fiel.
-
-                <br><br>
-
-                Quiero que podamos formar una familia.
-
-                <br><br>
-
-                Quiero algún día poder llamarte mi esposa.
-
-                <br><br>
-
-                Quiero que podamos mirar hacia atrás
-                y sentir orgullo de todo lo que construimos.
-
-                <br><br>
-
-                Y sobre todo,
-                quiero que nunca olvidemos
-                que antes de ser una familia,
-                fuimos dos personas que simplemente
-                decidieron elegirse.
-
-            </p>
 
         </div>
 
@@ -2975,7 +2270,7 @@
 
             <div class="letter-content">
 
-                <p class="letter-opening">
+                <p>
                     Mi amor,
                 </p>
 
@@ -2984,130 +2279,67 @@
 
                     Hoy cumplimos cinco meses.
 
-                    Y aunque solamente sea un número,
-                    para mí significa muchísimo más.
+                    Y cuando miro hacia atrás, pienso
+                    en todo lo que pasó desde aquel
+                    primer beso en Punta Ballena.
+
+                    Parece increíble cuánto puede cambiar
+                    una vida cuando aparece la persona
+                    correcta.
 
                 </p>
 
 
                 <p>
 
-                    Porque durante estos meses
-                    no solamente me fui enamorando de vos.
+                    Este mes fue especial porque siento
+                    que descubrimos algo más profundo.
 
-                    También fui descubriendo
-                    quiénes somos cuando estamos juntos.
+                    Ya no se trata solamente de cuánto
+                    nos gustamos o de lo bien que la
+                    pasamos juntos.
+
+                    Descubrimos que también queremos
+                    construir cosas parecidas.
 
                 </p>
 
 
                 <p>
 
-                    Este último mes fue especialmente importante.
-
-                    Hablamos de cosas que van mucho más allá
-                    de una relación de novios.
-
-                    Hablamos de futuro.
+                    Hablamos de tener hijos.
 
                     De casarnos.
 
-                    De tener hijos.
-
                     De formar una familia.
 
-                    De cómo queremos que sea nuestra vida.
+                    De sernos fieles.
+
+                    De cuidarnos incluso cuando las cosas
+                    no sean fáciles.
 
                 </p>
 
 
                 <p>
 
-                    Y cuanto más hablamos de esas cosas,
-                    más me doy cuenta de que tenemos algo
-                    que para mí vale muchísimo:
+                    Y quizás lo que más me gusta de todo
+                    es saber que los dos entendemos algo
+                    parecido:
 
-                    compartimos valores.
+                    cuando aparezcan los problemas,
+                    no quiero estar frente a vos.
 
-                </p>
-
-
-                <p>
-
-                    Los dos entendemos que el amor
-                    no puede sostenerse solamente
-                    con sentimientos.
-
-                    También necesita respeto,
-                    confianza,
-                    comunicación,
-                    fidelidad y compromiso.
+                    Quiero estar al lado tuyo.
 
                 </p>
 
 
                 <p>
 
-                    Yo quiero serte fiel siempre.
+                    Vos y yo.
 
-                    No solamente porque te amo,
-                    sino porque quiero respetar
-                    a la persona que elegí
-                    tener a mi lado.
-
-                </p>
-
-
-                <p>
-
-                    Y si algún día llegamos a casarnos,
-                    quiero que ese día no sea el final
-                    de una historia perfecta.
-
-                    Quiero que sea el comienzo
-                    de una etapa todavía más grande
-                    de nuestra historia.
-
-                </p>
-
-
-                <p>
-
-                    Quiero que tengamos nuestros hijos,
-                    si la vida nos da esa bendición.
-
-                    Quiero verlos crecer.
-
-                    Quiero que construyamos un hogar.
-
-                    Quiero que podamos enseñarles
-                    lo que significa amar,
-                    respetar,
-                    cuidar
-                    y permanecer al lado de alguien.
-
-                </p>
-
-
-                <p class="highlight-letter">
-
-                    "No sé exactamente cómo será nuestro futuro.
-
-                    Pero sí sé con quién quiero descubrirlo."
-
-                </p>
-
-
-                <p>
-
-                    Y cuando pienso en todo eso,
-                    hay una frase que resume
-                    lo que siento:
-
-                </p>
-
-
-                <p class="highlight-letter">
+                    Del mismo lado.
 
                     Los dos contra el mundo.
 
@@ -3116,54 +2348,13 @@
 
                 <p>
 
-                    No porque necesitemos estar
-                    contra nadie,
+                    No sé exactamente qué nos espera
+                    dentro de cinco meses, un año
+                    o diez años.
 
-                    sino porque quiero que vos y yo
-                    siempre estemos del mismo lado.
+                    Pero sí sé algo:
 
-                </p>
-
-
-                <p>
-
-                    Que cuando venga una dificultad,
-                    mi primera reacción sea buscar tu mano
-                    y no alejarme de vos.
-
-                </p>
-
-
-                <p>
-
-                    Que podamos equivocarnos,
-                    pedir perdón,
-                    aprender
-                    y seguir caminando.
-
-                </p>
-
-
-                <p>
-
-                    Le doy gracias a Dios
-                    por haber cruzado nuestros caminos
-                    en el momento exacto.
-
-                    Y le pido que siga bendiciendo
-                    esto que estamos construyendo.
-
-                </p>
-
-
-                <p>
-
-                    Cinco meses pueden parecer poco
-                    cuando uno piensa en toda una vida.
-
-                    Pero para mí son suficientes
-                    para saber que quiero descubrir
-                    muchos meses más junto a vos.
+                    quiero descubrirlo con vos.
 
                 </p>
 
@@ -3172,26 +2363,31 @@
 
                     Gracias por estos cinco meses.
 
-                    Gracias por tu amor.
+                    Gracias por elegirme.
 
-                    Gracias por tu compañía.
-
-                    Gracias por tu ternura.
-
-                    Gracias por tus locuras.
-
-                    Gracias por cada abrazo,
-                    cada conversación
-                    y cada momento que compartimos.
+                    Y gracias por dejarme elegirte
+                    todos los días.
 
                 </p>
 
 
                 <p>
 
-                    Te amo.
+                    Le pido a Dios que siga cuidando
+                    nuestro camino, que nos dé sabiduría
+                    para construir algo sano y fuerte,
+                    y que nunca nos olvidemos de aquello
+                    que nos hizo encontrarnos.
 
-                    Y quiero seguir eligiéndote.
+                </p>
+
+
+                <p>
+
+                    Cinco meses.
+
+                    Y siento, sinceramente,
+                    que esto recién empieza.
 
                 </p>
 
@@ -3220,40 +2416,14 @@
 
 
     <!-- =========================================================
-         LIGHTBOX
-    ========================================================= -->
-
-    <div
-        class="lightbox"
-        id="lightbox"
-    >
-
-        <button
-            class="close-btn"
-            onclick="closeLightbox()"
-            aria-label="Cerrar imagen"
-        >
-            &times;
-        </button>
-
-        <img
-            src=""
-            id="lightbox-img"
-            alt="Imagen ampliada"
-        >
-
-    </div>
-
-
-    <!-- =========================================================
          FOOTER
     ========================================================= -->
 
     <footer>
 
-        Hecho con amor para nosotros.
+        Hecho para nosotros
 
-        <br><br>
+        <br>
 
         <span>
             11.03.2026 — ∞
@@ -3263,11 +2433,39 @@
 
 
     <!-- =========================================================
-         JAVASCRIPT
+         LIGHTBOX
     ========================================================= -->
 
-    <script>
+    <div
+        class="lightbox"
+        id="lightbox">
 
+        <button
+            class="close-btn"
+            onclick="closeLightbox()">
+
+            &times;
+
+        </button>
+
+        <img
+            src=""
+            id="lightbox-img"
+            alt="Ampliación">
+
+    </div>
+
+
+    <!-- =========================================================
+         YOUTUBE API
+    ========================================================= -->
+
+    <script
+        src="https://www.youtube.com/iframe_api">
+    </script>
+
+
+    <script>
 
         /* =====================================================
            VARIABLES
@@ -3275,89 +2473,198 @@
 
         let isPlaying = false;
 
+        let player = null;
 
-        const bgMusic =
+        const musicStatus =
             document.getElementById(
-                'bg-music'
+                "music-status"
             );
 
-
-        const musicBtn =
+        const vinyl =
             document.getElementById(
-                'music-toggle'
+                "vinyl"
             );
-
-
-        const welcomeScreen =
-            document.getElementById(
-                'welcome-screen'
-            );
-
-
-        const lightbox =
-            document.getElementById(
-                'lightbox'
-            );
-
-
-        const lightboxImg =
-            document.getElementById(
-                'lightbox-img'
-            );
-
-
-        bgMusic.volume = 0.45;
-
 
 
         /* =====================================================
-           INICIAR EXPERIENCIA
+           YOUTUBE
+
+           IMPORTANTE:
+
+           Poné acá el ID del video de
+           "Can't Help Falling in Love"
+           que quieras utilizar.
+
+           NO pongas la URL completa.
+
+           Ejemplo:
+
+           https://www.youtube.com/watch?v=ABC123
+
+           solamente:
+
+           ABC123
+        ===================================================== */
+
+        const YOUTUBE_VIDEO_ID =
+            "VIDEO_ID_AQUI";
+
+
+        /* =====================================================
+           CARGA DEL REPRODUCTOR
+        ===================================================== */
+
+        function onYouTubeIframeAPIReady() {
+
+            if (
+                YOUTUBE_VIDEO_ID ===
+                "MqazV4hbu8E&pp=ygUYZmFsbGluZyBpbiBsb3ZlIHdpdGggeW91"
+            ) {
+
+                console.warn(
+                    "Falta colocar el ID del video de YouTube."
+                );
+
+                return;
+            }
+
+
+            player =
+                new YT.Player(
+                    "youtube-player",
+                    {
+
+                        height: "1",
+
+                        width: "1",
+
+                        videoId:
+                            YOUTUBE_VIDEO_ID,
+
+                        playerVars: {
+
+                            autoplay: 0,
+
+                            controls: 0,
+
+                            loop: 1,
+
+                            playlist:
+                                YOUTUBE_VIDEO_ID,
+
+                            modestbranding: 1,
+
+                            rel: 0
+
+                        },
+
+                        events: {
+
+                            onStateChange:
+                                onPlayerStateChange
+
+                        }
+
+                    }
+                );
+        }
+
+
+        /* =====================================================
+           ESTADO DEL REPRODUCTOR
+        ===================================================== */
+
+        function onPlayerStateChange(event) {
+
+            if (
+                event.data ===
+                YT.PlayerState.PLAYING
+            ) {
+
+                isPlaying = true;
+
+                musicStatus.innerText =
+                    "❚❚";
+
+                vinyl.classList.add(
+                    "playing"
+                );
+
+            }
+
+
+            if (
+                event.data ===
+                YT.PlayerState.PAUSED
+            ) {
+
+                isPlaying = false;
+
+                musicStatus.innerText =
+                    "▶";
+
+                vinyl.classList.remove(
+                    "playing"
+                );
+
+            }
+
+        }
+
+
+        /* =====================================================
+           PANTALLA DE ENTRADA
         ===================================================== */
 
         function startExperience() {
 
-            bgMusic
-                .play()
-                .then(() => {
-
-                    isPlaying = true;
-
-                    musicBtn.innerText =
-                        "⏸️";
-
-                })
-                .catch(error => {
-
-                    console.log(
-                        "El navegador bloqueó el audio:",
-                        error
-                    );
-
-                    isPlaying = false;
-
-                    musicBtn.innerText =
-                        "🎵";
-
-                });
-
-
-            welcomeScreen.style.opacity =
-                "0";
-
-
-            setTimeout(() => {
-
-                welcomeScreen.style.visibility =
-                    "hidden";
-
-                document.body.classList.remove(
-                    "locked"
+            const welcome =
+                document.getElementById(
+                    "welcome-screen"
                 );
 
-            }, 1200);
+
+            welcome.style.opacity = "0";
+
+
+            setTimeout(
+                () => {
+
+                    welcome.style.visibility =
+                        "hidden";
+
+                    document.body.classList
+                        .remove("locked");
+
+                },
+                1000
+            );
+
+
+            /*
+             * Intentamos iniciar la música
+             * solamente si el reproductor
+             * ya fue cargado.
+             */
+
+            setTimeout(
+                () => {
+
+                    if (
+                        player &&
+                        typeof player.playVideo ===
+                        "function"
+                    ) {
+
+                        player.playVideo();
+
+                    }
+
+                },
+                700
+            );
 
         }
-
 
 
         /* =====================================================
@@ -3366,50 +2673,36 @@
 
         function toggleMusic() {
 
+            if (!player) {
+
+                alert(
+                    "Primero tenés que colocar el ID del video de YouTube en el código."
+                );
+
+                return;
+            }
+
+
             if (isPlaying) {
 
-                bgMusic.pause();
-
-                musicBtn.innerText =
-                    "🎵";
-
-                isPlaying = false;
+                player.pauseVideo();
 
             } else {
 
-                bgMusic
-                    .play()
-                    .then(() => {
-
-                        musicBtn.innerText =
-                            "⏸️";
-
-                        isPlaying = true;
-
-                    })
-                    .catch(error => {
-
-                        console.log(
-                            "No se pudo reproducir:",
-                            error
-                        );
-
-                    });
+                player.playVideo();
 
             }
 
         }
 
 
-
         /* =====================================================
-           ANIMACIONES AL HACER SCROLL
+           FADE IN
         ===================================================== */
 
         const observer =
             new IntersectionObserver(
-
-                entries => {
+                (entries) => {
 
                     entries.forEach(
                         entry => {
@@ -3434,12 +2727,9 @@
                     );
 
                 },
-
                 {
-                    threshold:
-                        0.12
+                    threshold: 0.15
                 }
-
             );
 
 
@@ -3447,14 +2737,15 @@
             .querySelectorAll(
                 ".fade-in"
             )
-            .forEach(section => {
+            .forEach(
+                section => {
 
-                observer.observe(
-                    section
-                );
+                    observer.observe(
+                        section
+                    );
 
-            });
-
+                }
+            );
 
 
         /* =====================================================
@@ -3466,27 +2757,37 @@
                 ".gallery-img, .gallery-img-captioned"
             );
 
-
-        images.forEach(img => {
-
-            img.addEventListener(
-                "click",
-                () => {
-
-                    lightboxImg.src =
-                        img.src;
-
-                    lightbox.classList.add(
-                        "active"
-                    );
-
-                    document.body.style.overflow =
-                        "hidden";
-
-                }
+        const lightbox =
+            document.getElementById(
+                "lightbox"
             );
 
-        });
+        const lightboxImg =
+            document.getElementById(
+                "lightbox-img"
+            );
+
+
+        images.forEach(
+            img => {
+
+                img.addEventListener(
+                    "click",
+                    () => {
+
+                        lightboxImg.src =
+                            img.src;
+
+                        lightbox.classList
+                            .add(
+                                "active"
+                            );
+
+                    }
+                );
+
+            }
+        );
 
 
         function closeLightbox() {
@@ -3495,16 +2796,15 @@
                 "active"
             );
 
-            document.body.style.overflow =
-                "";
+            setTimeout(
+                () => {
 
+                    lightboxImg.src =
+                        "";
 
-            setTimeout(() => {
-
-                lightboxImg.src =
-                    "";
-
-            }, 300);
+                },
+                300
+            );
 
         }
 
@@ -3526,17 +2826,17 @@
         );
 
 
+        /* =====================================================
+           ESC PARA CERRAR FOTO
+        ===================================================== */
+
         document.addEventListener(
             "keydown",
             event => {
 
                 if (
                     event.key ===
-                    "Escape" &&
-
-                    lightbox.classList.contains(
-                        "active"
-                    )
+                    "Escape"
                 ) {
 
                     closeLightbox();
@@ -3545,7 +2845,6 @@
 
             }
         );
-
 
 
         /* =====================================================
@@ -3563,49 +2862,39 @@
                 17,
                 0,
                 0
-            );
+            ).getTime();
 
 
         function actualizarContador() {
 
             const ahora =
-                new Date();
+                new Date().getTime();
+
+            const diferencia =
+                ahora -
+                fechaInicio;
 
 
-            let diferencia =
-                ahora.getTime()
-                -
-                fechaInicio.getTime();
+            if (diferencia < 0) {
 
+                document.getElementById(
+                    "counter-display"
+                ).innerHTML =
+                    "Nuestra historia está por comenzar...";
 
-            if (
-                diferencia < 0
-            ) {
-
-                diferencia = 0;
-
+                return;
             }
-
-
-            const segundo =
-                1000;
-
-
-            const minuto =
-                segundo * 60;
-
-
-            const hora =
-                minuto * 60;
-
-
-            const dia =
-                hora * 24;
 
 
             const dias =
                 Math.floor(
-                    diferencia / dia
+                    diferencia /
+                    (
+                        1000 *
+                        60 *
+                        60 *
+                        24
+                    )
                 );
 
 
@@ -3613,8 +2902,18 @@
                 Math.floor(
                     (
                         diferencia %
-                        dia
-                    ) / hora
+                        (
+                            1000 *
+                            60 *
+                            60 *
+                            24
+                        )
+                    ) /
+                    (
+                        1000 *
+                        60 *
+                        60
+                    )
                 );
 
 
@@ -3622,8 +2921,16 @@
                 Math.floor(
                     (
                         diferencia %
-                        hora
-                    ) / minuto
+                        (
+                            1000 *
+                            60 *
+                            60
+                        )
+                    ) /
+                    (
+                        1000 *
+                        60
+                    )
                 );
 
 
@@ -3631,19 +2938,30 @@
                 Math.floor(
                     (
                         diferencia %
-                        minuto
-                    ) / segundo
+                        (
+                            1000 *
+                            60
+                        )
+                    ) /
+                    1000
                 );
 
 
             document.getElementById(
                 "counter-display"
-            ).textContent =
+            ).innerHTML =
 
-                `${dias} días, ` +
-                `${horas}h, ` +
-                `${minutos}m, ` +
-                `${segundos}s`;
+                dias +
+                " días, " +
+
+                horas +
+                "h, " +
+
+                minutos +
+                "m, " +
+
+                segundos +
+                "s";
 
         }
 
@@ -3657,94 +2975,19 @@
         );
 
 
-
         /* =====================================================
            ACORDEÓN
         ===================================================== */
 
         function toggleCard(element) {
 
-            const currentlyActive =
-                element.classList.contains(
-                    "active"
-                );
-
-
-            document
-                .querySelectorAll(
-                    ".discovery-card.active"
-                )
-                .forEach(card => {
-
-                    if (
-                        card !== element
-                    ) {
-
-                        card.classList.remove(
-                            "active"
-                        );
-
-                    }
-
-                });
-
-
-            if (
-                currentlyActive
-            ) {
-
-                element.classList.remove(
-                    "active"
-                );
-
-            } else {
-
-                element.classList.add(
-                    "active"
-                );
-
-            }
+            element.classList.toggle(
+                "active"
+            );
 
         }
-
-
-
-        /* =====================================================
-           CERRAR ACORDEONES AL TOCAR AFUERA
-        ===================================================== */
-
-        document.addEventListener(
-            "click",
-            event => {
-
-                if (
-                    !event.target.closest(
-                        ".discovery-card"
-                    )
-                ) {
-
-                    document
-                        .querySelectorAll(
-                            ".discovery-card.active"
-                        )
-                        .forEach(
-                            card => {
-
-                                card.classList.remove(
-                                    "active"
-                                );
-
-                            }
-                        );
-
-                }
-
-            }
-        );
-
 
     </script>
 
 </body>
-
 </html>
