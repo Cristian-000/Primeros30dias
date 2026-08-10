@@ -2,2808 +2,584 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#080808">
-
     <title>Cinco meses — Nuestra historia</title>
 
     <!-- FUENTES -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
 
     <style>
-
         /* =========================================================
            VARIABLES
         ========================================================= */
-
         :root {
-
             --bg-main: #080808;
             --bg-secondary: #101010;
             --paper: #171615;
-
             --text-main: #eeeae3;
             --text-secondary: #aaa49b;
-
             --gold: #c8a85b;
             --gold-soft: #9d8448;
-
             --wine: #3a151c;
             --wine-light: #57252e;
-
             --border: rgba(200,168,91,0.16);
-
-            --shadow:
-                0 15px 45px rgba(0,0,0,0.65);
+            --shadow: 0 15px 45px rgba(0,0,0,0.65);
         }
-
 
         /* =========================================================
            RESET
         ========================================================= */
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-
-            -webkit-tap-highlight-color: transparent;
-        }
-
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        html { scroll-behavior: smooth; }
         body {
-
             font-family: 'Outfit', sans-serif;
-
-            background:
-                radial-gradient(
-                    circle at top,
-                    #17120f 0%,
-                    var(--bg-main) 45%
-                );
-
+            background: radial-gradient(circle at top, #17120f 0%, var(--bg-main) 45%);
             color: var(--text-main);
-
             line-height: 1.7;
-
             overflow-x: hidden;
         }
-
-
-        body.locked {
-
-            overflow: hidden;
-
-            height: 100vh;
-        }
-
+        body.locked { overflow: hidden; height: 100vh; }
 
         /* =========================================================
            PANTALLA DE BIENVENIDA
         ========================================================= */
-
         #welcome-screen {
-
-            position: fixed;
-
-            inset: 0;
-
-            width: 100vw;
-            height: 100vh;
-
-            background:
-
-                radial-gradient(
-                    circle at center,
-                    #24171a 0%,
-                    #090909 45%,
-                    #000000 100%
-                );
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
+            position: fixed; inset: 0; width: 100vw; height: 100vh;
+            background: radial-gradient(circle at center, #24171a 0%, #090909 45%, #000000 100%);
+            display: flex; align-items: center; justify-content: center;
             z-index: 99999;
-
-            transition:
-                opacity 1.2s ease,
-                visibility 1.2s ease;
+            transition: opacity 1.2s ease, visibility 1.2s ease;
         }
-
-
-        .welcome-content {
-
-            width: min(90%, 500px);
-
-            text-align: center;
-
-            padding: 30px;
-        }
-
-
-        .welcome-small {
-
-            font-size: 0.7rem;
-
-            text-transform: uppercase;
-
-            letter-spacing: 5px;
-
-            color: var(--gold);
-
-            margin-bottom: 25px;
-        }
-
-
-        .welcome-title {
-
-            font-family: 'Playfair Display', serif;
-
-            font-size: clamp(2.2rem, 9vw, 4rem);
-
-            font-weight: 500;
-
-            line-height: 1.15;
-
-            color: var(--text-main);
-
-            margin-bottom: 15px;
-        }
-
-
-        .welcome-subtitle {
-
-            font-family: 'Caveat', cursive;
-
-            font-size: 1.6rem;
-
-            color: #b9b1a5;
-
-            margin-bottom: 45px;
-        }
-
-
+        .welcome-content { width: min(90%, 500px); text-align: center; padding: 30px; }
+        .welcome-small { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 5px; color: var(--gold); margin-bottom: 25px; }
+        .welcome-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 9vw, 4rem); font-weight: 500; line-height: 1.15; color: var(--text-main); margin-bottom: 15px; }
+        .welcome-subtitle { font-family: 'Caveat', cursive; font-size: 1.6rem; color: #b9b1a5; margin-bottom: 45px; }
         .welcome-btn {
-
-            background: transparent;
-
-            color: var(--gold);
-
-            border: 1px solid var(--gold);
-
-            padding: 14px 42px;
-
-            font-family: 'Outfit', sans-serif;
-
-            font-size: 0.8rem;
-
-            letter-spacing: 4px;
-
-            text-transform: uppercase;
-
-            border-radius: 50px;
-
-            cursor: pointer;
-
-            transition:
-                background 0.3s ease,
-                color 0.3s ease,
-                transform 0.3s ease;
+            background: transparent; color: var(--gold); border: 1px solid var(--gold);
+            padding: 14px 42px; font-family: 'Outfit', sans-serif; font-size: 0.8rem;
+            letter-spacing: 4px; text-transform: uppercase; border-radius: 50px; cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
         }
-
-
-        .welcome-btn:hover {
-
-            background: var(--gold);
-
-            color: #080808;
-
-            transform: translateY(-2px);
-        }
-
+        .welcome-btn:hover { background: var(--gold); color: #080808; transform: translateY(-2px); }
 
         /* =========================================================
-           YOUTUBE PLAYER
-           
-           Se utiliza como fuente de audio.
-           Se mantiene prácticamente invisible.
+           NAVBAR / YOUTUBE + LETRA
         ========================================================= */
-
-        #youtube-player-container {
-
-            position: fixed;
-
-            width: 1px;
-            height: 1px;
-
-            left: -10px;
-            top: -10px;
-
-            overflow: hidden;
-
-            opacity: 0.01;
-
-            pointer-events: none;
-
-            z-index: -1;
-        }
-
-
-        #youtube-player {
-
-            width: 1px;
-            height: 1px;
-        }
-
-
-        /* =========================================================
-           NAVBAR / LETRA
-        ========================================================= */
-
         .music-navbar {
-
-            position: sticky;
-
-            top: 0;
-
-            z-index: 5000;
-
-            width: 100%;
-
-            height: 76px;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(12,10,10,0.98),
-                    rgba(8,8,8,0.94)
-                );
-
+            position: sticky; top: 0; z-index: 5000; width: 100%; height: 90px;
+            background: linear-gradient(180deg, rgba(12,10,10,0.98), rgba(8,8,8,0.94));
             border-bottom: 1px solid var(--border);
-
             backdrop-filter: blur(14px);
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 8px 25px rgba(0,0,0,0.35);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
         }
-
 
         .navbar-inner {
-
-            position: relative;
-
-            width: min(850px, 92%);
-
-            height: 76px;
-
+            width: min(900px, 95%);
+            height: 100%;
             display: flex;
-
             align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+        }
 
-            justify-content: center;
-
+        /* VIDEO A LA IZQUIERDA */
+        .nav-video-left {
+            flex: 0 0 130px; /* Ancho del mini reproductor */
+            height: 73px;
+            border-radius: 8px;
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.1);
+            background: #000;
         }
 
-
-        .song-name {
-
-            position: absolute;
-
-            top: 7px;
-
-            left: 20px;
-
-            font-size: 0.55rem;
-
-            text-transform: uppercase;
-
-            letter-spacing: 3px;
-
-            color: var(--gold);
-
-            opacity: 0.8;
-
-            z-index: 5;
-        }
-
-
-        .lyrics-window {
-
-            position: relative;
-
+        #youtube-player {
             width: 100%;
-
-            height: 55px;
-
-            overflow: hidden;
-
-            text-align: center;
+            height: 100%;
+            pointer-events: none; /* Evita clicks accidentales para que no se pause sin querer, controlado por JS */
         }
 
+        /* LETRAS A LA DERECHA */
+        .nav-lyrics-right {
+            flex: 1;
+            height: 100%;
+            position: relative;
+            margin-left: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
 
         .lyrics-track {
-
             position: absolute;
-
             width: 100%;
-
-            left: 0;
-
             top: 50%;
-
             transform: translateY(-50%);
-
-            transition:
-                transform 0.8s cubic-bezier(0.22,1,0.36,1);
+            transition: transform 0.8s cubic-bezier(0.22,1,0.36,1);
         }
-
 
         .lyric-line {
-
             height: 55px;
-
             display: flex;
-
             align-items: center;
-
-            justify-content: center;
-
-            padding: 0 30px;
-
+            justify-content: flex-start; /* Alineado a la izquierda junto al video */
             font-family: 'Playfair Display', serif;
-
             font-style: italic;
-
-            font-size: clamp(0.85rem, 3vw, 1.1rem);
-
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
             color: #756f68;
-
-            opacity: 0.55;
-
-            transition:
-                color 0.6s ease,
-                opacity 0.6s ease,
-                transform 0.6s ease;
+            opacity: 0.4;
+            transition: color 0.6s ease, opacity 0.6s ease, transform 0.6s ease;
         }
-
 
         .lyric-line.active {
-
-            color: var(--text-main);
-
+            color: var(--gold);
             opacity: 1;
-
             transform: scale(1.02);
+            text-shadow: 0 2px 10px rgba(200,168,91,0.3);
         }
-
-
-        .song-status {
-
-            position: absolute;
-
-            right: 18px;
-
-            bottom: 7px;
-
-            font-size: 0.55rem;
-
-            letter-spacing: 1px;
-
-            color: var(--text-secondary);
-
-            text-transform: uppercase;
-        }
-
 
         /* =========================================================
            HEADER
         ========================================================= */
-
-        header {
-
-            text-align: center;
-
-            padding:
-                85px
-                20px
-                55px;
-        }
-
-
-        .tagline {
-
-            display: block;
-
-            font-size: 0.65rem;
-
-            text-transform: uppercase;
-
-            letter-spacing: 5px;
-
-            color: var(--gold);
-
-            margin-bottom: 13px;
-        }
-
-
-        h1 {
-
-            font-family: 'Playfair Display', serif;
-
-            font-weight: 500;
-
-            font-size: clamp(2.4rem, 10vw, 4rem);
-
-            line-height: 1.1;
-
-            color: var(--text-main);
-        }
-
-
-        .header-subtitle {
-
-            margin-top: 18px;
-
-            font-family: 'Caveat', cursive;
-
-            color: #aaa197;
-
-            font-size: 1.5rem;
-        }
-
+        header { text-align: center; padding: 65px 20px 55px; }
+        .tagline { display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 5px; color: var(--gold); margin-bottom: 13px; }
+        h1 { font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(2.4rem, 10vw, 4rem); line-height: 1.1; color: var(--text-main); }
+        .header-subtitle { margin-top: 18px; font-family: 'Caveat', cursive; color: #aaa197; font-size: 1.5rem; }
 
         /* =========================================================
            SECCIONES
         ========================================================= */
-
-        section {
-
-            width: min(800px, calc(100% - 40px));
-
-            margin: 0 auto;
-
-            padding: 45px 0;
-
-            opacity: 0;
-
-            transform: translateY(35px);
-
-            transition:
-                opacity 0.9s ease,
-                transform 0.9s ease;
-        }
-
-
-        section.visible {
-
-            opacity: 1;
-
-            transform: translateY(0);
-        }
-
-
-        .section-title {
-
-            font-family: 'Playfair Display', serif;
-
-            font-size: clamp(1.6rem, 6vw, 2rem);
-
-            font-weight: 500;
-
-            color: var(--gold);
-
-            margin-bottom: 12px;
-        }
-
-
-        .section-text {
-
-            color: var(--text-secondary);
-
-            font-size: 0.98rem;
-
-            margin-bottom: 25px;
-        }
-
+        section { width: min(800px, calc(100% - 40px)); margin: 0 auto; padding: 45px 0; opacity: 0; transform: translateY(35px); transition: opacity 0.9s ease, transform 0.9s ease; }
+        section.visible { opacity: 1; transform: translateY(0); }
+        .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 6vw, 2rem); font-weight: 500; color: var(--gold); margin-bottom: 12px; }
+        .section-text { color: var(--text-secondary); font-size: 0.98rem; margin-bottom: 25px; }
 
         /* =========================================================
            CONTADOR
         ========================================================= */
-
-        .counter-box {
-
-            position: relative;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #181716,
-                    #0f0e0d
-                );
-
-            border:
-
-                1px solid
-                rgba(200,168,91,0.14);
-
-            border-radius: 15px;
-
-            padding: 32px 20px;
-
-            text-align: center;
-
-            box-shadow: var(--shadow);
-
-            overflow: hidden;
-        }
-
-
-        .counter-box::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 180px;
-            height: 180px;
-
-            border-radius: 50%;
-
-            background: var(--wine);
-
-            filter: blur(70px);
-
-            opacity: 0.35;
-
-            top: -90px;
-            right: -60px;
-        }
-
-
-        .counter-numbers {
-
-            position: relative;
-
-            font-family: 'Playfair Display', serif;
-
-            font-size: clamp(1.25rem, 5vw, 1.7rem);
-
-            color: var(--gold);
-
-            font-weight: 500;
-
-            letter-spacing: 1px;
-        }
-
-
-        .counter-label {
-
-            position: relative;
-
-            margin-top: 8px;
-
-            color: var(--text-secondary);
-
-            font-size: 0.72rem;
-
-            text-transform: uppercase;
-
-            letter-spacing: 2px;
-        }
-
+        .counter-box { position: relative; background: linear-gradient(135deg, #181716, #0f0e0d); border: 1px solid rgba(200,168,91,0.14); border-radius: 15px; padding: 32px 20px; text-align: center; box-shadow: var(--shadow); overflow: hidden; }
+        .counter-box::before { content: ""; position: absolute; width: 180px; height: 180px; border-radius: 50%; background: var(--wine); filter: blur(70px); opacity: 0.35; top: -90px; right: -60px; }
+        .counter-numbers { position: relative; font-family: 'Playfair Display', serif; font-size: clamp(1.25rem, 5vw, 1.7rem); color: var(--gold); font-weight: 500; letter-spacing: 1px; }
+        .counter-label { position: relative; margin-top: 8px; color: var(--text-secondary); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 2px; }
 
         /* =========================================================
            CITAS
         ========================================================= */
-
-        .quote-section {
-
-            position: relative;
-
-            text-align: center;
-
-            padding: 60px 30px;
-
-            background:
-
-                linear-gradient(
-                    135deg,
-                    #181313,
-                    #0c0c0c
-                );
-
-            border-radius: 20px;
-
-            border:
-
-                1px solid
-                rgba(200,168,91,0.12);
-
-            box-shadow: var(--shadow);
-
-            overflow: hidden;
-        }
-
-
-        .quote-section::before {
-
-            content: "“";
-
-            position: absolute;
-
-            left: 18px;
-            top: -25px;
-
-            font-family: Georgia, serif;
-
-            font-size: 7rem;
-
-            color: var(--gold);
-
-            opacity: 0.09;
-        }
-
-
-        .quote-text {
-
-            position: relative;
-
-            font-family: 'Playfair Display', serif;
-
-            font-style: italic;
-
-            font-size: clamp(1.15rem, 4vw, 1.45rem);
-
-            line-height: 1.75;
-
-            color: var(--text-main);
-        }
-
+        .quote-section { position: relative; text-align: center; padding: 60px 30px; background: linear-gradient(135deg, #181313, #0c0c0c); border-radius: 20px; border: 1px solid rgba(200,168,91,0.12); box-shadow: var(--shadow); overflow: hidden; }
+        .quote-section::before { content: "“"; position: absolute; left: 18px; top: -25px; font-family: Georgia, serif; font-size: 7rem; color: var(--gold); opacity: 0.09; }
+        .quote-text { position: relative; font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.15rem, 4vw, 1.45rem); line-height: 1.75; color: var(--text-main); }
 
         /* =========================================================
            DESCUBRIMIENTOS
         ========================================================= */
-
-        .discovery-card {
-
-            background: var(--paper);
-
-            border:
-
-                1px solid
-                rgba(255,255,255,0.04);
-
-            border-left:
-
-                2px solid
-                var(--wine-light);
-
-            border-radius: 12px;
-
-            margin-bottom: 13px;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 7px 25px rgba(0,0,0,0.35);
-        }
-
-
-        .discovery-header {
-
-            padding: 20px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            cursor: pointer;
-
-            font-size: 1rem;
-
-            color: var(--text-main);
-        }
-
-
-        .discovery-header::after {
-
-            content: "+";
-
-            font-size: 1.4rem;
-
-            color: var(--gold);
-
-            transition:
-                transform 0.3s ease;
-        }
-
-
-        .discovery-card.active
-        .discovery-header::after {
-
-            transform: rotate(45deg);
-        }
-
-
-        .discovery-content {
-
-            max-height: 0;
-
-            overflow: hidden;
-
-            padding:
-                0 20px;
-
-            color: var(--text-secondary);
-
-            transition:
-                max-height 0.45s ease,
-                padding 0.45s ease;
-        }
-
-
-        .discovery-card.active
-        .discovery-content {
-
-            max-height: 400px;
-
-            padding:
-                0 20px
-                22px;
-        }
-
-
-        .discovery-content p {
-
-            margin-bottom: 8px;
-        }
-
+        .discovery-card { background: var(--paper); border: 1px solid rgba(255,255,255,0.04); border-left: 2px solid var(--wine-light); border-radius: 12px; margin-bottom: 13px; overflow: hidden; box-shadow: 0 7px 25px rgba(0,0,0,0.35); }
+        .discovery-header { padding: 20px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-size: 1rem; color: var(--text-main); }
+        .discovery-header::after { content: "+"; font-size: 1.4rem; color: var(--gold); transition: transform 0.3s ease; }
+        .discovery-card.active .discovery-header::after { transform: rotate(45deg); }
+        .discovery-content { max-height: 0; overflow: hidden; padding: 0 20px; color: var(--text-secondary); transition: max-height 0.45s ease, padding 0.45s ease; }
+        .discovery-card.active .discovery-content { max-height: 400px; padding: 0 20px 22px; }
+        .discovery-content p { margin-bottom: 8px; }
 
         /* =========================================================
            GALERÍA
         ========================================================= */
-
-        .gallery-wrapper {
-
-            width: 100%;
-        }
-
-
-        .horizontal-scroll {
-
-            display: flex;
-
-            gap: 16px;
-
-            overflow-x: auto;
-
-            scroll-snap-type: x mandatory;
-
-            padding:
-                10px 0
-                20px;
-
-            scrollbar-width: none;
-
-            -webkit-overflow-scrolling: touch;
-        }
-
-
-        .horizontal-scroll::-webkit-scrollbar {
-
-            display: none;
-        }
-
-
-        .gallery-img,
-        .gallery-img-captioned {
-
-            flex: 0 0 78%;
-
-            max-width: 300px;
-
-            height: 360px;
-
-            object-fit: cover;
-
-            border-radius: 14px;
-
-            scroll-snap-align: center;
-
-            cursor: pointer;
-
-            border:
-
-                1px solid
-                rgba(255,255,255,0.06);
-
-            box-shadow:
-                0 12px 30px rgba(0,0,0,0.6);
-
-            transition:
-                transform 0.3s ease;
-        }
-
-
-        .gallery-img:active,
-        .gallery-img-captioned:active {
-
-            transform: scale(0.97);
-        }
-
-
-        .gallery-figure {
-
-            flex: 0 0 78%;
-
-            max-width: 300px;
-
-            scroll-snap-align: center;
-        }
-
-
-        .gallery-figure img {
-
-            width: 100%;
-        }
-
-
-        .gallery-figure figcaption {
-
-            padding-top: 12px;
-
-            text-align: center;
-
-            font-size: 0.9rem;
-
-            color: var(--text-secondary);
-        }
-
-
-        .gallery-text-card {
-
-            flex: 0 0 78%;
-
-            max-width: 300px;
-
-            min-height: 360px;
-
-            border-radius: 14px;
-
-            scroll-snap-align: center;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            text-align: center;
-
-            padding: 35px;
-
-            background:
-
-                linear-gradient(
-                    135deg,
-                    #241517,
-                    #111010
-                );
-
-            border:
-
-                1px solid
-                rgba(200,168,91,0.1);
-
-            box-shadow: var(--shadow);
-        }
-
-
-        .gallery-text-card p {
-
-            font-family: 'Playfair Display', serif;
-
-            font-style: italic;
-
-            color: var(--gold);
-
-            font-size: 1.15rem;
-
-            line-height: 1.6;
-        }
-
+        .gallery-wrapper { width: 100%; }
+        .horizontal-scroll { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 10px 0 20px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+        .horizontal-scroll::-webkit-scrollbar { display: none; }
+        .gallery-img, .gallery-img-captioned { flex: 0 0 78%; max-width: 300px; height: 360px; object-fit: cover; border-radius: 14px; scroll-snap-align: center; cursor: pointer; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 12px 30px rgba(0,0,0,0.6); transition: transform 0.3s ease; }
+        .gallery-img:active, .gallery-img-captioned:active { transform: scale(0.97); }
+        .gallery-figure { flex: 0 0 78%; max-width: 300px; scroll-snap-align: center; }
+        .gallery-figure img { width: 100%; }
+        .gallery-figure figcaption { padding-top: 12px; text-align: center; font-size: 0.9rem; color: var(--text-secondary); }
+        .gallery-text-card { flex: 0 0 78%; max-width: 300px; min-height: 360px; border-radius: 14px; scroll-snap-align: center; display: flex; align-items: center; justify-content: center; text-align: center; padding: 35px; background: linear-gradient(135deg, #241517, #111010); border: 1px solid rgba(200,168,91,0.1); box-shadow: var(--shadow); }
+        .gallery-text-card p { font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold); font-size: 1.15rem; line-height: 1.6; }
 
         /* =========================================================
-           CARTA
+           CARTA Y FIRMA
         ========================================================= */
-
-        .letter-section {
-
-            background:
-
-                linear-gradient(
-                    145deg,
-                    #171615,
-                    #0d0d0d
-                );
-
-            border-radius: 15px;
-
-            padding:
-                45px
-                30px;
-
-            border-top:
-
-                2px solid
-                var(--gold);
-
-            box-shadow: var(--shadow);
-
-            margin-bottom: 70px;
-        }
-
-
-        .letter-content p {
-
-            font-size: 1rem;
-
-            color: #ddd8d0;
-
-            margin-bottom: 20px;
-        }
-
-
-        .letter-opening {
-
-            font-family: 'Playfair Display', serif;
-
-            font-size: 1.3rem !important;
-
-            color: var(--text-main) !important;
-
-            margin-bottom: 28px !important;
-        }
-
-
-        /* FRASE CENTRAL */
-
-        .world-statement {
-
-            position: relative;
-
-            margin:
-                38px
-                -5px;
-
-            padding:
-                35px
-                20px;
-
-            text-align: center;
-
-            background:
-
-                linear-gradient(
-                    135deg,
-                    #32151b,
-                    #170d0f
-                );
-
-            border-top:
-                1px solid
-                rgba(200,168,91,0.35);
-
-            border-bottom:
-                1px solid
-                rgba(200,168,91,0.35);
-        }
-
-
-        .world-statement small {
-
-            display: block;
-
-            margin-bottom: 8px;
-
-            font-size: 0.6rem;
-
-            text-transform: uppercase;
-
-            letter-spacing: 4px;
-
-            color: var(--gold);
-        }
-
-
-        .world-statement strong {
-
-            display: block;
-
-            font-family: 'Playfair Display', serif;
-
-            font-style: italic;
-
-            font-weight: 500;
-
-            font-size: clamp(1.7rem, 7vw, 2.5rem);
-
-            color: #f0e9df;
-        }
-
-
-        .world-statement span {
-
-            display: block;
-
-            margin-top: 8px;
-
-            color: #aaa19a;
-
-            font-size: 0.85rem;
-        }
-
-
-        .signature {
-
-            text-align: right;
-
-            margin-top: 45px;
-        }
-
-
-        .signature .title {
-
-            display: block;
-
-            font-family: 'Caveat', cursive;
-
-            font-size: 2rem;
-
-            color: var(--gold);
-
-            margin-bottom: 5px;
-        }
-
-
-        .signature .sub {
-
-            display: block;
-
-            color: var(--text-secondary);
-
-            font-size: 0.85rem;
-        }
-
-
-        .signature .name {
-
-            display: block;
-
-            font-family: 'Playfair Display', serif;
-
-            font-size: 1.25rem;
-
-            margin-top: 4px;
-        }
-
+        .letter-section { background: linear-gradient(145deg, #171615, #0d0d0d); border-radius: 15px; padding: 45px 30px; border-top: 2px solid var(--gold); box-shadow: var(--shadow); margin-bottom: 70px; }
+        .letter-content p { font-size: 1rem; color: #ddd8d0; margin-bottom: 20px; }
+        .letter-opening { font-family: 'Playfair Display', serif; font-size: 1.3rem !important; color: var(--text-main) !important; margin-bottom: 28px !important; }
+        
+        .world-statement { position: relative; margin: 38px -5px; padding: 35px 20px; text-align: center; background: linear-gradient(135deg, #32151b, #170d0f); border-top: 1px solid rgba(200,168,91,0.35); border-bottom: 1px solid rgba(200,168,91,0.35); }
+        .world-statement small { display: block; margin-bottom: 8px; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 4px; color: var(--gold); }
+        .world-statement strong { display: block; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: clamp(1.7rem, 7vw, 2.5rem); color: #f0e9df; }
+        .world-statement span { display: block; margin-top: 8px; color: #aaa19a; font-size: 0.85rem; }
+        
+        .signature { text-align: right; margin-top: 45px; }
+        .signature .title { display: block; font-family: 'Caveat', cursive; font-size: 2rem; color: var(--gold); margin-bottom: 5px; }
+        .signature .sub { display: block; color: var(--text-secondary); font-size: 0.85rem; }
+        .signature .name { display: block; font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-top: 4px; }
 
         /* =========================================================
            LIGHTBOX
         ========================================================= */
-
-        .lightbox {
-
-            position: fixed;
-
-            inset: 0;
-
-            background:
-                rgba(0,0,0,0.96);
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            z-index: 10000;
-
-            opacity: 0;
-
-            pointer-events: none;
-
-            transition:
-                opacity 0.3s ease;
-        }
-
-
-        .lightbox.active {
-
-            opacity: 1;
-
-            pointer-events: auto;
-        }
-
-
-        .lightbox img {
-
-            max-width: 92%;
-
-            max-height: 88vh;
-
-            object-fit: contain;
-
-            border-radius: 8px;
-
-            box-shadow:
-                0 20px 70px rgba(0,0,0,0.9);
-        }
-
-
-        .close-btn {
-
-            position: absolute;
-
-            top: 15px;
-            right: 18px;
-
-            background: none;
-
-            border: none;
-
-            color: white;
-
-            font-size: 3rem;
-
-            font-weight: 200;
-
-            cursor: pointer;
-        }
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-
-            text-align: center;
-
-            padding:
-                30px
-                20px
-                60px;
-
-            color: #5f5a54;
-
-            font-size: 0.7rem;
-
-            letter-spacing: 2px;
-
-            text-transform: uppercase;
-        }
-
+        .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.96); display: flex; align-items: center; justify-content: center; z-index: 10000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .lightbox.active { opacity: 1; pointer-events: auto; }
+        .lightbox img { max-width: 92%; max-height: 88vh; object-fit: contain; border-radius: 8px; box-shadow: 0 20px 70px rgba(0,0,0,0.9); }
+        .close-btn { position: absolute; top: 15px; right: 18px; background: none; border: none; color: white; font-size: 3rem; font-weight: 200; cursor: pointer; }
+        footer { text-align: center; padding: 30px 20px 60px; color: #5f5a54; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; }
 
         /* =========================================================
            RESPONSIVE
         ========================================================= */
-
-        @media (min-width: 700px) {
-
-            section {
-
-                padding-top: 60px;
-
-                padding-bottom: 60px;
-            }
-
-
-            .gallery-img,
-            .gallery-img-captioned,
-            .gallery-figure,
-            .gallery-text-card {
-
-                flex-basis: 300px;
-            }
-
-
-            .letter-section {
-
-                padding:
-                    55px
-                    60px;
-            }
+        @media (max-width: 600px) {
+            .nav-video-left { flex: 0 0 100px; height: 56px; } /* Más pequeño en celular */
+            .lyric-line { font-size: 0.85rem; justify-content: center; text-align: center; } /* Centrado en celular por espacio */
+            .nav-lyrics-right { margin-left: 10px; }
+            .music-navbar { height: 80px; }
         }
-
-
-        @media (max-width: 500px) {
-
-            .music-navbar {
-
-                height: 72px;
-            }
-
-
-            .navbar-inner {
-
-                height: 72px;
-            }
-
-
-            .song-name {
-
-                left: 12px;
-
-                font-size: 0.48rem;
-            }
-
-
-            .song-status {
-
-                right: 10px;
-
-                font-size: 0.48rem;
-            }
-
-
-            .lyric-line {
-
-                padding:
-                    0 45px;
-
-                font-size: 0.86rem;
-            }
-
-
-            header {
-
-                padding-top: 65px;
-            }
-
-
-            .letter-section {
-
-                padding:
-                    38px
-                    23px;
-            }
-        }
-
     </style>
 </head>
 
-
 <body class="locked">
 
-
-    <!-- =========================================================
-         PANTALLA DE ENTRADA
-    ========================================================= -->
-
+    <!-- PANTALLA DE ENTRADA -->
     <div id="welcome-screen">
-
         <div class="welcome-content">
-
-            <div class="welcome-small">
-                Una pequeña historia
-            </div>
-
-            <h2 class="welcome-title">
-                Cinco meses
-            </h2>
-
-            <p class="welcome-subtitle">
-                de nosotros
-            </p>
-
-            <button
-                class="welcome-btn"
-                onclick="startExperience()"
-            >
-                Entrar
-            </button>
-
+            <div class="welcome-small">Una pequeña historia</div>
+            <h2 class="welcome-title">Cinco meses</h2>
+            <p class="welcome-subtitle">de nosotros</p>
+            <button class="welcome-btn" onclick="startExperience()">Entrar</button>
         </div>
-
     </div>
 
-
-    <!-- =========================================================
-         YOUTUBE
-    ========================================================= -->
-
-    <div id="youtube-player-container">
-
-        <div id="youtube-player"></div>
-
-    </div>
-
-
-    <!-- =========================================================
-         NAVBAR STICKY + LETRA
-    ========================================================= -->
-
+    <!-- NAVBAR YOUTUBE + LETRA -->
     <nav class="music-navbar">
-
         <div class="navbar-inner">
-
-            <span class="song-name">
-                Falling in Love
-            </span>
-
-            <div class="lyrics-window">
-
-                <div
-                    id="lyrics-track"
-                    class="lyrics-track"
-                ></div>
-
+            <!-- Video a la Izquierda -->
+            <div class="nav-video-left">
+                <div id="youtube-player"></div>
             </div>
-
-            <span
-                id="song-status"
-                class="song-status"
-            >
-                Pausada
-            </span>
-
+            
+            <!-- Letras a la Derecha -->
+            <div class="nav-lyrics-right">
+                <div id="lyrics-track" class="lyrics-track"></div>
+            </div>
         </div>
-
     </nav>
 
-
-    <!-- =========================================================
-         HEADER
-    ========================================================= -->
-
+    <!-- HEADER -->
     <header>
-
-        <span class="tagline">
-            Bitácora de lo nuestro
-        </span>
-
-        <h1>
-            Cinco meses con vos
-        </h1>
-
-        <p class="header-subtitle">
-            Cinco meses construyendo algo que vale la pena cuidar.
-        </p>
-
+        <span class="tagline">Bitácora de lo nuestro</span>
+        <h1>Cinco meses con vos</h1>
+        <p class="header-subtitle">Cinco meses construyendo algo que vale la pena cuidar.</p>
     </header>
 
-
-    <!-- =========================================================
-         CONTADOR
-    ========================================================= -->
-
+    <!-- CONTADOR -->
     <section class="fade-in">
-
         <div class="counter-box">
-
-            <div
-                id="counter-display"
-                class="counter-numbers"
-            >
-                Cargando...
-            </div>
-
-            <div class="counter-label">
-                Desde el 11 de marzo de 2026 · 17:00 hs
-            </div>
-
+            <div id="counter-display" class="counter-numbers">Cargando...</div>
+            <div class="counter-label">Desde el 11 de marzo de 2026 · 17:00 hs</div>
         </div>
-
     </section>
 
-
-    <!-- =========================================================
-         PRIMERA CITA
-    ========================================================= -->
-
+    <!-- CITA -->
     <section class="fade-in">
-
         <div class="quote-section">
-
-            <p class="quote-text">
-
-                "Ese primer beso, allá en Punta Ballena,
-                bajo las estrellas y con esa luna tan brillante...
-                ahí mismo mi corazón explotaba de alegría
-                y mi alma dijo: es acá."
-
-            </p>
-
+            <p class="quote-text">"Ese primer beso, allá en Punta Ballena, bajo las estrellas y con esa luna tan brillante... ahí mismo mi corazón explotaba de alegría y mi alma dijo: es acá."</p>
         </div>
-
     </section>
 
-
-    <!-- =========================================================
-         CINCO DESCUBRIMIENTOS
-    ========================================================= -->
-
+    <!-- DESCUBRIMIENTOS -->
     <section class="fade-in">
+        <h2 class="section-title">Cinco meses, cinco descubrimientos</h2>
+        <p class="section-text">Durante estos meses no solamente nos hemos conocido mejor. También hemos ido descubriendo que detrás de lo que sentimos existe una manera muy parecida de entender una relación, una familia y el futuro.</p>
 
-        <h2 class="section-title">
-            Cinco meses, cinco descubrimientos
-        </h2>
-
-        <p class="section-text">
-
-            Durante estos meses no solamente nos hemos conocido mejor.
-            También hemos ido descubriendo que detrás de lo que sentimos
-            existe una manera muy parecida de entender una relación,
-            una familia y el futuro.
-
-        </p>
-
-
-        <div
-            class="discovery-card"
-            onclick="toggleCard(this)"
-        >
-
-            <div class="discovery-header">
-                1. Tu forma de reír
-            </div>
-
-            <div class="discovery-content">
-
-                <p>
-                    Hay una naturalidad en tu manera de reír que
-                    transforma cualquier momento sencillo.
-                </p>
-
-                <p>
-                    Es uno de esos pequeños detalles que se vuelven
-                    importantes precisamente porque son tuyos.
-                </p>
-
-            </div>
-
+        <div class="discovery-card" onclick="toggleCard(this)">
+            <div class="discovery-header">1. Tu forma de reír</div>
+            <div class="discovery-content"><p>Hay una naturalidad en tu manera de reír que transforma cualquier momento sencillo.</p><p>Es uno de esos pequeños detalles que se vuelven importantes precisamente porque son tuyos.</p></div>
         </div>
-
-
-        <div
-            class="discovery-card"
-            onclick="toggleCard(this)"
-        >
-
-            <div class="discovery-header">
-                2. La tranquilidad que me das
-            </div>
-
-            <div class="discovery-content">
-
-                <p>
-                    He aprendido que una relación también se mide
-                    por la tranquilidad que existe cuando estamos juntos.
-                </p>
-
-                <p>
-                    Confianza, respeto y la posibilidad de ser nosotros
-                    mismos sin necesidad de aparentar.
-                </p>
-
-            </div>
-
+        <div class="discovery-card" onclick="toggleCard(this)">
+            <div class="discovery-header">2. La tranquilidad que me das</div>
+            <div class="discovery-content"><p>He aprendido que una relación también se mide por la tranquilidad que existe cuando estamos juntos.</p><p>Confianza, respeto y la posibilidad de ser nosotros mismos sin necesidad de aparentar.</p></div>
         </div>
-
-
-        <div
-            class="discovery-card"
-            onclick="toggleCard(this)"
-        >
-
-            <div class="discovery-header">
-                3. Tu manera de buscar tu propio camino
-            </div>
-
-            <div class="discovery-content">
-
-                <p>
-                    Me gusta verte descubrir nuevamente aquello que
-                    te apasiona y encontrar proyectos que te representan.
-                </p>
-
-                <p>
-                    Creo que una pareja también debe acompañar el
-                    crecimiento individual del otro.
-                </p>
-
-            </div>
-
+        <div class="discovery-card" onclick="toggleCard(this)">
+            <div class="discovery-header">3. Tu manera de buscar tu propio camino</div>
+            <div class="discovery-content"><p>Me gusta verte descubrir nuevamente aquello que te apasiona y encontrar proyectos que te representan.</p><p>Creo que una pareja también debe acompañar el crecimiento individual del otro.</p></div>
         </div>
-
-
-        <div
-            class="discovery-card"
-            onclick="toggleCard(this)"
-        >
-
-            <div class="discovery-header">
-                4. Los valores que compartimos
-            </div>
-
-            <div class="discovery-content">
-
-                <p>
-                    Este mes descubrimos algo todavía más importante:
-                    no solamente nos queremos, también coincidimos
-                    en lo que esperamos de una relación.
-                </p>
-
-                <p>
-                    Fidelidad, respeto, compromiso, familia y la
-                    intención de construir algo duradero.
-                </p>
-
-            </div>
-
+        <div class="discovery-card" onclick="toggleCard(this)">
+            <div class="discovery-header">4. Los valores que compartimos</div>
+            <div class="discovery-content"><p>Este mes descubrimos algo todavía más importante: no solamente nos queremos, también coincidimos en lo que esperamos de una relación.</p><p>Fidelidad, respeto, compromiso, familia y la intención de construir algo duradero.</p></div>
         </div>
-
-
-        <div
-            class="discovery-card"
-            onclick="toggleCard(this)"
-        >
-
-            <div class="discovery-header">
-                5. Un proyecto de vida
-            </div>
-
-            <div class="discovery-content">
-
-                <p>
-                    Hablar de casarnos, formar una familia y tener hijos
-                    dejó de ser una idea abstracta.
-                </p>
-
-                <p>
-                    Es algo que podemos imaginar porque nuestras
-                    expectativas sobre el futuro se parecen cada vez más.
-                </p>
-
-            </div>
-
+        <div class="discovery-card" onclick="toggleCard(this)">
+            <div class="discovery-header">5. Un proyecto de vida</div>
+            <div class="discovery-content"><p>Hablar de casarnos, formar una familia y tener hijos dejó de ser una idea abstracta.</p><p>Es algo que podemos imaginar porque nuestras expectativas sobre el futuro se parecen cada vez más.</p></div>
         </div>
-
     </section>
 
-
-    <!-- =========================================================
-         GALERÍA TU LUZ
-    ========================================================= -->
-
+    <!-- GALERÍAS (Mantienen su contenido original) -->
     <section class="fade-in">
-
-        <h2 class="section-title">
-            Tu luz
-        </h2>
-
-        <p class="section-text">
-
-            Cada fotografía guarda una parte de estos meses.
-            Algunas muestran un momento especial; otras simplemente
-            recuerdan lo cotidiano, que muchas veces termina siendo
-            lo más valioso.
-
-        </p>
-
-
+        <h2 class="section-title">Tu luz</h2>
+        <p class="section-text">Cada fotografía guarda una parte de estos meses. Algunas muestran un momento especial; otras simplemente recuerdan lo cotidiano, que muchas veces termina siendo lo más valioso.</p>
         <div class="gallery-wrapper">
-
             <div class="horizontal-scroll">
-
-                <img
-                    src="./s0.jpg"
-                    class="gallery-img"
-                    alt="Selfie 1"
-                >
-
-                <img
-                    src="./s1.jpg"
-                    class="gallery-img"
-                    alt="Selfie 2"
-                >
-
-                <img
-                    src="./s4.jpg"
-                    class="gallery-img"
-                    alt="Selfie 3"
-                >
-
-                <img
-                    src="./s7.jpg"
-                    class="gallery-img"
-                    alt="Selfie 4"
-                >
-
-                <img
-                    src="./s5.jpg"
-                    class="gallery-img"
-                    alt="Selfie 5"
-                >
-
-                <img
-                    src="./s2.jpg"
-                    class="gallery-img"
-                    alt="Selfie 6"
-                >
-
-                <img
-                    src="./s6.jpg"
-                    class="gallery-img"
-                    alt="Selfie 7"
-                >
-
-                <img
-                    src="./s3.jpg"
-                    class="gallery-img"
-                    alt="Selfie 8"
-                >
-
-                <img
-                    src="./s8.jpg"
-                    class="gallery-img"
-                    alt="Selfie 9"
-                >
-
+                <img src="./s0.jpg" class="gallery-img" alt="Selfie 1"><img src="./s1.jpg" class="gallery-img" alt="Selfie 2"><img src="./s4.jpg" class="gallery-img" alt="Selfie 3"><img src="./s7.jpg" class="gallery-img" alt="Selfie 4"><img src="./s5.jpg" class="gallery-img" alt="Selfie 5"><img src="./s2.jpg" class="gallery-img" alt="Selfie 6"><img src="./s6.jpg" class="gallery-img" alt="Selfie 7"><img src="./s3.jpg" class="gallery-img" alt="Selfie 8"><img src="./s8.jpg" class="gallery-img" alt="Selfie 9">
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- =========================================================
-         SALIDAS
-    ========================================================= -->
-
     <section class="fade-in">
-
-        <h2 class="section-title">
-            Nuestras salidas
-        </h2>
-
-        <p class="section-text">
-
-            Lugares, conversaciones, comidas, caminos y momentos
-            que fueron formando nuestra propia historia.
-
-        </p>
-
-
+        <h2 class="section-title">Nuestras salidas</h2>
+        <p class="section-text">Lugares, conversaciones, comidas, caminos y momentos que fueron formando nuestra propia historia.</p>
         <div class="gallery-wrapper">
-
             <div class="horizontal-scroll">
-
-                <img
-                    src="./sa1.jpg"
-                    class="gallery-img"
-                    alt="Salida 1"
-                >
-
-                <img
-                    src="./sa2.jpg"
-                    class="gallery-img"
-                    alt="Salida 2"
-                >
-
-                <img
-                    src="./sa3.jpg"
-                    class="gallery-img"
-                    alt="Salida 3"
-                >
-
-                <img
-                    src="./sa4.jpg"
-                    class="gallery-img"
-                    alt="Salida 4"
-                >
-
-                <img
-                    src="./sa5.jpg"
-                    class="gallery-img"
-                    alt="Salida 5"
-                >
-
-                <img
-                    src="./sa7.jpg"
-                    class="gallery-img"
-                    alt="Salida 6"
-                >
-
-                <img
-                    src="./sa6.jpg"
-                    class="gallery-img"
-                    alt="Salida 7"
-                >
-
-                <img
-                    src="./sa8.jpg"
-                    class="gallery-img"
-                    alt="Salida 8"
-                >
-
-                <img
-                    src="./sa9.jpg"
-                    class="gallery-img"
-                    alt="Salida 9"
-                >
-
-                <img
-                    src="./sa10.jpg"
-                    class="gallery-img"
-                    alt="Salida 10"
-                >
-
+                <img src="./sa1.jpg" class="gallery-img" alt="Salida 1"><img src="./sa2.jpg" class="gallery-img" alt="Salida 2"><img src="./sa3.jpg" class="gallery-img" alt="Salida 3"><img src="./sa4.jpg" class="gallery-img" alt="Salida 4"><img src="./sa5.jpg" class="gallery-img" alt="Salida 5"><img src="./sa7.jpg" class="gallery-img" alt="Salida 6"><img src="./sa6.jpg" class="gallery-img" alt="Salida 7"><img src="./sa8.jpg" class="gallery-img" alt="Salida 8"><img src="./sa9.jpg" class="gallery-img" alt="Salida 9"><img src="./sa10.jpg" class="gallery-img" alt="Salida 10">
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- =========================================================
-         SEGUNDA CITA
-    ========================================================= -->
-
     <section class="fade-in">
-
         <div class="quote-section">
-
-            <p class="quote-text">
-
-                "La distancia puede separar dos lugares,
-                pero no necesariamente separa a dos personas
-                que tienen claro por qué quieren estar juntas."
-
-            </p>
-
+            <p class="quote-text">"La distancia puede separar dos lugares, pero no necesariamente separa a dos personas que tienen claro por qué quieren estar juntas."</p>
         </div>
-
     </section>
 
-
-    <!-- =========================================================
-         MOMENTOS
-    ========================================================= -->
-
     <section class="fade-in">
-
-        <h2 class="section-title">
-            Momentos que guardo
-        </h2>
-
-        <p class="section-text">
-
-            Hay momentos que merecen un lugar especial porque
-            representan algo más que una fotografía.
-
-        </p>
-
-
+        <h2 class="section-title">Momentos que guardo</h2>
+        <p class="section-text">Hay momentos que merecen un lugar especial porque representan algo más que una fotografía.</p>
         <div class="gallery-wrapper">
-
             <div class="horizontal-scroll">
-
-
-                <figure class="gallery-figure">
-
-                    <img
-                        src="./es1.jpg"
-                        class="gallery-img-captioned"
-                        alt="Cuando conociste a Oli"
-                    >
-
-                    <figcaption>
-                        Cuando conociste a Oli.
-                        Un momento importante para mí.
-                    </figcaption>
-
-                </figure>
-
-
-                <figure class="gallery-figure">
-
-                    <img
-                        src="./es2.jpg"
-                        class="gallery-img-captioned"
-                        alt="Cumpleaños en familia"
-                    >
-
-                    <figcaption>
-                        Cuando me acompañaste en mi cumpleaños
-                        y compartimos con mi familia.
-                    </figcaption>
-
-                </figure>
-
-
-                <div class="gallery-text-card">
-
-                    <p>
-                        Y también queda guardado aquel día
-                        en que finalmente conocí a tu familia.
-                        Fue importante para mí.
-                    </p>
-
-                </div>
-
-
+                <figure class="gallery-figure"><img src="./es1.jpg" class="gallery-img-captioned" alt="Cuando conociste a Oli"><figcaption>Cuando conociste a Oli. Un momento importante para mí.</figcaption></figure>
+                <figure class="gallery-figure"><img src="./es2.jpg" class="gallery-img-captioned" alt="Cumpleaños en familia"><figcaption>Cuando me acompañaste en mi cumpleaños y compartimos con mi familia.</figcaption></figure>
+                <div class="gallery-text-card"><p>Y también queda guardado aquel día en que finalmente conocí a tu familia. Fue importante para mí.</p></div>
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- =========================================================
-         CARTA FINAL
-    ========================================================= -->
-
+    <!-- CARTA FINAL -->
     <section class="fade-in">
-
         <div class="letter-section">
-
             <div class="letter-content">
-
-                <p class="letter-opening">
-                    Mi amor,
-                </p>
-
-
-                <p>
-                    Hoy cumplimos cinco meses y, mirando hacia atrás,
-                    creo que lo más importante de este tiempo no es
-                    solamente todo lo que hemos vivido, sino todo lo
-                    que hemos llegado a comprender el uno del otro.
-                </p>
-
-
-                <p>
-                    Estos meses nos permitieron conocernos de una
-                    manera más profunda. Aprendimos nuestras formas
-                    de pensar, nuestras costumbres, nuestras virtudes,
-                    nuestras diferencias y también aquello que
-                    consideramos realmente importante cuando pensamos
-                    en una relación.
-                </p>
-
-
-                <p>
-                    Y este último mes tuvo algo especialmente valioso:
-                    descubrimos que compartimos una visión muy parecida
-                    sobre el futuro. Hablamos de compromiso, de
-                    fidelidad, de matrimonio, de formar una familia
-                    y de la posibilidad de tener hijos.
-                </p>
-
-
-                <p>
-                    No lo veo simplemente como conversaciones bonitas.
-                    Para mí representan valores que quiero tomar en serio:
-                    construir una relación basada en la confianza,
-                    respetarnos incluso cuando pensemos diferente,
-                    elegirnos todos los días y mantenernos fieles
-                    a lo que decidimos construir juntos.
-                </p>
-
-
-                <!-- FRASE CENTRAL -->
-
+                <p class="letter-opening">Mi amor,</p>
+                <p>Hoy cumplimos cinco meses y, mirando hacia atrás, creo que lo más importante de este tiempo no es solamente todo lo que hemos vivido, sino todo lo que hemos llegado a comprender el uno del otro.</p>
+                <p>Estos meses nos permitieron conocernos de una manera más profunda. Aprendimos nuestras formas de pensar, nuestras costumbres, nuestras virtudes, nuestras diferencias y también aquello que consideramos realmente importante cuando pensamos en una relación.</p>
+                <p>Y este último mes tuvo algo especialmente valioso: descubrimos que compartimos una visión muy parecida sobre el futuro. Hablamos de compromiso, de fidelidad, de matrimonio, de formar una familia y de la posibilidad de tener hijos.</p>
+                <p>No lo veo simplemente como conversaciones bonitas. Para mí representan valores que quiero tomar en serio: construir una relación basada en la confianza, respetarnos incluso cuando pensemos diferente, elegirnos todos los días y mantenernos fieles a lo que decidimos construir juntos.</p>
+                
                 <div class="world-statement">
-
-                    <small>
-                        Nuestra decisión
-                    </small>
-
-                    <strong>
-                        Nosotros contra el mundo.
-                    </strong>
-
-                    <span>
-                        No contra las personas, sino juntos frente
-                        a todo aquello que pueda intentar separarnos.
-                    </span>
-
+                    <small>Nuestra decisión</small>
+                    <strong>Nosotros contra el mundo.</strong>
+                    <span>No contra las personas, sino juntos frente a todo aquello que pueda intentar separarnos.</span>
                 </div>
-
-
-                <p>
-                    También quiero que, si algún día llegamos a casarnos
-                    y formar esa familia que hoy podemos imaginar,
-                    podamos mirar hacia atrás y reconocer que todo
-                    comenzó con dos personas que decidieron conocerse,
-                    cuidarse y serse fieles desde el principio.
-                </p>
-
-
-                <p>
-                    Quiero seguir construyendo esto con vos sin
-                    apresurar lo que necesita tiempo, pero tampoco
-                    teniendo miedo de reconocer cuando algo tiene
-                    verdadero valor.
-                </p>
-
-
-                <p>
-                    Gracias por estos cinco meses, por tu compañía,
-                    por tu confianza y por todo lo que hemos aprendido
-                    juntos.
-                </p>
-
-
-                <p>
-                    Le doy gracias a Dios por haber cruzado nuestros
-                    caminos y le pido que nos dé sabiduría para cuidar
-                    lo que estamos construyendo, con respeto,
-                    fidelidad y compromiso.
-                </p>
-
-
-                <p>
-                    Cinco meses han pasado.
-                    Y si algo tengo claro es que todavía queda
-                    muchísimo por escribir.
-                </p>
-
+                
+                <p>También quiero que, si algún día llegamos a casarnos y formar esa familia que hoy podemos imaginar, podamos mirar hacia atrás y reconocer que todo comenzó con dos personas que decidieron conocerse, cuidarse y serse fieles desde el principio.</p>
+                <p>Quiero seguir construyendo esto con vos sin apresurar lo que necesita tiempo, pero tampoco teniendo miedo de reconocer cuando algo tiene verdadero valor.</p>
+                <p>Gracias por estos cinco meses, por tu compañía, por tu confianza y por todo lo que hemos aprendido juntos.</p>
+                <p>Le doy gracias a Dios por haber cruzado nuestros caminos y le pido que nos dé sabiduría para cuidar lo que estamos construyendo, con respeto, fidelidad y compromiso.</p>
+                <p>Cinco meses han pasado. Y si algo tengo claro es que todavía queda muchísimo por escribir.</p>
             </div>
-
-
             <div class="signature">
-
-                <span class="title">
-                    Felices cinco meses
-                </span>
-
-                <span class="sub">
-                    siempre tuyo,
-                </span>
-
-                <span class="name">
-                    Cristian.
-                </span>
-
+                <span class="title">Felices cinco meses</span>
+                <span class="sub">siempre tuyo,</span>
+                <span class="name">Cristian.</span>
             </div>
-
         </div>
-
     </section>
 
+    <footer>Cinco meses · Una historia · Un proyecto compartido</footer>
 
-    <!-- =========================================================
-         FOOTER
-    ========================================================= -->
-
-    <footer>
-
-        Cinco meses · Una historia · Un proyecto compartido
-
-    </footer>
-
-
-    <!-- =========================================================
-         LIGHTBOX
-    ========================================================= -->
-
-    <div
-        class="lightbox"
-        id="lightbox"
-    >
-
-        <button
-            class="close-btn"
-            onclick="closeLightbox()"
-            aria-label="Cerrar imagen"
-        >
-            &times;
-        </button>
-
-        <img
-            src=""
-            id="lightbox-img"
-            alt="Imagen ampliada"
-        >
-
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <button class="close-btn" onclick="closeLightbox()" aria-label="Cerrar imagen">&times;</button>
+        <img src="" id="lightbox-img" alt="Imagen ampliada">
     </div>
 
-
-    <!-- =========================================================
-         YOUTUBE IFRAME API
-    ========================================================= -->
-
+    <!-- SCRIPT DE YOUTUBE E INTERACCIONES -->
     <script src="https://www.youtube.com/iframe_api"></script>
-
-
     <script>
-
         /* =========================================================
-           CONFIGURACIÓN DE YOUTUBE
+           CONFIGURACIÓN DE YOUTUBE - Bonnie Tyler
         ========================================================= */
-
-        const YOUTUBE_VIDEO_ID = "MqazV4hbu8E";
-
+        const YOUTUBE_VIDEO_ID = "lcOxhH8N3Bo"; 
         let youtubePlayer = null;
-
         let youtubeReady = false;
 
-        let musicStarted = false;
-
-
-        /*
-         * YouTube llama automáticamente a esta función
-         * cuando termina de cargar su API.
-         */
-
         function onYouTubeIframeAPIReady() {
-
-            youtubePlayer = new YT.Player(
-                'youtube-player',
-                {
-
-                    videoId: YOUTUBE_VIDEO_ID,
-
-                    playerVars: {
-
-                        autoplay: 0,
-
-                        controls: 0,
-
-                        disablekb: 1,
-
-                        fs: 0,
-
-                        iv_load_policy: 3,
-
-                        modestbranding: 1,
-
-                        playsinline: 1,
-
-                        rel: 0
-                    },
-
-
-                    events: {
-
-                        onReady: function () {
-
-                            youtubeReady = true;
-
-                            youtubePlayer.setVolume(45);
-                        },
-
-
-                        onStateChange:
-                            handlePlayerState
+            youtubePlayer = new YT.Player('youtube-player', {
+                videoId: YOUTUBE_VIDEO_ID,
+                playerVars: {
+                    autoplay: 0,
+                    controls: 0, /* Oculta controles para que parezca diseño nativo */
+                    disablekb: 1,
+                    fs: 0,
+                    iv_load_policy: 3,
+                    modestbranding: 1,
+                    playsinline: 1,
+                    rel: 0
+                },
+                events: {
+                    onReady: function () {
+                        youtubeReady = true;
+                        youtubePlayer.setVolume(50);
                     }
-
                 }
-            );
+            });
         }
-
-
-        /* =========================================================
-           ESTADO DEL REPRODUCTOR
-        ========================================================= */
-
-        function handlePlayerState(event) {
-
-            const status =
-                document.getElementById(
-                    "song-status"
-                );
-
-
-            if (
-                event.data ===
-                YT.PlayerState.PLAYING
-            ) {
-
-                status.textContent =
-                    "Reproduciendo";
-
-            }
-            else if (
-                event.data ===
-                YT.PlayerState.PAUSED
-            ) {
-
-                status.textContent =
-                    "Pausada";
-
-            }
-            else if (
-                event.data ===
-                YT.PlayerState.ENDED
-            ) {
-
-                status.textContent =
-                    "Finalizada";
-            }
-
-        }
-
-
-        /* =========================================================
-           INICIAR EXPERIENCIA
-        ========================================================= */
 
         function startExperience() {
-
-            const welcome =
-                document.getElementById(
-                    "welcome-screen"
-                );
-
-
-            /*
-             * Intentamos reproducir inmediatamente.
-             * Como la acción proviene del botón del usuario,
-             * el navegador permite el audio.
-             */
-
-            if (
-                youtubePlayer &&
-                youtubeReady
-            ) {
-
+            const welcome = document.getElementById("welcome-screen");
+            if (youtubePlayer && youtubeReady) {
                 youtubePlayer.playVideo();
-
-                musicStarted = true;
             }
-
-
             welcome.style.opacity = "0";
-
-
-            setTimeout(
-                function () {
-
-                    welcome.style.visibility =
-                        "hidden";
-
-                    document.body.classList
-                        .remove("locked");
-
-                },
-                1200
-            );
-
+            setTimeout(function () {
+                welcome.style.visibility = "hidden";
+                document.body.classList.remove("locked");
+            }, 1200);
         }
 
-
         /* =========================================================
-           LETRA
-           
-           El texto utilizado aquí corresponde exactamente
-           al texto proporcionado por el usuario.
-           
-           Los tiempos son independientes del video y pueden
-           ajustarse fácilmente si la versión del tema cambia.
+           LETRA - TOTAL ECLIPSE OF THE HEART (ESPAÑOL)
         ========================================================= */
-
         const lyrics = [
-
-            {
-                time: 0,
-                text: "Pero no puedo evitar"
-            },
-
-            {
-                time: 4,
-                text: "Enamorarme de ti"
-            },
-
-            {
-                time: 8,
-                text: "Si me quedara"
-            },
-
-            {
-                time: 11,
-                text: "¿Sería un pecado?"
-            },
-
-            {
-                time: 15,
-                text: "Si no puedo evitar"
-            },
-
-            {
-                time: 19,
-                text: "Enamorarme de ti"
-            },
-
-            {
-                time: 24,
-                text: "Como un río que fluye"
-            },
-
-            {
-                time: 28,
-                text: "Seguro hacia el mar"
-            },
-
-            {
-                time: 32,
-                text: "Querida, así es"
-            },
-
-            {
-                time: 35,
-                text: "Algunas cosas están destinadas a suceder"
-            },
-
-            {
-                time: 41,
-                text: "Toma mi mano"
-            },
-
-            {
-                time: 45,
-                text: "Toma mi vida entera también"
-            },
-
-            {
-                time: 50,
-                text: "Porque no puedo evitar"
-            },
-
-            {
-                time: 54,
-                text: "Enamorarme de ti"
-            },
-
-            {
-                time: 60,
-                text: "Como un río que fluye"
-            },
-
-            {
-                time: 64,
-                text: "Seguro hacia el mar"
-            },
-
-            {
-                time: 68,
-                text: "Querida, así es"
-            },
-
-            {
-                time: 71,
-                text: "Algunas cosas están destinadas a suceder"
-            },
-
-            {
-                time: 77,
-                text: "Toma mi mano"
-            },
-
-            {
-                time: 81,
-                text: "Toma mi vida entera también"
-            },
-
-            {
-                time: 86,
-                text: "Porque no puedo evitar"
-            },
-
-            {
-                time: 90,
-                text: "Enamorarme de ti"
-            },
-
-            {
-                time: 96,
-                text: "Porque no puedo evitar"
-            },
-
-            {
-                time: 100,
-                text: "Enamorarme de ti"
-            }
-
+            { time: 0, text: "🎶 (Intro Instrumental) 🎶" },
+            { time: 43, text: "(Date vuelta) De vez en cuando me siento un poco sola..." },
+            { time: 48, text: "...y tú nunca vienes a mí" },
+            { time: 51, text: "(Date vuelta) De vez en cuando me canso de escuchar mis lágrimas" },
+            { time: 57, text: "(Date vuelta) De vez en cuando me pongo un poco nerviosa" },
+            { time: 62, text: "De que lo mejor de todos los años ya haya pasado" },
+            { time: 66, text: "(Date vuelta) De vez en cuando me siento un poco aterrada" },
+            { time: 70, text: "Pero luego veo la mirada en tus ojos" },
+            { time: 76, text: "(Date vuelta, ojos brillantes)" },
+            { time: 80, text: "(Date vuelta, ojos brillantes)" },
+            { time: 87, text: "De vez en cuando me desmorono..." },
+            { time: 133, text: "Y te necesito ahora esta noche" },
+            { time: 136, text: "Y te necesito más que nunca" },
+            { time: 140, text: "Y si solo me abrazas fuerte" },
+            { time: 144, text: "Estaremos resistiendo para siempre" },
+            { time: 147, text: "Y juntos lo haremos bien" },
+            { time: 151, text: "Porque nunca nos equivocaremos" },
+            { time: 154, text: "Juntos podemos llevarlo hasta el final de la línea" },
+            { time: 158, text: "Tu amor es como una sombra en mí todo el tiempo" },
+            { time: 162, text: "No sé qué hacer y siempre estoy en la oscuridad" },
+            { time: 166, text: "Estamos viviendo en un barril de pólvora y soltando chispas" },
+            { time: 169, text: "Realmente te necesito esta noche" },
+            { time: 173, text: "Para siempre va a empezar esta noche..." },
+            { time: 178, text: "Érase una vez, me enamoraba" },
+            { time: 182, text: "Pero ahora solo me desmorono" },
+            { time: 186, text: "No hay nada que pueda hacer" },
+            { time: 190, text: "Un eclipse total del corazón 🤍" },
+            { time: 194, text: "Érase una vez, había luz en mi vida" },
+            { time: 197, text: "Pero ahora solo hay amor en la oscuridad" },
+            { time: 201, text: "Nada que pueda decir" },
+            { time: 205, text: "Un eclipse total del corazón" },
+            { time: 215, text: "🎶 (Solo instrumental) 🎶" }
         ];
 
+        const lyricsTrack = document.getElementById("lyrics-track");
+        lyrics.forEach(function (line, index) {
+            const element = document.createElement("div");
+            element.className = "lyric-line";
+            element.dataset.index = index;
+            element.textContent = line.text;
+            lyricsTrack.appendChild(element);
+        });
 
-        /* =========================================================
-           CREAR LETRA
-        ========================================================= */
-
-        const lyricsTrack =
-            document.getElementById(
-                "lyrics-track"
-            );
-
-
-        lyrics.forEach(
-            function (line, index) {
-
-                const element =
-                    document.createElement(
-                        "div"
-                    );
-
-                element.className =
-                    "lyric-line";
-
-                element.dataset.index =
-                    index;
-
-                element.textContent =
-                    line.text;
-
-                lyricsTrack.appendChild(
-                    element
-                );
-
-            }
-        );
-
-
-        const lyricElements =
-            document.querySelectorAll(
-                ".lyric-line"
-            );
-
-
+        const lyricElements = document.querySelectorAll(".lyric-line");
         let currentLyric = -1;
 
-
-        /* =========================================================
-           ACTUALIZAR LETRA SEGÚN LA CANCIÓN
-        ========================================================= */
-
         function updateLyrics() {
-
-            if (
-                !youtubePlayer ||
-                !youtubeReady
-            ) {
-
-                requestAnimationFrame(
-                    updateLyrics
-                );
-
+            if (!youtubePlayer || !youtubeReady) {
+                requestAnimationFrame(updateLyrics);
                 return;
             }
-
-
-            let currentTime =
-                youtubePlayer.getCurrentTime();
-
+            
+            // Try catch is to prevent errors before video plays
+            let currentTime = 0;
+            try { currentTime = youtubePlayer.getCurrentTime(); } catch (e) {}
 
             let newIndex = -1;
-
-
-            for (
-                let i = 0;
-                i < lyrics.length;
-                i++
-            ) {
-
-                if (
-                    currentTime >=
-                    lyrics[i].time
-                ) {
-
+            for (let i = 0; i < lyrics.length; i++) {
+                if (currentTime >= lyrics[i].time) {
                     newIndex = i;
-
-                }
-                else {
-
+                } else {
                     break;
                 }
-
             }
 
+            if (newIndex !== currentLyric) {
+                currentLyric = newIndex;
+                lyricElements.forEach(function (element, index) {
+                    element.classList.toggle("active", index === currentLyric);
+                });
 
-            if (
-                newIndex !== currentLyric
-            ) {
-
-                currentLyric =
-                    newIndex;
-
-
-                lyricElements.forEach(
-                    function (element, index) {
-
-                        element.classList.toggle(
-                            "active",
-                            index === currentLyric
-                        );
-
-                    }
-                );
-
-
-                if (
-                    currentLyric >= 0
-                ) {
-
-                    /*
-                     * Cada línea mide 55px.
-                     * La línea actual queda centrada.
-                     */
-
-                    const offset =
-                        currentLyric * 55;
-
-
-                    lyricsTrack.style.transform =
-                        "translateY(calc(-50% - " +
-                        offset +
-                        "px))";
-
+                if (currentLyric >= 0) {
+                    const offset = currentLyric * 55;
+                    lyricsTrack.style.transform = "translateY(calc(-50% - " + offset + "px))";
                 }
-
             }
-
-
-            requestAnimationFrame(
-                updateLyrics
-            );
-
+            requestAnimationFrame(updateLyrics);
         }
-
-
-        requestAnimationFrame(
-            updateLyrics
-        );
-
+        requestAnimationFrame(updateLyrics);
 
         /* =========================================================
            CONTADOR
         ========================================================= */
-
-        const fechaInicio =
-            new Date(
-                2026,
-                2,
-                11,
-                17,
-                0,
-                0
-            ).getTime();
-
-
+        const fechaInicio = new Date(2026, 2, 11, 17, 0, 0).getTime();
         function actualizarContador() {
-
-            const ahora =
-                new Date().getTime();
-
-
-            const diferencia =
-                ahora - fechaInicio;
-
-
-            if (
-                diferencia < 0
-            ) {
-
-                document.getElementById(
-                    "counter-display"
-                ).textContent =
-                    "Todavía no comenzó";
-
+            const ahora = new Date().getTime();
+            const diferencia = ahora - fechaInicio;
+            if (diferencia < 0) {
+                document.getElementById("counter-display").textContent = "Todavía no comenzó";
                 return;
             }
-
-
-            const dias =
-                Math.floor(
-                    diferencia /
-                    (1000 * 60 * 60 * 24)
-                );
-
-
-            const horas =
-                Math.floor(
-                    (
-                        diferencia %
-                        (1000 * 60 * 60 * 24)
-                    ) /
-                    (1000 * 60 * 60)
-                );
-
-
-            const minutos =
-                Math.floor(
-                    (
-                        diferencia %
-                        (1000 * 60 * 60)
-                    ) /
-                    (1000 * 60)
-                );
-
-
-            const segundos =
-                Math.floor(
-                    (
-                        diferencia %
-                        (1000 * 60)
-                    ) /
-                    1000
-                );
-
-
-            document.getElementById(
-                "counter-display"
-            ).textContent =
-
-                dias +
-                " días · " +
-
-                horas +
-                " h · " +
-
-                minutos +
-                " m · " +
-
-                segundos +
-                " s";
-
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+            document.getElementById("counter-display").textContent = 
+                dias + " días · " + horas + " h · " + minutos + " m · " + segundos + " s";
         }
-
-
         actualizarContador();
-
-
-        setInterval(
-            actualizarContador,
-            1000
-        );
-
+        setInterval(actualizarContador, 1000);
 
         /* =========================================================
-           FADE-IN
+           FADE-IN Y ACORDEONES
         ========================================================= */
-
-        const observer =
-            new IntersectionObserver(
-
-                function (entries) {
-
-                    entries.forEach(
-                        function (entry) {
-
-                            if (
-                                entry.isIntersecting
-                            ) {
-
-                                entry.target
-                                    .classList
-                                    .add("visible");
-
-                                observer.unobserve(
-                                    entry.target
-                                );
-                            }
-
-                        }
-                    );
-
-                },
-
-                {
-                    threshold: 0.12
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
                 }
+            });
+        }, { threshold: 0.12 });
 
-            );
-
-
-        document
-            .querySelectorAll(
-                ".fade-in"
-            )
-            .forEach(
-                function (section) {
-
-                    observer.observe(
-                        section
-                    );
-
-                }
-            );
-
-
-        /* =========================================================
-           ACORDEONES
-        ========================================================= */
+        document.querySelectorAll(".fade-in").forEach(function (section) { observer.observe(section); });
 
         function toggleCard(element) {
-
-            const allCards =
-                document.querySelectorAll(
-                    ".discovery-card"
-                );
-
-
-            allCards.forEach(
-                function (card) {
-
-                    if (
-                        card !== element
-                    ) {
-
-                        card.classList.remove(
-                            "active"
-                        );
-
-                    }
-
-                }
-            );
-
-
-            element.classList.toggle(
-                "active"
-            );
-
+            document.querySelectorAll(".discovery-card").forEach(function (card) {
+                if (card !== element) card.classList.remove("active");
+            });
+            element.classList.toggle("active");
         }
-
 
         /* =========================================================
            LIGHTBOX
         ========================================================= */
-
-        const lightbox =
-            document.getElementById(
-                "lightbox"
-            );
-
-
-        const lightboxImg =
-            document.getElementById(
-                "lightbox-img"
-            );
-
-
-        const galleryImages =
-            document.querySelectorAll(
-                ".gallery-img, .gallery-img-captioned"
-            );
-
-
-        galleryImages.forEach(
-            function (image) {
-
-                image.addEventListener(
-                    "click",
-                    function () {
-
-                        lightboxImg.src =
-                            image.src;
-
-                        lightbox.classList.add(
-                            "active"
-                        );
-
-                        document.body.style
-                            .overflow = "hidden";
-                    }
-                );
-
-            }
-        );
-
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        document.querySelectorAll(".gallery-img, .gallery-img-captioned").forEach(function (image) {
+            image.addEventListener("click", function () {
+                lightboxImg.src = image.src;
+                lightbox.classList.add("active");
+                document.body.style.overflow = "hidden";
+            });
+        });
 
         function closeLightbox() {
-
-            lightbox.classList.remove(
-                "active"
-            );
-
-
-            setTimeout(
-                function () {
-
-                    lightboxImg.src = "";
-
-                },
-                300
-            );
-
-
-            if (
-                !document.body.classList
-                    .contains("locked")
-            ) {
-
-                document.body.style
-                    .overflow = "";
+            lightbox.classList.remove("active");
+            setTimeout(function () { lightboxImg.src = ""; }, 300);
+            if (!document.body.classList.contains("locked")) {
+                document.body.style.overflow = "";
             }
-
         }
 
-
-        lightbox.addEventListener(
-            "click",
-            function (event) {
-
-                if (
-                    event.target ===
-                    lightbox
-                ) {
-
-                    closeLightbox();
-
-                }
-
-            }
-        );
-
-
-        /* =========================================================
-           ESC PARA CERRAR IMAGEN
-        ========================================================= */
-
-        document.addEventListener(
-            "keydown",
-            function (event) {
-
-                if (
-                    event.key === "Escape"
-                ) {
-
-                    closeLightbox();
-
-                }
-
-            }
-        );
-
-
-        /* =========================================================
-           EVITAR QUE EL CLICK DEL NAVBAR
-           INTERFIERA CON LA PÁGINA
-        ========================================================= */
-
-        document
-            .querySelector(".music-navbar")
-            .addEventListener(
-                "click",
-                function (event) {
-
-                    event.stopPropagation();
-
-                }
-            );
-
-
+        lightbox.addEventListener("click", function (event) { if (event.target === lightbox) closeLightbox(); });
+        document.addEventListener("keydown", function (event) { if (event.key === "Escape") closeLightbox(); });
     </script>
-
 </body>
 </html>
