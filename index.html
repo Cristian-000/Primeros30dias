@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#08121f">
 
     <title>Nuestros 5 Meses</title>
 
@@ -12,28 +11,28 @@
     <style>
 
         /* =====================================================
-           PALETA NUEVA
-           Azul noche + marfil + champagne
+           PALETA
         ===================================================== */
 
         :root {
-            --bg-main: #08121f;
-            --bg-deep: #040a12;
 
-            --paper: #101c2b;
-            --paper-soft: #142235;
+            --bg-main: #0b0c0c;
+            --bg-deep: #050606;
 
-            --text-dark: #f4f0e8;
-            --text-light: #aeb8c5;
+            --paper: #141616;
+            --paper-soft: #1b1d1c;
 
-            --accent: #c8a96b;
-            --accent-light: #e0c98e;
-            --accent-dark: #987b43;
+            --text-dark: #f1eee7;
+            --text-light: #aaa69d;
 
-            --border: rgba(200, 169, 107, 0.25);
-            --white-border: rgba(255,255,255,0.08);
+            --accent: #c8ad72;
+            --accent-soft: #a98f59;
 
-            --lyrics-height: 58px;
+            --accent-glow: rgba(200, 173, 114, 0.18);
+
+            --border: rgba(200, 173, 114, 0.20);
+
+            --white-border: rgba(255,255,255,0.07);
         }
 
 
@@ -42,39 +41,47 @@
         ===================================================== */
 
         * {
+
             box-sizing: border-box;
+
             margin: 0;
+
             padding: 0;
+
             -webkit-tap-highlight-color: transparent;
         }
 
+
         html {
+
             scroll-behavior: smooth;
         }
 
+
         body {
+
             font-family: 'Outfit', sans-serif;
 
             background:
                 radial-gradient(
-                    circle at 50% -10%,
-                    rgba(200,169,107,0.08),
-                    transparent 38%
+                    circle at top,
+                    rgba(200,173,114,0.045),
+                    transparent 35%
                 ),
-                linear-gradient(
-                    180deg,
-                    #08121f 0%,
-                    #07101b 50%,
-                    #040a12 100%
-                );
+                var(--bg-main);
 
             color: var(--text-dark);
+
             line-height: 1.7;
+
             overflow-x: hidden;
         }
 
+
         body.locked {
+
             overflow: hidden;
+
             height: 100vh;
         }
 
@@ -84,22 +91,27 @@
         ===================================================== */
 
         #welcome-screen {
+
             position: fixed;
+
             inset: 0;
 
             width: 100%;
+
             height: 100vh;
 
             background:
                 radial-gradient(
                     circle at center,
-                    #15263a 0%,
-                    #08121f 48%,
-                    #03070d 100%
+                    #191b1a 0%,
+                    #080909 55%,
+                    #030404 100%
                 );
 
             display: flex;
+
             justify-content: center;
+
             align-items: center;
 
             z-index: 9999;
@@ -109,49 +121,62 @@
                 visibility 1.2s ease;
         }
 
+
         .welcome-content {
+
             width: min(90%, 500px);
+
             text-align: center;
+
             padding: 30px;
         }
 
+
         .welcome-small {
-            color: var(--accent-light);
+
+            color: var(--accent);
+
             text-transform: uppercase;
+
             letter-spacing: 5px;
+
             font-size: 0.7rem;
+
             margin-bottom: 25px;
         }
 
+
         .welcome-title {
+
             font-family: 'Playfair Display', serif;
 
-            font-size:
-                clamp(2.2rem, 8vw, 3.5rem);
+            font-size: clamp(2.2rem, 8vw, 3.5rem);
 
             line-height: 1.2;
 
             margin-bottom: 15px;
         }
 
+
         .welcome-subtitle {
+
             font-family: 'Caveat', cursive;
 
-            color: var(--accent-light);
+            color: var(--accent);
 
-            font-size:
-                clamp(1.5rem, 5vw, 2rem);
+            font-size: clamp(1.5rem, 5vw, 2rem);
 
             margin-bottom: 45px;
         }
 
+
         .welcome-btn {
+
             background: transparent;
 
-            color: var(--accent-light);
+            color: var(--accent);
 
-            border:
-                1px solid var(--accent);
+            border: 1px solid var(--accent);
 
             padding: 15px 45px;
 
@@ -174,24 +199,27 @@
                 box-shadow 0.3s ease;
         }
 
+
         .welcome-btn:hover {
+
             background: var(--accent);
 
-            color: #07101b;
+            color: #080909;
 
             transform: translateY(-3px);
 
             box-shadow:
-                0 10px 35px
-                rgba(200,169,107,0.18);
+                0 10px 30px
+                rgba(200,173,114,0.15);
         }
 
 
         /* =====================================================
-           NAVBAR MUSICAL
+           NAVBAR + LETRA
         ===================================================== */
 
         .music-navbar {
+
             position: sticky;
 
             top: 0;
@@ -200,19 +228,18 @@
 
             width: 100%;
 
-            height: 82px;
+            height: 75px;
 
             background:
                 linear-gradient(
                     180deg,
-                    rgba(8,18,31,0.98),
-                    rgba(6,14,24,0.96)
+                    rgba(12,14,14,0.98),
+                    rgba(8,9,9,0.96)
                 );
 
-            border-bottom:
-                1px solid var(--border);
+            border-bottom: 1px solid var(--border);
 
-            backdrop-filter: blur(16px);
+            backdrop-filter: blur(14px);
 
             display: flex;
 
@@ -221,11 +248,14 @@
             justify-content: center;
 
             box-shadow:
-                0 8px 30px rgba(0,0,0,0.45);
+                0 8px 25px
+                rgba(0,0,0,0.5);
         }
 
+
         .navbar-inner {
-            width: min(900px, 94%);
+
+            width: min(850px, 92%);
 
             height: 100%;
 
@@ -233,29 +263,27 @@
 
             align-items: center;
 
-            gap: 16px;
+            justify-content: space-between;
+
+            gap: 15px;
         }
 
 
-        /* =====================================================
-           BOTÓN DE MÚSICA
-        ===================================================== */
+        /* BOTÓN AUDIO */
 
         .nav-btn {
-            flex: 0 0 46px;
 
-            width: 46px;
-            height: 46px;
+            flex: 0 0 45px;
+
+            height: 45px;
 
             border-radius: 50%;
 
-            background:
-                rgba(200,169,107,0.06);
+            background: transparent;
 
-            color: var(--accent-light);
+            color: var(--accent);
 
-            border:
-                1px solid var(--accent);
+            border: 1px solid var(--accent);
 
             display: flex;
 
@@ -270,10 +298,12 @@
             transition: all 0.3s ease;
         }
 
+
         .nav-btn:hover {
+
             background: var(--accent);
 
-            color: #07101b;
+            color: #050606;
 
             transform: scale(1.05);
         }
@@ -287,30 +317,20 @@
 
             flex: 1;
 
-            height: var(--lyrics-height);
+            height: 55px;
 
             position: relative;
 
             overflow: hidden;
 
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            /*
-              Sombra superior e inferior.
-              Da sensación de que las letras
-              están entrando y saliendo.
-            */
+            display: block;
 
             mask-image:
                 linear-gradient(
                     to bottom,
                     transparent 0%,
-                    black 25%,
-                    black 75%,
+                    black 22%,
+                    black 78%,
                     transparent 100%
                 );
 
@@ -318,24 +338,25 @@
                 linear-gradient(
                     to bottom,
                     transparent 0%,
-                    black 25%,
-                    black 75%,
+                    black 22%,
+                    black 78%,
                     transparent 100%
                 );
         }
+
 
         .lyrics-track {
 
             position: absolute;
 
+            top: 0;
+
             left: 0;
 
             width: 100%;
 
-            top: 50%;
-
             transform:
-                translateY(-50%);
+                translate3d(0, 0, 0);
 
             transition:
                 transform 0.65s
@@ -345,11 +366,16 @@
                     0.36,
                     1
                 );
+
+            will-change: transform;
         }
+
 
         .lyric-line {
 
-            height: var(--lyrics-height);
+            width: 100%;
+
+            height: 55px;
 
             display: flex;
 
@@ -371,33 +397,43 @@
                 clamp(
                     0.82rem,
                     3vw,
-                    1.05rem
+                    1.12rem
                 );
 
             color:
-                rgba(244,240,232,0.35);
+                rgba(
+                    235,
+                    225,
+                    205,
+                    0.30
+                );
 
-            opacity: 0.25;
+            opacity: 0.35;
+
+            transform: scale(0.94);
 
             transition:
                 color 0.5s ease,
                 opacity 0.5s ease,
-                transform 0.5s ease;
+                transform 0.5s ease,
+                text-shadow 0.5s ease;
         }
+
 
         .lyric-line.active {
 
-            color:
-                var(--accent-light);
+            color: var(--accent);
 
             opacity: 1;
 
-            transform:
-                scale(1.03);
+            transform: scale(1);
 
             text-shadow:
+                0 0 8px
+                rgba(200,173,114,0.25),
+
                 0 2px 15px
-                rgba(200,169,107,0.25);
+                rgba(200,173,114,0.15);
         }
 
 
@@ -409,20 +445,19 @@
 
             text-align: center;
 
-            padding:
-                65px 20px 50px;
+            padding: 60px 20px 50px;
 
             max-width: 850px;
 
             margin: auto;
         }
 
+
         .tagline {
 
             display: block;
 
-            color:
-                var(--accent-light);
+            color: var(--accent);
 
             text-transform: uppercase;
 
@@ -434,6 +469,7 @@
 
             margin-bottom: 15px;
         }
+
 
         h1 {
 
@@ -453,10 +489,10 @@
             margin-bottom: 20px;
         }
 
+
         .header-subtitle {
 
-            color:
-                var(--text-light);
+            color: var(--text-light);
 
             font-size: 1rem;
 
@@ -485,21 +521,21 @@
 
             opacity: 0;
 
-            transform:
-                translateY(35px);
+            transform: translateY(35px);
 
             transition:
                 opacity 0.9s ease,
                 transform 0.9s ease;
         }
 
+
         section.visible {
 
             opacity: 1;
 
-            transform:
-                translateY(0);
+            transform: translateY(0);
         }
+
 
         .section-title {
 
@@ -507,8 +543,7 @@
                 'Playfair Display',
                 serif;
 
-            color:
-                var(--accent-light);
+            color: var(--accent);
 
             font-size:
                 clamp(
@@ -522,10 +557,10 @@
             margin-bottom: 12px;
         }
 
+
         .section-text {
 
-            color:
-                var(--text-light);
+            color: var(--text-light);
 
             font-size: 1rem;
 
@@ -548,19 +583,21 @@
             background:
                 linear-gradient(
                     145deg,
-                    #122236,
-                    #0b1624
+                    #191b1a,
+                    #101211
                 );
 
             border:
-                1px solid var(--white-border);
+                1px solid
+                var(--white-border);
 
             border-radius: 18px;
 
             box-shadow:
                 0 20px 50px
-                rgba(0,0,0,0.45);
+                rgba(0,0,0,0.65);
         }
+
 
         .counter-box::before {
 
@@ -569,9 +606,11 @@
             position: absolute;
 
             top: 0;
+
             left: 50%;
 
             width: 70px;
+
             height: 2px;
 
             transform:
@@ -580,6 +619,7 @@
             background:
                 var(--accent);
         }
+
 
         .counter-numbers {
 
@@ -594,16 +634,15 @@
                     2rem
                 );
 
-            color:
-                var(--accent-light);
+            color: var(--accent);
 
             margin-bottom: 10px;
         }
 
+
         .counter-label {
 
-            color:
-                var(--text-light);
+            color: var(--text-light);
 
             font-size: 0.75rem;
 
@@ -631,21 +670,23 @@
             background:
                 linear-gradient(
                     145deg,
-                    #132337,
-                    #07101b
+                    #191b1a,
+                    #070808
                 );
 
             border-radius: 22px;
 
             border:
-                1px solid var(--white-border);
+                1px solid
+                var(--white-border);
 
             box-shadow:
                 0 20px 60px
-                rgba(0,0,0,0.5);
+                rgba(0,0,0,0.7);
 
             overflow: hidden;
         }
+
 
         .quote-section::before {
 
@@ -654,19 +695,18 @@
             position: absolute;
 
             top: -25px;
+
             left: 20px;
 
-            font-family:
-                Georgia,
-                serif;
+            font-family: Georgia, serif;
 
             font-size: 7rem;
 
-            color:
-                var(--accent);
+            color: var(--accent);
 
             opacity: 0.08;
         }
+
 
         .quote-section::after {
 
@@ -675,19 +715,18 @@
             position: absolute;
 
             bottom: -65px;
+
             right: 20px;
 
-            font-family:
-                Georgia,
-                serif;
+            font-family: Georgia, serif;
 
             font-size: 7rem;
 
-            color:
-                var(--accent);
+            color: var(--accent);
 
             opacity: 0.08;
         }
+
 
         .quote-text {
 
@@ -710,8 +749,7 @@
 
             line-height: 1.7;
 
-            color:
-                var(--text-dark);
+            color: var(--text-dark);
         }
 
 
@@ -725,10 +763,12 @@
                 var(--paper);
 
             border:
-                1px solid var(--white-border);
+                1px solid
+                var(--white-border);
 
             border-left:
-                2px solid var(--accent);
+                2px solid
+                var(--accent);
 
             border-radius: 14px;
 
@@ -738,18 +778,19 @@
 
             box-shadow:
                 0 10px 25px
-                rgba(0,0,0,0.35);
+                rgba(0,0,0,0.45);
 
             transition:
-                transform 0.3s ease,
-                border-color 0.3s ease;
+                transform 0.3s ease;
         }
+
 
         .discovery-card:hover {
 
             transform:
                 translateX(3px);
         }
+
 
         .discovery-header {
 
@@ -769,16 +810,15 @@
 
             font-weight: 500;
 
-            color:
-                var(--text-dark);
+            color: var(--text-dark);
         }
+
 
         .discovery-header::after {
 
             content: "+";
 
-            color:
-                var(--accent-light);
+            color: var(--accent);
 
             font-size: 1.6rem;
 
@@ -786,12 +826,14 @@
                 transform 0.3s ease;
         }
 
+
         .discovery-card.active
         .discovery-header::after {
 
             transform:
                 rotate(45deg);
         }
+
 
         .discovery-content {
 
@@ -802,13 +844,13 @@
             padding:
                 0 20px;
 
-            color:
-                var(--text-light);
+            color: var(--text-light);
 
             transition:
                 max-height 0.5s ease,
                 padding 0.5s ease;
         }
+
 
         .discovery-card.active
         .discovery-content {
@@ -818,6 +860,7 @@
             padding:
                 0 20px 25px;
         }
+
 
         .discovery-content p {
 
@@ -836,6 +879,7 @@
             margin-bottom: 30px;
         }
 
+
         .values-grid {
 
             display: grid;
@@ -846,6 +890,7 @@
             gap: 15px;
         }
 
+
         .value-card {
 
             position: relative;
@@ -853,17 +898,17 @@
             background:
                 linear-gradient(
                     145deg,
-                    #132337,
-                    #0c1725
+                    #191b1a,
+                    #101211
                 );
 
             border:
-                1px solid var(--border);
+                1px solid
+                var(--border);
 
             border-radius: 16px;
 
-            padding:
-                28px 20px;
+            padding: 28px 20px;
 
             min-height: 190px;
 
@@ -880,6 +925,7 @@
                 border-color 0.3s ease;
         }
 
+
         .value-card:hover {
 
             transform:
@@ -889,6 +935,7 @@
                 var(--accent);
         }
 
+
         .value-number {
 
             font-family:
@@ -897,13 +944,13 @@
 
             font-size: 2rem;
 
-            color:
-                var(--accent);
+            color: var(--accent);
 
-            opacity: 0.6;
+            opacity: 0.5;
 
             margin-bottom: 5px;
         }
+
 
         .value-card h3 {
 
@@ -915,14 +962,13 @@
 
             margin-bottom: 10px;
 
-            color:
-                var(--text-dark);
+            color: var(--text-dark);
         }
+
 
         .value-card p {
 
-            color:
-                var(--text-light);
+            color: var(--text-light);
 
             font-size: 0.9rem;
 
@@ -938,35 +984,30 @@
 
             text-align: center;
 
-            padding:
-                70px 25px;
+            padding: 70px 25px;
 
             background:
-                radial-gradient(
-                    circle at center,
-                    rgba(200,169,107,0.08),
-                    transparent 65%
-                ),
                 linear-gradient(
                     145deg,
-                    #132337,
-                    #07101b
+                    #191b1a,
+                    #060707
                 );
 
             border-radius: 22px;
 
             border:
-                1px solid var(--border);
+                1px solid
+                var(--border);
 
             box-shadow:
                 0 20px 60px
-                rgba(0,0,0,0.5);
+                rgba(0,0,0,0.7);
         }
+
 
         .together-small {
 
-            color:
-                var(--accent-light);
+            color: var(--accent);
 
             text-transform: uppercase;
 
@@ -976,6 +1017,7 @@
 
             margin-bottom: 20px;
         }
+
 
         .together-title {
 
@@ -993,15 +1035,12 @@
             line-height: 1.2;
 
             margin-bottom: 25px;
-
-            color:
-                var(--text-dark);
         }
+
 
         .together-text {
 
-            color:
-                var(--text-light);
+            color: var(--text-light);
 
             max-width: 600px;
 
@@ -1010,14 +1049,14 @@
             font-size: 1rem;
         }
 
+
         .together-final {
 
             font-family:
                 'Caveat',
                 cursive;
 
-            color:
-                var(--accent-light);
+            color: var(--accent);
 
             font-size: 2rem;
 
@@ -1033,8 +1072,7 @@
 
             position: relative;
 
-            padding:
-                50px 30px;
+            padding: 50px 30px;
 
             text-align: center;
 
@@ -1043,28 +1081,30 @@
             background:
                 radial-gradient(
                     circle at center,
-                    rgba(200,169,107,0.08),
+                    rgba(200,173,114,0.09),
                     transparent 65%
                 ),
-                #0d1927;
+                #111313;
 
             border:
-                1px solid var(--border);
+                1px solid
+                rgba(200,173,114,0.2);
 
             box-shadow:
                 0 20px 50px
-                rgba(0,0,0,0.45);
+                rgba(0,0,0,0.6);
         }
+
 
         .promise-symbol {
 
             font-size: 2rem;
 
-            color:
-                var(--accent-light);
+            color: var(--accent);
 
             margin-bottom: 15px;
         }
+
 
         .promise-title {
 
@@ -1072,13 +1112,13 @@
                 'Playfair Display',
                 serif;
 
-            color:
-                var(--accent-light);
+            color: var(--accent);
 
             font-size: 1.8rem;
 
             margin-bottom: 20px;
         }
+
 
         .promise-text {
 
@@ -1095,7 +1135,7 @@
 
 
         /* =====================================================
-           GALERÍAS
+           GALERÍA
         ===================================================== */
 
         .gallery-wrapper {
@@ -1104,16 +1144,31 @@
 
             margin-left:
                 calc(
-                    (100vw -
-                    min(
-                        800px,
-                        calc(100vw - 40px)
-                    )) / -2
+                    (
+                        100vw -
+                        min(
+                            800px,
+                            calc(100vw - 40px)
+                        )
+                    ) / -2
                 );
 
-            padding:
-                0 20px;
+            padding: 0 20px;
         }
+
+
+        @media (min-width: 840px) {
+
+            .gallery-wrapper {
+
+                width: 100%;
+
+                margin-left: 0;
+
+                padding: 0;
+            }
+        }
+
 
         .horizontal-scroll {
 
@@ -1134,10 +1189,12 @@
                 touch;
         }
 
+
         .horizontal-scroll::-webkit-scrollbar {
 
             display: none;
         }
+
 
         .gallery-img,
         .gallery-img-captioned {
@@ -1145,34 +1202,30 @@
             flex:
                 0 0 75%;
 
-            max-width:
-                300px;
+            max-width: 300px;
 
-            height:
-                350px;
+            height: 350px;
 
-            object-fit:
-                cover;
+            object-fit: cover;
 
-            border-radius:
-                14px;
+            border-radius: 14px;
 
-            scroll-snap-align:
-                center;
+            scroll-snap-align: center;
 
-            cursor:
-                pointer;
+            cursor: pointer;
 
             border:
-                1px solid var(--white-border);
+                1px solid
+                var(--white-border);
 
             box-shadow:
                 0 12px 35px
-                rgba(0,0,0,0.55);
+                rgba(0,0,0,0.75);
 
             transition:
                 transform 0.3s ease;
         }
+
 
         .gallery-img:hover,
         .gallery-img-captioned:hover {
@@ -1181,82 +1234,75 @@
                 scale(1.015);
         }
 
+
         .gallery-figure {
 
             flex:
                 0 0 75%;
 
-            max-width:
-                300px;
+            max-width: 300px;
 
-            scroll-snap-align:
-                center;
+            scroll-snap-align: center;
 
             display: flex;
 
-            flex-direction:
-                column;
+            flex-direction: column;
 
             gap: 12px;
         }
+
 
         .gallery-figure figcaption {
 
             text-align: center;
 
-            color:
-                var(--text-dark);
+            color: var(--text-dark);
 
             font-size: 0.9rem;
 
             line-height: 1.5;
         }
 
+
         .gallery-text-card {
 
             flex:
                 0 0 75%;
 
-            max-width:
-                300px;
+            max-width: 300px;
 
-            height:
-                350px;
+            height: 350px;
 
             background:
                 linear-gradient(
                     145deg,
-                    #132337,
-                    #0b1624
+                    #191b1a,
+                    #101211
                 );
 
-            border-radius:
-                14px;
+            border-radius: 14px;
 
             display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            justify-content:
-                center;
+            justify-content: center;
 
-            padding:
-                30px;
+            padding: 30px;
 
-            text-align:
-                center;
+            text-align: center;
 
             border:
-                1px solid var(--border);
+                1px solid
+                var(--border);
 
             box-shadow:
                 0 12px 35px
-                rgba(0,0,0,0.55);
+                rgba(0,0,0,0.7);
 
-            scroll-snap-align:
-                center;
+            scroll-snap-align: center;
         }
+
 
         .gallery-text-card p {
 
@@ -1264,14 +1310,11 @@
                 'Playfair Display',
                 serif;
 
-            color:
-                var(--accent-light);
+            color: var(--accent);
 
-            font-size:
-                1.2rem;
+            font-size: 1.2rem;
 
-            line-height:
-                1.6;
+            line-height: 1.6;
         }
 
 
@@ -1284,38 +1327,35 @@
             background:
                 linear-gradient(
                     145deg,
-                    #122236,
-                    #0b1624
+                    #191b1a,
+                    #101211
                 );
 
-            padding:
-                45px 30px;
+            padding: 45px 30px;
 
-            border-radius:
-                16px;
+            border-radius: 16px;
 
             border-top:
-                2px solid var(--accent);
+                2px solid
+                var(--accent);
 
             box-shadow:
                 0 20px 60px
-                rgba(0,0,0,0.5);
+                rgba(0,0,0,0.7);
 
-            margin-bottom:
-                40px;
+            margin-bottom: 40px;
         }
+
 
         .letter-content p {
 
-            margin-bottom:
-                18px;
+            margin-bottom: 18px;
 
-            font-size:
-                1.02rem;
+            font-size: 1.02rem;
 
-            color:
-                var(--text-dark);
+            color: var(--text-dark);
         }
+
 
         .letter-opening {
 
@@ -1323,95 +1363,79 @@
                 'Caveat',
                 cursive;
 
-            color:
-                var(--accent-light);
+            color: var(--accent);
 
-            font-size:
-                2rem;
+            font-size: 2rem;
 
-            margin-bottom:
-                20px !important;
+            margin-bottom: 20px !important;
         }
 
-        .highlight {
 
-            text-align:
-                center;
+        .highlight-world {
+
+            text-align: center;
 
             font-family:
                 'Playfair Display',
                 serif;
 
-            font-size:
-                1.4rem;
+            font-size: 1.4rem;
 
-            color:
-                var(--accent-light);
+            color: var(--accent);
 
-            font-style:
-                italic;
+            font-style: italic;
 
-            margin:
-                35px 0;
+            margin: 35px 0;
         }
+
 
         .signature {
 
-            text-align:
-                right;
+            text-align: right;
 
-            margin-top:
-                45px;
+            margin-top: 45px;
         }
+
 
         .signature .title {
 
-            display:
-                block;
+            display: block;
 
             font-family:
                 'Caveat',
                 cursive;
 
-            font-size:
-                2rem;
+            font-size: 2rem;
 
-            color:
-                var(--accent-light);
+            color: var(--accent);
 
-            margin-bottom:
-                5px;
+            margin-bottom: 5px;
         }
+
 
         .signature .sub {
 
-            display:
-                block;
+            display: block;
 
-            color:
-                var(--text-light);
+            color: var(--text-light);
 
-            font-size:
-                0.9rem;
+            font-size: 0.9rem;
         }
+
 
         .signature .name {
 
-            display:
-                block;
+            display: block;
 
             font-family:
                 'Playfair Display',
                 serif;
 
-            color:
-                var(--text-dark);
+            color: var(--text-dark);
 
-            font-size:
-                1.4rem;
+            font-size: 1.4rem;
 
-            font-weight:
-                600;
+            font-weight: 600;
         }
 
 
@@ -1421,102 +1445,79 @@
 
         .lightbox {
 
-            position:
-                fixed;
+            position: fixed;
 
-            inset:
-                0;
+            inset: 0;
 
-            width:
-                100%;
+            width: 100%;
 
-            height:
-                100%;
+            height: 100%;
 
             background:
-                rgba(2,7,12,0.97);
+                rgba(0,0,0,0.96);
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            justify-content:
-                center;
+            justify-content: center;
 
-            z-index:
-                10000;
+            z-index: 10000;
 
-            opacity:
-                0;
+            opacity: 0;
 
-            pointer-events:
-                none;
+            pointer-events: none;
 
             transition:
                 opacity 0.3s ease;
         }
 
+
         .lightbox.active {
 
-            opacity:
-                1;
+            opacity: 1;
 
-            pointer-events:
-                auto;
+            pointer-events: auto;
         }
+
 
         .lightbox img {
 
-            max-width:
-                92%;
+            max-width: 92%;
 
-            max-height:
-                88vh;
+            max-height: 88vh;
 
-            object-fit:
-                contain;
+            object-fit: contain;
 
-            border-radius:
-                8px;
+            border-radius: 8px;
 
             box-shadow:
                 0 20px 70px
                 rgba(0,0,0,0.9);
         }
 
+
         .close-btn {
 
-            position:
-                absolute;
+            position: absolute;
 
-            top:
-                15px;
+            top: 15px;
 
-            right:
-                20px;
+            right: 20px;
 
-            color:
-                white;
+            color: white;
 
-            background:
-                none;
+            background: none;
 
-            border:
-                none;
+            border: none;
 
-            font-size:
-                3rem;
+            font-size: 3rem;
 
-            line-height:
-                1;
+            line-height: 1;
 
-            cursor:
-                pointer;
+            cursor: pointer;
 
-            z-index:
-                2;
+            z-index: 2;
         }
 
 
@@ -1526,26 +1527,22 @@
 
         footer {
 
-            text-align:
-                center;
+            text-align: center;
 
             padding:
                 20px 20px 70px;
 
-            color:
-                #657181;
+            color: #555;
 
-            font-size:
-                0.75rem;
+            font-size: 0.75rem;
 
-            letter-spacing:
-                1px;
+            letter-spacing: 1px;
         }
+
 
         footer span {
 
-            color:
-                var(--accent-light);
+            color: var(--accent);
         }
 
 
@@ -1555,21 +1552,17 @@
 
         @media (max-width: 600px) {
 
-            :root {
-                --lyrics-height: 58px;
-            }
-
             .values-grid {
 
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
             }
+
 
             .value-card {
 
-                min-height:
-                    160px;
+                min-height: 160px;
             }
+
 
             .letter-section {
 
@@ -1577,51 +1570,23 @@
                     35px 24px;
             }
 
+
             section {
 
                 width:
                     calc(100% - 30px);
             }
 
+
             .gallery-wrapper {
 
                 margin-left:
                     calc(
-                        (100vw - 100%) / -2
+                        (
+                            100vw -
+                            100%
+                        ) / -2
                     );
-            }
-
-            .music-navbar {
-
-                height:
-                    76px;
-            }
-
-            .navbar-inner {
-
-                width:
-                    96%;
-
-                gap:
-                    10px;
-            }
-
-            .nav-btn {
-
-                flex:
-                    0 0 42px;
-
-                width:
-                    42px;
-
-                height:
-                    42px;
-            }
-
-            .lyric-line {
-
-                font-size:
-                    0.82rem;
             }
         }
 
@@ -1665,34 +1630,24 @@
     </div>
 
 
-
     <!-- =====================================================
-         AUDIO LOCAL
-
-         IMPORTANTE:
-         el archivo debe llamarse exactamente:
-
-         cancion.mp3
-
-         y estar en la misma carpeta que index.html
+         AUDIO
     ===================================================== -->
 
     <audio
         id="bg-music"
+        loop
         preload="auto">
 
         <source
-            src="./cancion.mp3"
+            src="./Elvis Presley Can't Help Falling In Love [Sub. Español].mp3"
             type="audio/mpeg">
-
-        Tu navegador no soporta audio HTML5.
 
     </audio>
 
 
-
     <!-- =====================================================
-         NAVBAR + LETRA
+         NAVBAR
     ===================================================== -->
 
     <nav class="music-navbar">
@@ -1724,7 +1679,6 @@
     </nav>
 
 
-
     <!-- =====================================================
          HEADER
     ===================================================== -->
@@ -1742,14 +1696,13 @@
         <p class="header-subtitle">
 
             Cinco meses desde aquel 11 de marzo,
-            y cada día un poco más convencido de que
-            quiero seguir escribiendo esta historia
-            a tu lado.
+            y cada día un poco más convencido de
+            que quiero seguir escribiendo esta
+            historia a tu lado.
 
         </p>
 
     </header>
-
 
 
     <!-- =====================================================
@@ -1780,7 +1733,6 @@
     </section>
 
 
-
     <!-- =====================================================
          PUNTA BALLENA
     ===================================================== -->
@@ -1804,9 +1756,8 @@
     </section>
 
 
-
     <!-- =====================================================
-         CINCO DESCUBRIMIENTOS
+         DESCUBRIMIENTOS
     ===================================================== -->
 
     <section class="fade-in">
@@ -1840,22 +1791,25 @@
             <div class="discovery-content">
 
                 <p>
+
                     Descubrí que estar con vos tiene
                     algo especial: puedo simplemente
                     ser yo.
+
                 </p>
 
                 <p>
+
                     Entre risas, abrazos, conversaciones
                     y momentos simples, cada vez siento
                     más que no necesito estar en ningún
                     otro lugar cuando estoy a tu lado.
+
                 </p>
 
             </div>
 
         </div>
-
 
 
         <div
@@ -1872,24 +1826,27 @@
             <div class="discovery-content">
 
                 <p>
-                    Este mes profundizamos en algo
-                    que para mí tiene un valor enorme:
+
+                    Este mes profundizamos en algo que
+                    para mí tiene un valor enorme:
                     descubrimos que los dos soñamos
                     con formar una familia.
+
                 </p>
 
                 <p>
+
                     Hablar de tener hijos, de criarlos
                     juntos, de acompañarlos y construir
                     un hogar lleno de amor hizo que
                     pudiera imaginar un futuro mucho
                     más concreto a tu lado.
+
                 </p>
 
             </div>
 
         </div>
-
 
 
         <div
@@ -1906,22 +1863,24 @@
             <div class="discovery-content">
 
                 <p>
-                    Descubrimos que para los dos
-                    el matrimonio no es solamente
-                    una fiesta o un papel.
+
+                    Descubrimos que para los dos el
+                    matrimonio no es solamente una
+                    fiesta o un papel.
+
                 </p>
 
                 <p>
-                    Es una decisión. Es mirarnos un
-                    día y decir: "Te elijo a vos, y
-                    quiero seguir eligiéndote todos
-                    los días."
+
+                    Es una decisión. Es mirarnos un día
+                    y decir: "Te elijo a vos, y quiero
+                    seguir eligiéndote todos los días."
+
                 </p>
 
             </div>
 
         </div>
-
 
 
         <div
@@ -1938,28 +1897,33 @@
             <div class="discovery-content">
 
                 <p>
+
                     Este mes también entendí algo
                     todavía más profundo de nosotros:
                     queremos cuidarnos y respetarnos
                     siempre.
+
                 </p>
 
                 <p>
-                    Ser fieles no solamente cuando
-                    todo está bien, sino también cuando
+
+                    Ser fieles no solamente cuando todo
+                    está bien, sino también cuando
                     aparezcan dificultades, tentaciones
                     o momentos complicados.
+
                 </p>
 
                 <p>
+
                     Elegirnos incluso cuando nadie
                     esté mirando.
+
                 </p>
 
             </div>
 
         </div>
-
 
 
         <div
@@ -1976,27 +1940,35 @@
             <div class="discovery-content">
 
                 <p>
+
                     No significa que estemos solos
                     contra todos.
+
                 </p>
 
                 <p>
-                    Significa que cuando llegue
-                    un problema, quiero que seamos
-                    un equipo.
+
+                    Significa que cuando llegue un
+                    problema, quiero que seamos un
+                    equipo.
+
                 </p>
 
                 <p>
+
                     Vos y yo. Hablando. Cuidándonos.
                     Defendiéndonos. Buscando soluciones.
+
                 </p>
 
                 <p>
-                    Porque si algún día la vida se
-                    pone difícil, quiero poder mirarte
-                    y pensar:
+
+                    Porque si algún día la vida se pone
+                    difícil, quiero poder mirarte y pensar:
+
                     "Estamos juntos. Ya vamos a salir
                     adelante."
+
                 </p>
 
             </div>
@@ -2004,7 +1976,6 @@
         </div>
 
     </section>
-
 
 
     <!-- =====================================================
@@ -2037,13 +2008,9 @@
 
             <div class="value-card">
 
-                <div class="value-number">
-                    I
-                </div>
+                <div class="value-number">I</div>
 
-                <h3>
-                    Amor
-                </h3>
+                <h3>Amor</h3>
 
                 <p>
                     Querernos, cuidarnos y demostrarnos
@@ -2055,13 +2022,9 @@
 
             <div class="value-card">
 
-                <div class="value-number">
-                    II
-                </div>
+                <div class="value-number">II</div>
 
-                <h3>
-                    Fidelidad
-                </h3>
+                <h3>Fidelidad</h3>
 
                 <p>
                     Elegirnos con honestidad,
@@ -2073,13 +2036,9 @@
 
             <div class="value-card">
 
-                <div class="value-number">
-                    III
-                </div>
+                <div class="value-number">III</div>
 
-                <h3>
-                    Familia
-                </h3>
+                <h3>Familia</h3>
 
                 <p>
                     Soñar con un hogar, hijos
@@ -2091,13 +2050,9 @@
 
             <div class="value-card">
 
-                <div class="value-number">
-                    IV
-                </div>
+                <div class="value-number">IV</div>
 
-                <h3>
-                    Matrimonio
-                </h3>
+                <h3>Matrimonio</h3>
 
                 <p>
                     Algún día decirnos que sí
@@ -2109,7 +2064,6 @@
         </div>
 
     </section>
-
 
 
     <!-- =====================================================
@@ -2177,7 +2131,6 @@
         </div>
 
     </section>
-
 
 
     <!-- =====================================================
@@ -2250,7 +2203,6 @@
     </section>
 
 
-
     <!-- =====================================================
          DISTANCIA
     ===================================================== -->
@@ -2274,7 +2226,6 @@
         </div>
 
     </section>
-
 
 
     <!-- =====================================================
@@ -2341,7 +2292,6 @@
                     <p>
 
                         Y aquella reunión con tu familia.
-
                         No tengo una foto para guardar
                         ese momento, pero sí lo tengo
                         guardado en la memoria.
@@ -2359,7 +2309,6 @@
     </section>
 
 
-
     <!-- =====================================================
          LOS DOS CONTRA EL MUNDO
     ===================================================== -->
@@ -2369,12 +2318,18 @@
         <div class="together-section">
 
             <div class="together-small">
+
                 Una promesa
+
             </div>
 
+
             <h2 class="together-title">
+
                 Los dos contra el mundo
+
             </h2>
+
 
             <p class="together-text">
 
@@ -2394,6 +2349,7 @@
 
             </p>
 
+
             <div class="together-final">
 
                 Vos y yo.
@@ -2406,9 +2362,8 @@
     </section>
 
 
-
     <!-- =====================================================
-         PROMESA
+         LA PROMESA
     ===================================================== -->
 
     <section class="fade-in">
@@ -2419,9 +2374,13 @@
                 ♡
             </div>
 
+
             <h2 class="promise-title">
+
                 Lo que quiero con vos
+
             </h2>
+
 
             <p class="promise-text">
 
@@ -2440,16 +2399,15 @@
                 construimos.
 
                 Y sobre todo, quiero que nunca
-                olvidemos que antes de ser una familia,
-                fuimos dos personas que simplemente
-                decidieron elegirse.
+                olvidemos que antes de ser una
+                familia, fuimos dos personas que
+                simplemente decidieron elegirse.
 
             </p>
 
         </div>
 
     </section>
-
 
 
     <!-- =====================================================
@@ -2478,10 +2436,10 @@
 
                 <p>
 
-                    Porque durante estos meses no solamente
-                    me fui enamorando de vos. También fui
-                    descubriendo quiénes somos cuando
-                    estamos juntos.
+                    Porque durante estos meses no
+                    solamente me fui enamorando de vos.
+                    También fui descubriendo quiénes
+                    somos cuando estamos juntos.
 
                 </p>
 
@@ -2489,8 +2447,9 @@
                 <p>
 
                     Este último mes fue especialmente
-                    importante. Hablamos de cosas que van
-                    mucho más allá de una relación de novios.
+                    importante. Hablamos de cosas que
+                    van mucho más allá de una relación
+                    de novios.
 
                     Hablamos de futuro.
                     De casarnos.
@@ -2514,11 +2473,13 @@
 
                 <p>
 
-                    Los dos entendemos que el amor no puede
-                    sostenerse solamente con sentimientos.
+                    Los dos entendemos que el amor no
+                    puede sostenerse solamente con
+                    sentimientos.
 
-                    También necesita respeto, confianza,
-                    comunicación, fidelidad y compromiso.
+                    También necesita respeto,
+                    confianza, comunicación,
+                    fidelidad y compromiso.
 
                 </p>
 
@@ -2526,10 +2487,10 @@
                 <p>
 
                     Yo quiero serte fiel siempre.
-
                     No solamente porque te amo,
-                    sino porque quiero respetar la persona
-                    que elegí tener a mi lado.
+                    sino porque quiero respetar
+                    la persona que elegí tener
+                    a mi lado.
 
                 </p>
 
@@ -2538,9 +2499,9 @@
 
                     Y si algún día llegamos a casarnos,
                     quiero que ese día no sea el final
-                    de una historia perfecta, sino el
-                    comienzo de una etapa todavía más
-                    grande de nuestra historia.
+                    de una historia perfecta, sino
+                    el comienzo de una etapa todavía
+                    más grande de nuestra historia.
 
                 </p>
 
@@ -2554,9 +2515,10 @@
 
                     Quiero que construyamos un hogar.
 
-                    Quiero que podamos enseñarles lo que
-                    significa amar, respetar, cuidar y
-                    permanecer al lado de alguien.
+                    Quiero que podamos enseñarles
+                    lo que significa amar, respetar,
+                    cuidar y permanecer al lado
+                    de alguien.
 
                 </p>
 
@@ -2564,12 +2526,13 @@
                 <p>
 
                     Y cuando pienso en todo eso,
-                    hay una frase que resume lo que siento:
+                    hay una frase que resume
+                    lo que siento:
 
                 </p>
 
 
-                <p class="highlight">
+                <p class="highlight-world">
 
                     Los dos contra el mundo.
 
@@ -2578,9 +2541,9 @@
 
                 <p>
 
-                    No porque necesitemos estar contra nadie,
-                    sino porque quiero que vos y yo siempre
-                    estemos del mismo lado.
+                    No porque necesitemos estar contra
+                    nadie, sino porque quiero que vos
+                    y yo siempre estemos del mismo lado.
 
                 </p>
 
@@ -2588,8 +2551,8 @@
                 <p>
 
                     Que cuando venga una dificultad,
-                    mi primera reacción sea buscar tu mano
-                    y no alejarme de vos.
+                    mi primera reacción sea buscar tu
+                    mano y no alejarme de vos.
 
                 </p>
 
@@ -2597,15 +2560,17 @@
                 <p>
 
                     Que podamos equivocarnos,
-                    pedir perdón, aprender y seguir caminando.
+                    pedir perdón, aprender y seguir
+                    caminando.
 
                 </p>
 
 
                 <p>
 
-                    Le doy gracias a Dios por haber cruzado
-                    nuestros caminos en el momento exacto.
+                    Le doy gracias a Dios por haber
+                    cruzado nuestros caminos en el
+                    momento exacto.
 
                     Y le pido que siga bendiciendo esto
                     que estamos construyendo.
@@ -2615,12 +2580,12 @@
 
                 <p>
 
-                    Cinco meses pueden parecer poco cuando
-                    uno piensa en toda una vida.
+                    Cinco meses pueden parecer poco
+                    cuando uno piensa en toda una vida.
 
-                    Pero para mí son suficientes para saber
-                    que quiero descubrir muchos meses más
-                    junto a vos.
+                    Pero para mí son suficientes para
+                    saber que quiero descubrir muchos
+                    meses más junto a vos.
 
                 </p>
 
@@ -2667,7 +2632,6 @@
     </section>
 
 
-
     <!-- =====================================================
          LIGHTBOX
     ===================================================== -->
@@ -2685,13 +2649,13 @@
 
         </button>
 
+
         <img
             src=""
             id="lightbox-img"
             alt="Imagen ampliada">
 
     </div>
-
 
 
     <!-- =====================================================
@@ -2711,7 +2675,6 @@
     </footer>
 
 
-
     <!-- =====================================================
          JAVASCRIPT
     ===================================================== -->
@@ -2720,8 +2683,10 @@
 
 
         /* =====================================================
-           ELEMENTOS
+           VARIABLES
         ===================================================== */
+
+        let isPlaying = false;
 
         const bgMusic =
             document.getElementById("bg-music");
@@ -2732,9 +2697,6 @@
         const welcomeScreen =
             document.getElementById("welcome-screen");
 
-        const lyricsTrack =
-            document.getElementById("lyrics-track");
-
         const lightbox =
             document.getElementById("lightbox");
 
@@ -2742,160 +2704,82 @@
             document.getElementById("lightbox-img");
 
 
-        let isPlaying = false;
-
-        let currentLyric = -1;
-
-
-
-        /* =====================================================
-           VOLUMEN
-        ===================================================== */
-
         bgMusic.volume = 0.45;
-
-
-
-        /* =====================================================
-           DETECCIÓN DE ERROR DEL AUDIO
-        ===================================================== */
-
-        bgMusic.addEventListener(
-            "error",
-            function () {
-
-                console.error(
-                    "No se pudo cargar cancion.mp3"
-                );
-
-                musicBtn.innerText = "⚠️";
-
-                musicBtn.title =
-                    "No se pudo cargar cancion.mp3";
-
-            }
-        );
-
-
-        bgMusic.addEventListener(
-            "loadedmetadata",
-            function () {
-
-                console.log(
-                    "Audio cargado correctamente."
-                );
-
-                console.log(
-                    "Duración:",
-                    bgMusic.duration,
-                    "segundos"
-                );
-
-            }
-        );
-
-
-        bgMusic.addEventListener(
-            "ended",
-            function () {
-
-                isPlaying = false;
-
-                musicBtn.innerText = "▶️";
-
-            }
-        );
-
 
 
         /* =====================================================
            INICIAR EXPERIENCIA
         ===================================================== */
 
-        async function startExperience() {
-
-            /*
-             * El botón "Entrar" es una interacción
-             * del usuario, por lo que el navegador
-             * permite iniciar el audio.
-             */
-
-            try {
-
-                await bgMusic.play();
-
-                isPlaying = true;
-
-                musicBtn.innerText = "⏸️";
-
-            }
-
-            catch (error) {
-
-                console.error(
-                    "Error reproduciendo audio:",
-                    error
-                );
-
-                isPlaying = false;
-
-                musicBtn.innerText = "▶️";
-
-            }
-
+        function startExperience() {
 
             welcomeScreen.style.opacity = "0";
 
 
-            setTimeout(
-                function () {
+            setTimeout(() => {
 
-                    welcomeScreen.style.visibility =
-                        "hidden";
+                welcomeScreen.style.visibility =
+                    "hidden";
 
-                    document.body.classList.remove(
-                        "locked"
-                    );
+                document.body.classList.remove(
+                    "locked"
+                );
 
-                },
-                1200
-            );
-
-        }
+            }, 1200);
 
 
+            bgMusic.play()
 
-        /* =====================================================
-           PLAY / PAUSE
-        ===================================================== */
-
-        async function toggleMusic() {
-
-            if (
-                bgMusic.paused
-            ) {
-
-                try {
-
-                    await bgMusic.play();
+                .then(() => {
 
                     isPlaying = true;
 
-                    musicBtn.innerText =
-                        "⏸️";
+                    musicBtn.innerText = "⏸️";
 
-                }
+                })
 
-                catch (error) {
+                .catch(error => {
 
-                    console.error(
-                        "No se pudo reproducir:",
+                    console.log(
+                        "El navegador bloqueó el audio:",
                         error
                     );
 
-                    musicBtn.innerText =
-                        "⚠️";
-                }
+                    isPlaying = false;
+
+                    musicBtn.innerText = "▶️";
+
+                });
+        }
+
+
+        /* =====================================================
+           CONTROL DE AUDIO
+        ===================================================== */
+
+        function toggleMusic() {
+
+            if (bgMusic.paused) {
+
+                bgMusic.play()
+
+                    .then(() => {
+
+                        isPlaying = true;
+
+                        musicBtn.innerText =
+                            "⏸️";
+
+                    })
+
+                    .catch(error => {
+
+                        console.log(
+                            "No se pudo reproducir:",
+                            error
+                        );
+
+                    });
 
             }
 
@@ -2907,191 +2791,203 @@
 
                 musicBtn.innerText =
                     "▶️";
-
             }
-
         }
 
 
-
         /* =====================================================
-           LETRA
-           
-           Los tiempos son aproximados.
-           
-           Lo importante es que ahora el sistema
-           coloca SIEMPRE la línea activa en el
-           centro de la navbar.
+           LETRA SINCRONIZADA
         ===================================================== */
 
         const lyrics = [
 
             {
                 time: 0,
-                text: "🎵"
+                text: "♪ Música ♪"
             },
 
             {
-                time: 5.0,
+                time: 8,
                 text: "Pero no puedo evitar"
             },
 
             {
-                time: 9.0,
+                time: 15,
                 text: "Enamorarme de ti"
             },
 
             {
-                time: 15.0,
+                time: 24,
                 text: "Si me quedara"
             },
 
             {
-                time: 19.0,
+                time: 31,
                 text: "¿Sería un pecado?"
             },
 
             {
-                time: 24.0,
+                time: 39,
                 text: "Si no puedo evitar"
             },
 
             {
-                time: 28.0,
+                time: 46,
                 text: "Enamorarme de ti"
             },
 
             {
-                time: 35.0,
+                time: 54,
                 text: "Como un río que fluye"
             },
 
             {
-                time: 40.0,
+                time: 60,
                 text: "Seguro hacia el mar"
             },
 
             {
-                time: 44.0,
+                time: 65,
                 text: "Querida, así es"
             },
 
             {
-                time: 48.0,
+                time: 71,
                 text: "Algunas cosas están destinadas a suceder"
             },
 
             {
-                time: 56.0,
+                time: 80,
                 text: "Toma mi mano"
             },
 
             {
-                time: 60.0,
+                time: 87,
                 text: "Toma mi vida entera también"
             },
 
             {
-                time: 66.0,
+                time: 95,
                 text: "Porque no puedo evitar"
             },
 
             {
-                time: 70.0,
+                time: 103,
                 text: "Enamorarme de ti"
             },
 
             {
-                time: 78.0,
+                time: 111,
                 text: "Como un río que fluye"
             },
 
             {
-                time: 83.0,
+                time: 117,
                 text: "Seguro hacia el mar"
             },
 
             {
-                time: 87.0,
+                time: 122,
                 text: "Querida, así es"
             },
 
             {
-                time: 91.0,
+                time: 128,
                 text: "Algunas cosas están destinadas a suceder"
             },
 
             {
-                time: 99.0,
+                time: 136,
                 text: "Toma mi mano"
             },
 
             {
-                time: 103.0,
+                time: 143,
                 text: "Toma mi vida entera también"
             },
 
             {
-                time: 109.0,
+                time: 151,
                 text: "Porque no puedo evitar"
             },
 
             {
-                time: 113.0,
+                time: 159,
                 text: "Enamorarme de ti"
             },
 
             {
-                time: 121.0,
+                time: 167,
                 text: "Porque no puedo evitar"
             },
 
             {
-                time: 125.0,
+                time: 175,
                 text: "Enamorarme de ti"
             },
 
             {
-                time: 133.0,
-                text: "🎵"
+                time: 184,
+                text: "♪"
             }
 
         ];
 
+
+        const lyricsTrack =
+            document.getElementById(
+                "lyrics-track"
+            );
+
+
+        let currentLyric = -1;
 
 
         /* =====================================================
            CREAR LETRAS
         ===================================================== */
 
-        lyrics.forEach(
-            function (line, index) {
+        function createLyrics() {
 
-                const element =
-                    document.createElement("div");
+            lyricsTrack.innerHTML = "";
 
-                element.className =
-                    "lyric-line";
 
-                element.dataset.index =
-                    index;
+            lyrics.forEach(
+                (line, index) => {
 
-                element.textContent =
-                    line.text;
+                    const element =
+                        document.createElement(
+                            "div"
+                        );
 
-                lyricsTrack.appendChild(
-                    element
-                );
 
-            }
-        );
+                    element.className =
+                        "lyric-line";
+
+
+                    element.dataset.index =
+                        index;
+
+
+                    element.textContent =
+                        line.text;
+
+
+                    lyricsTrack.appendChild(
+                        element
+                    );
+                }
+            );
+        }
+
+
+        createLyrics();
 
 
         const lyricElements =
             document.querySelectorAll(
                 ".lyric-line"
             );
-
 
 
         /* =====================================================
@@ -3104,7 +3000,7 @@
                 bgMusic.currentTime;
 
 
-            let newIndex = -1;
+            let newIndex = 0;
 
 
             for (
@@ -3127,13 +3023,11 @@
                     break;
 
                 }
-
             }
 
 
             if (
-                newIndex !==
-                currentLyric
+                newIndex !== currentLyric
             ) {
 
                 currentLyric =
@@ -3141,73 +3035,36 @@
 
 
                 lyricElements.forEach(
-                    function (
-                        element,
-                        index
-                    ) {
+                    (element, index) => {
 
                         element.classList.toggle(
                             "active",
-                            index === currentLyric
+                            index ===
+                            currentLyric
                         );
 
                     }
                 );
 
 
-                /*
-                 * Cada línea mide 58px.
-                 *
-                 * Calculamos cuánto debemos
-                 * mover el track para que la
-                 * línea activa quede exactamente
-                 * en el centro.
-                 */
-
-                if (
-                    currentLyric >= 0
-                ) {
-
-                    const lineHeight =
-                        parseFloat(
-                            getComputedStyle(
-                                document.documentElement
-                            )
-                            .getPropertyValue(
-                                "--lyrics-height"
-                            )
-                        );
+                const offset =
+                    currentLyric * 55;
 
 
-                    const offset =
-                        currentLyric *
-                        lineHeight;
-
-
-                    lyricsTrack.style.transform =
-                        `translateY(
-                            calc(
-                                -50% -
-                                ${offset}px
-                            )
-                        )`;
-
-                }
-
+                lyricsTrack.style.transform =
+                    `translate3d(0, -${offset}px, 0)`;
             }
 
 
             requestAnimationFrame(
                 updateLyrics
             );
-
         }
 
 
         requestAnimationFrame(
             updateLyrics
         );
-
 
 
         /* =====================================================
@@ -3217,23 +3074,22 @@
         const observer =
             new IntersectionObserver(
 
-                function (entries) {
+                (entries) => {
 
                     entries.forEach(
-                        function (entry) {
+                        entry => {
 
                             if (
                                 entry.isIntersecting
                             ) {
 
-                                entry.target.classList.add(
-                                    "visible"
-                                );
+                                entry.target
+                                    .classList
+                                    .add("visible");
 
                                 observer.unobserve(
                                     entry.target
                                 );
-
                             }
 
                         }
@@ -3250,14 +3106,11 @@
 
         document
             .querySelectorAll(".fade-in")
-            .forEach(
-                function (section) {
+            .forEach(section => {
 
-                    observer.observe(section);
+                observer.observe(section);
 
-                }
-            );
-
+            });
 
 
         /* =====================================================
@@ -3270,28 +3123,26 @@
             );
 
 
-        images.forEach(
-            function (img) {
+        images.forEach(img => {
 
-                img.addEventListener(
-                    "click",
-                    function () {
+            img.addEventListener(
+                "click",
+                () => {
 
-                        lightboxImg.src =
-                            img.src;
+                    lightboxImg.src =
+                        img.src;
 
-                        lightbox.classList.add(
-                            "active"
-                        );
+                    lightbox.classList.add(
+                        "active"
+                    );
 
-                        document.body.style.overflow =
-                            "hidden";
+                    document.body.style.overflow =
+                        "hidden";
 
-                    }
-                );
+                }
+            );
 
-            }
-        );
+        });
 
 
         function closeLightbox() {
@@ -3305,20 +3156,19 @@
 
 
             setTimeout(
-                function () {
+                () => {
 
                     lightboxImg.src = "";
 
                 },
                 300
             );
-
         }
 
 
         lightbox.addEventListener(
             "click",
-            function (event) {
+            event => {
 
                 if (
                     event.target ===
@@ -3335,7 +3185,7 @@
 
         document.addEventListener(
             "keydown",
-            function (event) {
+            event => {
 
                 if (
                     event.key === "Escape" &&
@@ -3350,7 +3200,6 @@
 
             }
         );
-
 
 
         /* =====================================================
@@ -3391,7 +3240,12 @@
             const dias =
                 Math.floor(
                     diferencia /
-                    (1000 * 60 * 60 * 24)
+                    (
+                        1000 *
+                        60 *
+                        60 *
+                        24
+                    )
                 );
 
 
@@ -3399,9 +3253,18 @@
                 Math.floor(
                     (
                         diferencia %
-                        (1000 * 60 * 60 * 24)
+                        (
+                            1000 *
+                            60 *
+                            60 *
+                            24
+                        )
                     ) /
-                    (1000 * 60 * 60)
+                    (
+                        1000 *
+                        60 *
+                        60
+                    )
                 );
 
 
@@ -3409,9 +3272,16 @@
                 Math.floor(
                     (
                         diferencia %
-                        (1000 * 60 * 60)
+                        (
+                            1000 *
+                            60 *
+                            60
+                        )
                     ) /
-                    (1000 * 60)
+                    (
+                        1000 *
+                        60
+                    )
                 );
 
 
@@ -3419,7 +3289,10 @@
                 Math.floor(
                     (
                         diferencia %
-                        (1000 * 60)
+                        (
+                            1000 *
+                            60
+                        )
                     ) /
                     1000
                 );
@@ -3430,22 +3303,17 @@
                     "counter-display"
                 )
                 .textContent =
-
-                `${dias} días, ` +
-                `${horas}h, ` +
-                `${minutos}m, ` +
-                `${segundos}s`;
-
+                `${dias} días, ${horas}h, ${minutos}m, ${segundos}s`;
         }
 
 
         actualizarContador();
 
+
         setInterval(
             actualizarContador,
             1000
         );
-
 
 
         /* =====================================================
@@ -3464,21 +3332,19 @@
                 .querySelectorAll(
                     ".discovery-card.active"
                 )
-                .forEach(
-                    function (card) {
+                .forEach(card => {
 
-                        if (
-                            card !== element
-                        ) {
+                    if (
+                        card !== element
+                    ) {
 
-                            card.classList.remove(
-                                "active"
-                            );
-
-                        }
+                        card.classList.remove(
+                            "active"
+                        );
 
                     }
-                );
+
+                });
 
 
             if (
@@ -3498,13 +3364,12 @@
                 );
 
             }
-
         }
 
 
         document.addEventListener(
             "click",
-            function (event) {
+            event => {
 
                 if (
                     !event.target.closest(
@@ -3516,15 +3381,13 @@
                         .querySelectorAll(
                             ".discovery-card.active"
                         )
-                        .forEach(
-                            function (card) {
+                        .forEach(card => {
 
-                                card.classList.remove(
-                                    "active"
-                                );
+                            card.classList.remove(
+                                "active"
+                            );
 
-                            }
-                        );
+                        });
 
                 }
 
