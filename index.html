@@ -7,11 +7,11 @@
 
     <title>Nuestros 5 Meses</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
-          rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+        rel="stylesheet">
 
     <style>
-
         :root {
             --bg-main: #080808;
             --bg-deep: #050505;
@@ -27,8 +27,8 @@
             --accent-light: #e0cb99;
             --accent-dark: #927a47;
 
-            --border: rgba(200,173,114,0.20);
-            --white-border: rgba(255,255,255,0.07);
+            --border: rgba(200, 173, 114, 0.20);
+            --white-border: rgba(255, 255, 255, 0.07);
         }
 
         * {
@@ -45,11 +45,9 @@
         body {
             font-family: 'Outfit', sans-serif;
             background:
-                radial-gradient(
-                    circle at top,
-                    rgba(200,173,114,0.055),
-                    transparent 35%
-                ),
+                radial-gradient(circle at top,
+                    rgba(200, 173, 114, 0.055),
+                    transparent 35%),
                 var(--bg-main);
 
             color: var(--text-dark);
@@ -74,12 +72,10 @@
             height: 100vh;
 
             background:
-                radial-gradient(
-                    circle at center,
+                radial-gradient(circle at center,
                     #181817 0%,
                     #070707 55%,
-                    #000 100%
-                );
+                    #000 100%);
 
             display: flex;
             justify-content: center;
@@ -152,7 +148,7 @@
             transform: translateY(-3px);
 
             box-shadow:
-                0 10px 30px rgba(200,173,114,0.15);
+                0 10px 30px rgba(200, 173, 114, 0.15);
         }
 
 
@@ -171,11 +167,9 @@
             height: 68px;
 
             background:
-                linear-gradient(
-                    180deg,
-                    rgba(12,12,11,0.98),
-                    rgba(8,8,8,0.96)
-                );
+                linear-gradient(180deg,
+                    rgba(12, 12, 11, 0.98),
+                    rgba(8, 8, 8, 0.96));
 
             border-bottom:
                 1px solid var(--border);
@@ -186,7 +180,7 @@
             align-items: center;
 
             box-shadow:
-                0 8px 30px rgba(0,0,0,0.45);
+                0 8px 30px rgba(0, 0, 0, 0.45);
         }
 
         .navbar-inner {
@@ -261,22 +255,18 @@
             align-items: center;
 
             mask-image:
-                linear-gradient(
-                    to bottom,
+                linear-gradient(to bottom,
                     transparent,
                     black 25%,
                     black 75%,
-                    transparent
-                );
+                    transparent);
 
             -webkit-mask-image:
-                linear-gradient(
-                    to bottom,
+                linear-gradient(to bottom,
                     transparent,
                     black 25%,
                     black 75%,
-                    transparent
-                );
+                    transparent);
         }
 
 
@@ -297,7 +287,7 @@
             will-change: transform;
 
             transition:
-                transform 0.45s cubic-bezier(0.22,1,0.36,1);
+                transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
 
@@ -344,7 +334,7 @@
             transform: scale(1.03);
 
             text-shadow:
-                0 0 14px rgba(200,173,114,0.20);
+                0 0 14px rgba(200, 173, 114, 0.20);
         }
 
 
@@ -414,10 +404,8 @@
         section {
 
             width:
-                min(
-                    800px,
-                    calc(100% - 40px)
-                );
+                min(800px,
+                    calc(100% - 40px));
 
             margin:
                 0 auto 50px;
@@ -465,11 +453,9 @@
             padding: 35px 20px;
 
             background:
-                linear-gradient(
-                    145deg,
+                linear-gradient(145deg,
                     #1a1c1b,
-                    #101111
-                );
+                    #101111);
 
             border:
                 1px solid var(--white-border);
@@ -477,7 +463,7 @@
             border-radius: 18px;
 
             box-shadow:
-                0 20px 50px rgba(0,0,0,0.65);
+                0 20px 50px rgba(0, 0, 0, 0.65);
         }
 
         .counter-box::before {
@@ -548,11 +534,9 @@
                 20px 0 60px;
 
             background:
-                linear-gradient(
-                    145deg,
+                linear-gradient(145deg,
                     #191b1a,
-                    #050505
-                );
+                    #050505);
 
             border-radius:
                 22px;
@@ -561,7 +545,7 @@
                 1px solid var(--white-border);
 
             box-shadow:
-                0 20px 60px rgba(0,0,0,0.7);
+                0 20px 60px rgba(0, 0, 0, 0.7);
 
             overflow:
                 hidden;
@@ -639,11 +623,9 @@
                 italic;
 
             font-size:
-                clamp(
-                    1.2rem,
+                clamp(1.2rem,
                     4vw,
-                    1.55rem
-                );
+                    1.55rem);
 
             line-height:
                 1.7;
@@ -678,7 +660,7 @@
                 hidden;
 
             box-shadow:
-                0 10px 25px rgba(0,0,0,0.45);
+                0 10px 25px rgba(0, 0, 0, 0.45);
 
             transition:
                 transform 0.3s ease;
@@ -734,8 +716,7 @@
                 transform 0.3s ease;
         }
 
-        .discovery-card.active
-        .discovery-header::after {
+        .discovery-card.active .discovery-header::after {
 
             transform:
                 rotate(45deg);
@@ -760,8 +741,7 @@
                 padding 0.5s ease;
         }
 
-        .discovery-card.active
-        .discovery-content {
+        .discovery-card.active .discovery-content {
 
             max-height:
                 500px;
@@ -807,11 +787,9 @@
                 relative;
 
             background:
-                linear-gradient(
-                    145deg,
+                linear-gradient(145deg,
                     #191b1a,
-                    #101111
-                );
+                    #101111);
 
             border:
                 1px solid var(--border);
@@ -966,7 +944,7 @@
                 1px solid var(--white-border);
 
             box-shadow:
-                0 12px 35px rgba(0,0,0,0.75);
+                0 12px 35px rgba(0, 0, 0, 0.75);
 
             transition:
                 transform 0.3s ease;
@@ -1026,11 +1004,9 @@
                 350px;
 
             background:
-                linear-gradient(
-                    145deg,
+                linear-gradient(145deg,
                     #191b1a,
-                    #101111
-                );
+                    #101111);
 
             border-radius:
                 14px;
@@ -1054,7 +1030,7 @@
                 1px solid var(--border);
 
             box-shadow:
-                0 12px 35px rgba(0,0,0,0.7);
+                0 12px 35px rgba(0, 0, 0, 0.7);
 
             scroll-snap-align:
                 center;
@@ -1090,11 +1066,9 @@
                 70px 25px;
 
             background:
-                linear-gradient(
-                    145deg,
+                linear-gradient(145deg,
                     #171918,
-                    #050505
-                );
+                    #050505);
 
             border-radius:
                 22px;
@@ -1103,7 +1077,7 @@
                 1px solid var(--border);
 
             box-shadow:
-                0 20px 60px rgba(0,0,0,0.7);
+                0 20px 60px rgba(0, 0, 0, 0.7);
         }
 
         .together-small {
@@ -1131,11 +1105,9 @@
                 serif;
 
             font-size:
-                clamp(
-                    2rem,
+                clamp(2rem,
                     8vw,
-                    3rem
-                );
+                    3rem);
 
             line-height:
                 1.2;
@@ -1195,18 +1167,16 @@
                 20px;
 
             background:
-                radial-gradient(
-                    circle at center,
-                    rgba(200,173,114,0.09),
-                    transparent 65%
-                ),
+                radial-gradient(circle at center,
+                    rgba(200, 173, 114, 0.09),
+                    transparent 65%),
                 #111;
 
             border:
                 1px solid var(--border);
 
             box-shadow:
-                0 20px 50px rgba(0,0,0,0.6);
+                0 20px 50px rgba(0, 0, 0, 0.6);
         }
 
         .promise-symbol {
@@ -1261,11 +1231,9 @@
         .letter-section {
 
             background:
-                linear-gradient(
-                    145deg,
+                linear-gradient(145deg,
                     #1a1c1b,
-                    #101111
-                );
+                    #101111);
 
             padding:
                 45px 30px;
@@ -1277,7 +1245,7 @@
                 2px solid var(--accent);
 
             box-shadow:
-                0 20px 60px rgba(0,0,0,0.7);
+                0 20px 60px rgba(0, 0, 0, 0.7);
 
             margin-bottom:
                 40px;
@@ -1390,7 +1358,7 @@
                 100%;
 
             background:
-                rgba(0,0,0,0.96);
+                rgba(0, 0, 0, 0.96);
 
             display:
                 flex;
@@ -1438,7 +1406,7 @@
                 8px;
 
             box-shadow:
-                0 20px 70px rgba(0,0,0,0.9);
+                0 20px 70px rgba(0, 0, 0, 0.9);
         }
 
         .close-btn {
@@ -1560,7 +1528,6 @@
                     36px;
             }
         }
-
     </style>
 </head>
 
@@ -1588,9 +1555,7 @@
                 Hoy nuestra historia cumple cinco meses...
             </p>
 
-            <button
-                class="welcome-btn"
-                onclick="startExperience()">
+            <button class="welcome-btn" onclick="startExperience()">
 
                 Entrar
 
@@ -1606,13 +1571,9 @@
          AUDIO
     ===================================================== -->
 
-    <audio
-        id="bg-music"
-        preload="auto">
+    <audio id="bg-music" preload="auto">
 
-        <source
-            src="./cancion.mp3"
-            type="audio/mpeg">
+        <source src="./cancion.mp3" type="audio/mpeg">
 
         Tu navegador no soporta audio HTML5.
 
@@ -1628,11 +1589,7 @@
 
         <div class="navbar-inner">
 
-            <button
-                id="music-toggle"
-                class="nav-btn"
-                onclick="toggleMusic()"
-                aria-label="Reproducir o pausar">
+            <button id="music-toggle" class="nav-btn" onclick="toggleMusic()" aria-label="Reproducir o pausar">
 
                 ▶️
 
@@ -1641,9 +1598,7 @@
 
             <div class="lyrics-window">
 
-                <div
-                    id="lyrics-track"
-                    class="lyrics-track">
+                <div id="lyrics-track" class="lyrics-track">
 
                 </div>
 
@@ -1690,9 +1645,7 @@
 
         <div class="counter-box">
 
-            <div
-                id="counter-display"
-                class="counter-numbers">
+            <div id="counter-display" class="counter-numbers">
 
                 Cargando...
 
@@ -1752,9 +1705,7 @@
         </p>
 
 
-        <div
-            class="discovery-card"
-            onclick="toggleCard(this)">
+        <div class="discovery-card" onclick="toggleCard(this)">
 
             <div class="discovery-header">
 
@@ -1782,9 +1733,7 @@
 
 
 
-        <div
-            class="discovery-card"
-            onclick="toggleCard(this)">
+        <div class="discovery-card" onclick="toggleCard(this)">
 
             <div class="discovery-header">
 
@@ -1813,9 +1762,7 @@
 
 
 
-        <div
-            class="discovery-card"
-            onclick="toggleCard(this)">
+        <div class="discovery-card" onclick="toggleCard(this)">
 
             <div class="discovery-header">
 
@@ -1842,9 +1789,7 @@
 
 
 
-        <div
-            class="discovery-card"
-            onclick="toggleCard(this)">
+        <div class="discovery-card" onclick="toggleCard(this)">
 
             <div class="discovery-header">
 
@@ -1877,9 +1822,7 @@
 
 
 
-        <div
-            class="discovery-card"
-            onclick="toggleCard(this)">
+        <div class="discovery-card" onclick="toggleCard(this)">
 
             <div class="discovery-header">
 
@@ -2043,41 +1986,26 @@
 
             <div class="horizontal-scroll">
 
-                <img src="./s0.jpg"
-                     class="gallery-img"
-                     alt="Selfie 1">
+                <img src="./s0.jpg" class="gallery-img" alt="Selfie 1">
+                <img src="./selfie3.jpg" class="gallery-img" alt="Selfie 3">
+ <img src="./selfie1.jpg" class="gallery-img" alt="Selfie 3">
+ <img src="./selfie7.jpg" class="gallery-img" alt="Selfie 3">
 
-                <img src="./s1.jpg"
-                     class="gallery-img"
-                     alt="Selfie 2">
+                <img src="./s1.jpg" class="gallery-img" alt="Selfie 2">
 
-                <img src="./s4.jpg"
-                     class="gallery-img"
-                     alt="Selfie 3">
+                <img src="./s4.jpg" class="gallery-img" alt="Selfie 3">
 
-                <img src="./s7.jpg"
-                     class="gallery-img"
-                     alt="Selfie 4">
+                <img src="./s7.jpg" class="gallery-img" alt="Selfie 4">
 
-                <img src="./s5.jpg"
-                     class="gallery-img"
-                     alt="Selfie 5">
+                <img src="./s5.jpg" class="gallery-img" alt="Selfie 5">
 
-                <img src="./s2.jpg"
-                     class="gallery-img"
-                     alt="Selfie 6">
+                <img src="./s2.jpg" class="gallery-img" alt="Selfie 6">
 
-                <img src="./s6.jpg"
-                     class="gallery-img"
-                     alt="Selfie 7">
+                <img src="./s6.jpg" class="gallery-img" alt="Selfie 7">
 
-                <img src="./s3.jpg"
-                     class="gallery-img"
-                     alt="Selfie 8">
+                <img src="./s3.jpg" class="gallery-img" alt="Selfie 8">
 
-                <img src="./s8.jpg"
-                     class="gallery-img"
-                     alt="Selfie 9">
+                <img src="./s8.jpg" class="gallery-img" alt="Selfie 9">
 
             </div>
 
@@ -2109,45 +2037,25 @@
 
             <div class="horizontal-scroll">
 
-                <img src="./sa1.jpg"
-                     class="gallery-img"
-                     alt="Salida 1">
+                <img src="./sa1.jpg" class="gallery-img" alt="Salida 1">
 
-                <img src="./sa2.jpg"
-                     class="gallery-img"
-                     alt="Salida 2">
+                <img src="./sa2.jpg" class="gallery-img" alt="Salida 2">
 
-                <img src="./sa3.jpg"
-                     class="gallery-img"
-                     alt="Salida 3">
+                <img src="./sa3.jpg" class="gallery-img" alt="Salida 3">
 
-                <img src="./sa4.jpg"
-                     class="gallery-img"
-                     alt="Salida 4">
+                <img src="./sa4.jpg" class="gallery-img" alt="Salida 4">
 
-                <img src="./sa5.jpg"
-                     class="gallery-img"
-                     alt="Salida 5">
+                <img src="./sa5.jpg" class="gallery-img" alt="Salida 5">
 
-                <img src="./sa7.jpg"
-                     class="gallery-img"
-                     alt="Salida 6">
+                <img src="./sa7.jpg" class="gallery-img" alt="Salida 6">
 
-                <img src="./sa6.jpg"
-                     class="gallery-img"
-                     alt="Salida 7">
+                <img src="./sa6.jpg" class="gallery-img" alt="Salida 7">
 
-                <img src="./sa8.jpg"
-                     class="gallery-img"
-                     alt="Salida 8">
+                <img src="./sa8.jpg" class="gallery-img" alt="Salida 8">
 
-                <img src="./sa9.jpg"
-                     class="gallery-img"
-                     alt="Salida 9">
+                <img src="./sa9.jpg" class="gallery-img" alt="Salida 9">
 
-                <img src="./sa10.jpg"
-                     class="gallery-img"
-                     alt="Salida 10">
+                <img src="./sa10.jpg" class="gallery-img" alt="Salida 10">
 
             </div>
 
@@ -2207,10 +2115,7 @@
 
                 <figure class="gallery-figure">
 
-                    <img
-                        src="./es1.jpg"
-                        class="gallery-img-captioned"
-                        alt="Cuando conociste a Oli">
+                    <img src="./es1.jpg" class="gallery-img-captioned" alt="Cuando conociste a Oli">
 
                     <figcaption>
 
@@ -2224,10 +2129,7 @@
 
                 <figure class="gallery-figure">
 
-                    <img
-                        src="./es2.jpg"
-                        class="gallery-img-captioned"
-                        alt="Cumpleaños en familia">
+                    <img src="./es2.jpg" class="gallery-img-captioned" alt="Cumpleaños en familia">
 
                     <figcaption>
 
@@ -2513,22 +2415,15 @@
          LIGHTBOX
     ===================================================== -->
 
-    <div
-        class="lightbox"
-        id="lightbox">
+    <div class="lightbox" id="lightbox">
 
-        <button
-            class="close-btn"
-            onclick="closeLightbox()">
+        <button class="close-btn" onclick="closeLightbox()">
 
             &times;
 
         </button>
 
-        <img
-            src=""
-            id="lightbox-img"
-            alt="Imagen ampliada">
+        <img src="" id="lightbox-img" alt="Imagen ampliada">
 
     </div>
 
@@ -2589,26 +2484,26 @@
         ===================================================== */
 
         const lyrics = [
-    { time: 0, text: "🎶 Instrumental 🎶" },
-    { time: 5, text: "Los hombres sabios dicen que solo los tontos se apresuran" },
-    { time: 13, text: "Pero no puedo evitar enamorarme de ti" },
-    { time: 22, text: "¿Debería quedarme?" },
-    { time: 27, text: "¿Sería un pecado?" },
-    { time: 34, text: "Si no puedo evitar enamorarme de ti" },
-    { time: 43, text: "Como un río que fluye seguro hacia el mar" },
-    { time: 51, text: "Querida, así es" },
-    { time: 56, text: "Algunas cosas están destinadas a suceder" },
-    { time: 65, text: "Toma mi mano" },
-    { time: 69, text: "Toma mi vida entera también" },
-    { time: 77, text: "Porque no puedo evitar enamorarme de ti" },
-    { time: 91, text: "Como un río que fluye seguro hacia el mar" },
-    { time: 100, text: "Querida, así es" },
-    { time: 105, text: "Algunas cosas están destinadas a suceder" },
-    { time: 114, text: "Toma mi mano" },
-    { time: 118, text: "Toma mi vida entera también" },
-    { time: 126, text: "Porque no puedo evitar enamorarme de ti" },
-    { time: 139, text: "Porque no puedo evitar enamorarme de ti" }
-];
+            { time: 0, text: "🎶 Instrumental 🎶" },
+            { time: 5, text: "Los hombres sabios dicen que solo los tontos se apresuran" },
+            { time: 13, text: "Pero no puedo evitar enamorarme de ti" },
+            { time: 22, text: "¿Debería quedarme?" },
+            { time: 27, text: "¿Sería un pecado?" },
+            { time: 34, text: "Si no puedo evitar enamorarme de ti" },
+            { time: 43, text: "Como un río que fluye seguro hacia el mar" },
+            { time: 51, text: "Querida, así es" },
+            { time: 56, text: "Algunas cosas están destinadas a suceder" },
+            { time: 65, text: "Toma mi mano" },
+            { time: 69, text: "Toma mi vida entera también" },
+            { time: 77, text: "Porque no puedo evitar enamorarme de ti" },
+            { time: 91, text: "Como un río que fluye seguro hacia el mar" },
+            { time: 100, text: "Querida, así es" },
+            { time: 105, text: "Algunas cosas están destinadas a suceder" },
+            { time: 114, text: "Toma mi mano" },
+            { time: 118, text: "Toma mi vida entera también" },
+            { time: 126, text: "Porque no puedo evitar enamorarme de ti" },
+            { time: 139, text: "Porque no puedo evitar enamorarme de ti" }
+        ];
 
 
 
@@ -3179,4 +3074,5 @@
     </script>
 
 </body>
-    </html>
+
+</html>
